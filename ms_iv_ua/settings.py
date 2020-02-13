@@ -26,6 +26,7 @@ else:
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+print('BASE_DIR = ' + BASE_DIR)
 
 
 # Quick-start development settings - unsuitable for production
@@ -37,7 +38,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -50,7 +51,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_forms_bootstrap',
+    'home',
     'accounts',
+    'content',
+    'issue',
+    'feature'
 ]
 
 MIDDLEWARE = [
@@ -68,7 +73,7 @@ ROOT_URLCONF = 'ms_iv_ua.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -76,6 +81,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -140,6 +146,7 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"), )
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+print("MEDIA_ROOT: " + MEDIA_ROOT)
 MEDIA_URL = '/media/'
 
 STRIPE_PUBLISHABLE = os.getenv("STRIPE_PUBLISHABLE")

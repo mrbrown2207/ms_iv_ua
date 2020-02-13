@@ -1,0 +1,100 @@
+
+{% load staticfiles %}
+{% load bootstrap_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>UA</title>
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="{% static 'bootstrap/4.4.1/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>   
+    <header class ="page-header px-0 py-0">
+        <div class="container">
+            <div class="row">
+                <div class="col px-0">
+                    <nav class="navbar navbar-expand-lg shift navbar-light navbar-ua px-0 py-0">
+                        <a class="navbar-brand py-3 pl-3 py-md-4 pl-md-4" href="/">
+                            <img class="header-logo" src="{{ MEDIA_URL }}ua-logo.png" alt="UA Logo">
+                        </a>
+                        <button class="navbar-toggler custom-toggler navbar-toggler-right mr-3 mr-md-4" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+    
+                        <div class="collapsedMenu collapse navbar-collapse px-3 py-3 px-md-4 py-md-4 flex-row-reverse collapse" id="navbarNav">
+                            <ul class="navbar-nav text-center">
+                                <li class="nav-item px-2 px-xl-3">
+                                    <a class="nav-link" href="{% url 'howitworks' %}">How it Works</a>
+                                </li>
+                                <li class="nav-item px-2 px-xl-3">
+                                    <a class="nav-link" href="{% url 'about' %}">About Us</a>
+                                </li>
+                                <li class="nav-item px-2 px-xl-3">
+                                    <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
+                                </li>
+                                {% if user.is_authenticated %}
+                                <li class="nav-item px-2 px-xl-3">
+                                    <a class="nav-link" href="{% url 'profile' %}"><i class="fa fa-user"></i> Profile</a>
+                                </li>
+                                <li class="nav-item px-2 px-xl-3">
+                                    <a class="nav-link" href="{% url 'logout' %}"><i class="fa fa-sign-out"></i> Log Out</a>
+                                </li>
+                                {%  else %}
+                                <li class="nav-item px-2 px-xl-3">
+                                    <a class="nav-link" href="{% url 'login' %}"><i class="fa fa-sign-in"></i> Log In</a>
+                                </li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <section class="container">
+                <div class="row">
+                    <div class="col">
+                        <h1>Unicorn Accelerator</h1>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </header>
+
+    {% if messages %}
+        <div class="alert alert-success">
+            <div class="messages">
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+    <div class="container">
+        {% block content %} {% endblock %}
+    </div>
+
+    <footer>
+        <div class="container">
+            <section class="container mt-5">
+                <div class="row">
+                    <div class="col">
+                        <p>Made by MB</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="{% static 'bootstrap/4.4.1/js/bootstrap.min.js' %}"></script>
+    {% block head_js %}
+    {% endblock head_js %}
+</body>
+</html>

@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+{% load bootstrap_tags %}
+{% block content %}
+
+<section class="container">
+    <div class="row">
+        <div class="col">
+            <div class="dashboard panel px-0 pb-0">
+                <nav>
+                    <div class="nav nav-tabs px-3" id="nav-tab" role="tablist">
+                        <a class="nav-item nav-link active text-center w-50" id="nav-hosted-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">UA Issues</a>
+                        <a class="nav-item nav-link text-center w-50" id="nav-invited-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">UA Features</a>
+                    </div>
+                </nav>
+                <div class="tab-content" id="nav-tabContent">
+                    <!-- <<<<<<<<<<<<<<< Tab 1 UA Issues >>>>>>>>>>>>>>> -->
+                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                        <!-- Filters (hidden on mobile) -->
+                        <div class="container">
+                            <div class="row align-items-center mt-3">
+                                <div class="col-12 col-md-6 px-0 px-md-3 order-12 order-md-1">
+                                    <div class="d-flex flex-row justify-content-between d-block d-md-none">
+                                        <div>
+                                            <h5 class="mt-4">UA Issues List</h5>
+                                        </div>
+                                        <!-- Filter popover trigger (shown only on mobile) -->
+                                        <div class="d-block d-md-none">
+                                            <h5 class="text-right mx-2 mt-4">
+                                                <button class="charcoal" data-toggle="filter-popover" data-placement="bottom">
+                                                    <i class="fas fa-ellipsis-v"></i>
+                                                </button>
+                                            </h5>
+                                        </div>
+                                        <!-- Filter popover (shown only on mobile) -->
+                                        <ul id="filter-popover-menu" class="list-group d-none pt-3">
+                                            <li class="list-group-item text-center py-2">
+                                                <a href="#" id="show-all" class="ua-list-filter active">Show All</a>
+                                            </li>
+                                            <li class="list-group-item text-center py-2">
+                                                <a href="#" id="show-ongoing" class="ua-list-filter">Ongoing</a>
+                                            </li>
+                                            <li class="list-group-item text-center py-2">
+                                                <a href="#" id="show-closed" class="ua-list-filter">Closed</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- Hidden on mobile -->
+                                    <div class="row mt-4 my-md-1 d-none d-md-flex">
+                                        <div class="col-3 text-center">
+                                            <a href="#" id="show-all" class="ua-list-filter active">Show All</a>
+                                        </div>
+                                        <div class="col-3 text-center">
+                                            <a href="#" id="show-ongoing" class="ua-list-filter">Ongoing</a>
+                                        </div>
+                                        <div class="col-3 text-center">
+                                            <a href="#" id="show-closed" class="ua-list-filter">Closed</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 px-0 col-md-4 offset-md-2 order-1 order-md-2">
+                                    <a href="{% url issue %}" class="btn btn-ua w-100">Report Issue</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Features List -->
+                        <div class="container">
+                            <div class="row panel my-3">
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-md-2"><h5>Issue Id</h5></div>
+                                        <div class="col-md-3"><h5>Subject</h5></div>
+                                        <div class="col-md-3"><h5>Date Added</h5></div>
+                                        <div class="col-md-2"><h5>Status</h5></div>
+                                        <div class="col-md-2"><h5>Up Votes</h5></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <hr>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% for issue in issues %}
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <a href="/">{{ issue.id|stringformat:"05d" }}</a>
+                                        </div>
+                                        <div class="col-md-3"><p>{{ issue.subj }}</p></div>
+                                        <div class="col-md-3"><p>{{ issue.date_added }}</p></div>
+                                        <div class="col-md-2">
+                                            <p>
+                                            {% if issue.status == 1 %}
+                                                Ongoing
+                                            {% elif issue.status == 2 %}
+                                                Closed
+                                            {% else %}
+                                                Unknown
+                                            {% endif %}
+                                            </p>
+                                        </div>
+                                        <div class="col-md-2"><p>{{ issue.upvotes }}</p></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <hr>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>                    
+                    </div>
+                    <!-- <<<<<<<<<<<<<<< Tab 2 UA Features >>>>>>>>>>>>>>> -->
+                    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                        <!-- Features Filters -->
+                        <div class="row align-items-center mt-3">
+                            <div class="col-2 text-center d-none d-md-block">
+                                <a href="#" class="ua-list-filter active">Show All</a>
+                            </div>
+                            <div class="col-2 text-center d-none d-md-block">
+                                <a href="#" class="ua-list-filter">Upcoming</a>
+                            </div>
+                            <div class="col-2 text-center d-none d-md-block">
+                                <a href="#" class="ua-list-filter">Finished</a>
+                            </div>
+                            <div class="col-12 px-0 col-md-4 offset-md-2 order-1 order-md-2">
+                                <a href="./start-event" class="btn btn-ua w-100">Request Feature</a>
+                            </div>
+                        </div>
+                        <!-- Features List -->
+                        <div>
+                            <p>Features...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,146 @@
+/* Icons that can be appended on any text */
+
+.action-menu-icon::before{
+  font-family: "Font Awesome 5 Free";
+  font-weight: 400;
+  margin-right: 5px;
+  content: "\f142" !important;
+}
+
+.filter-icon::before{
+  font-family: "Font Awesome 5 Free";
+  font-weight: 400;
+  margin-right: 5px;
+  content: "\f0b0" !important;
+}
+
+.contribution-icon::before{
+  font-family: "Font Awesome 5 Free";
+  font-weight: 600;
+  margin-right: 5px;
+  content: "\f06b" !important;
+}
+
+.phone-icon::before{
+  font-family: "Font Awesome 5 Free";
+  font-weight: 600;
+  margin-right: 5px;
+  content: "\f10b" !important;
+}
+
+.mail-icon::before{
+  font-family: "Font Awesome 5 Free";
+  font-weight: 600;
+  margin-right: 5px;
+  content: "\f0e0" !important;
+}
+
+.guest-icon.large{
+  font-size: 24px;
+}
+
+.guest-icon::before{
+  font-family: "Font Awesome 5 Free";
+  font-weight: 600;
+  margin-right: 5px;
+  content: "\f2bd" !important;
+}
+
+.info-icon::before{
+  font-family: "Font Awesome 5 Free";
+  font-weight: 600;
+  margin-right: 5px;
+  content: "\f05a" !important;
+}
+
+.circle-icon::before{
+  font-family: "Font Awesome 5 Free";
+  font-weight: 600;
+  margin-right: 5px;
+  content: "\f111" !important;
+}
+
+.home-icon::before{
+  font-family: "Font Awesome 5 Free";
+  font-weight: 600;
+  color: #4D7488;
+  font-size: 16px;
+  margin-right: 5px;
+  content: "\f015" !important;
+}
+
+.filter-icon::before{
+  font-family: "Font Awesome 5 Free";
+  font-weight: 400;
+  color: #4D7488;
+  margin-right: 5px;
+  content: "\f015" !important;
+}
+
+.calendar-icon::before{
+  font-family: "Font Awesome 5 Free";
+  font-weight: 400;
+  color: #4D7488;
+  font-size: 16px;
+  content: "\f073" !important;
+}
+
+.rsvp-icon::before{
+  font-family: "Font Awesome 5 Free";
+  font-weight: 400;
+  color: #4D7488;
+  font-size: 16px;
+  content: "\f274" !important;
+}
+
+.list-icon::before{
+  font-family: "Font Awesome 5 Free";
+  font-weight: 600;
+  color: #4D7488;
+  font-size: 16px;
+  content: "\f03a" !important;
+}
+
+/*** MRB ***/
+.task-icon::before{
+    font-family: "Font Awesome 5 Free";
+    font-weight: 600;
+    color: #4D7488;
+    font-size: 16px;
+    content: "\f0ae" !important;
+}
+/***********/
+
+  .rsvp-no-icon::before{
+  font-family: "Font Awesome 5 Free";
+  font-weight: 400;
+  color: #4D7488;
+  font-size: 16px;
+  content: "\f273" !important;
+}
+
+.time-icon::before{
+  font-family: "Font Awesome 5 Free";
+  font-weight: 400;
+  color: #4D7488;
+  font-size: 16px;
+  content: "\f017" !important;
+}
+
+.trash-icon::before{
+  font-family: "Font Awesome 5 Free";
+  font-weight: 600;
+  color: #4D7488;
+  font-size: 18px;
+  content: "\f1f8" !important;
+}
+
+/*** MRB ***/
+.check-icon::after{
+    font-family: "Font Awesome 5 Free";
+    font-weight: 600;
+    color: rgb(57, 145, 6);
+    font-size: 18px;
+    content: "\f00c" !important;
+}
+/***********/
