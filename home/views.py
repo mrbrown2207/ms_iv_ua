@@ -9,4 +9,5 @@ def index(request):
     issues = Issue.objects.all()
 
     return render(request, "index.html", {"issues": issues})
+#    return render(request, "index1.html")
 

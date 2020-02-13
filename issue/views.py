@@ -10,7 +10,6 @@ from .forms import IssueForm
 @login_required()
 def issue(request):
     if request.method == "POST":
-        print("I am here in the issue method")
         issue_form = IssueForm(request.POST)
 
         if issue_form.is_valid():
