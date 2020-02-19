@@ -17,18 +17,21 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from django.views import static
 from home.views import index
+from home import urls as urls_home
 from accounts import urls as urls_accounts
 from content import urls as urls_content
 from issue import urls as urls_issue
+from feature import urls as urls_feature
 from .settings import MEDIA_ROOT
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', index, name='index'),
+    url(r'^$', index, name="index"),
+    url(r'^home/', include(urls_home)),
     url(r'^accounts/', include(urls_accounts)),
     url(r'^content/', include(urls_content)),
     url(r'^issue/', include(urls_issue)),
+    url(r'^feature/', include(urls_feature)),
     url(r'^media/(?P<path>.*)$', static.serve, {'document_root': MEDIA_ROOT}),
 ]
-#     url(r'^issues/', include(urls_issues)),

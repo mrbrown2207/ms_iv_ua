@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load bootstrap_tags %}
+{% block content %}
+
+<form role="form" method="POST" id="feature-form" action="{% url 'feature' %}">
+    <legend class="container">New Feature</legend>
+    <div class="form-group col-md-6">
+        {{ feature_form | as_bootstrap}}
+    </div>
+
+    {% csrf_token %}
+    <div class="form-group col-md-12">
+        <input type="submit" class="btn btn-primary btn-ua" name="commit" value="Submit Feature Request">
+    </div>
+</form>
+
+{% endblock %}

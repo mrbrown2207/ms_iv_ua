@@ -25,3 +25,16 @@ def issue(request):
         issue_form = IssueForm()
 
     return render(request, "issue.html", {'issue_form': issue_form})
+
+
+def upvote(request, id):
+    """Increase the upvote count"""
+
+    i = Issue.objects.get(id=id)
+    i.upvotes += 1
+    i.save()
+
+    issues = Issue.objects.all()
+
+    return render(request, "index.html", {"issues": issues})
+

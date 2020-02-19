@@ -15,20 +15,15 @@ Downloaded fonts locally on server for access and development offline
 # Navigation
 # Links, Buttons and Badges
 # Forms
-# Carousel
 # Tables
-# Breadcrumbs
 # Dashboard
 # Event Details
 # Invites
 # Resource Content and Index (index and content pages for blogs, press, news postings)
-# Site Map
-# Featured
 # Others
 # Footer
 # Media Queries for different screen sizes
 # About Us
-# Invitation Style Selection Modal
 # Invitation status progress bars
 # Spinner
 # Jquery Validator
@@ -49,6 +44,9 @@ Downloaded fonts locally on server for access and development offline
 /*--------------------------------------------------------------
 # Spacing, Dimensions & Alignment
 --------------------------------------------------------------*/
+div.heading{
+    margin-bottom: -20px !important;
+}
 
 .pl-0{
     padding-left: 0px;
@@ -80,7 +78,6 @@ html {
 /*--------------------------------------------------------------
 # Typography
 --------------------------------------------------------------*/
-
 body, h1, h2, h3, h4, h5, p, a, label, small, input, ul>li{
   font-family: Montserrat;
 }
@@ -166,7 +163,6 @@ small{
     color: #BBCAD2 !important;
     font-weight: 500 !important;
 }
-
 
 /*--------------------------------------------------------------
 # Navigation
@@ -285,8 +281,6 @@ a.disabled { /* This is because you cannot disable a link like you can a button 
 .tile-other-space{
     width: 50% !important;
     align-content: center;
-    /*padding-left: 32px;*/
-    /*padding-right: 22px;*/
 }
 
 .mr-adjust{
@@ -314,11 +308,8 @@ a.disabled { /* This is because you cannot disable a link like you can a button 
 }
 
 .btn-ua {
-    color: #FFFFFF;
     font-family: Montserrat;
     font-weight: 600;
-    border-color: #E74850;
-    background: #E74850;
     border-radius: 28px;
     min-width: var(--btn-min-wid);
     text-transform: uppercase;
@@ -488,8 +479,7 @@ a.disabled { /* This is because you cannot disable a link like you can a button 
 }
 
 .btn-ua:hover{
-  color: #FFFFFF;
-  box-shadow: 0 2px 5px 0 #dd898d;
+  box-shadow: 0 2px 5px 0 #b6cfdb;
 }
 
 .btn-ua-floating:hover{
@@ -608,7 +598,7 @@ a.disabled { /* This is because you cannot disable a link like you can a button 
 }
 
 .toggle-button{
-  font-size: 9pt;
+  font-size: 8pt;
   font-weight: 600;
   padding: 2px 5px;
   margin: 0 5px;
@@ -618,28 +608,28 @@ a.disabled { /* This is because you cannot disable a link like you can a button 
 }
 
 .toggle-button.open::before{
-  font-family: "Font Awesome 5 Free";
+  font-family: "FontAwesome";
   font-weight: 600;
   margin-right: 5px;
   content: "\f0d8" !important;
 }
 
 .toggle-button.open::after{
-  font-family: "Font Awesome 5 Free";
+  font-family: "FontAwesome";
   font-weight: 600;
   margin-right: 5px;
   content: "\f0d8" !important;
 }
 
 .toggle-button::before{
-  font-family: "Font Awesome 5 Free";
+  font-family: "FontAwesome";
   font-weight: 600;
   margin-right: 5px;
   content: "\f0d7" !important;
 }
 
 .toggle-button::after{
-  font-family: "Font Awesome 5 Free";
+  font-family: "FontAwesome";
   font-weight: 600;
   margin-left: 5px;
   content: "\f0d7" !important;
@@ -647,6 +637,24 @@ a.disabled { /* This is because you cannot disable a link like you can a button 
 
 .call-to-action{
   margin: -20px 0 0 0;
+}
+
+.upvote{
+    font-size: 11pt;
+    font-weight: 500;
+    padding: 2px 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    color: #688796 !important;
+}
+
+.upvote::before{
+    font-family: "FontAwesome";
+    font-weight: 500;
+    font-size: 20px;
+    margin: 20px 10px 10px 0px;
+    color: #0d60ff;
+    content: "\f164" !important;
 }
 
 .status-pill{
@@ -746,7 +754,7 @@ input[type=checkbox]{
   border-radius: 5px;
 }
 
-.textField-label{
+.text-field-label{
   color: #688796;
   font-size: 10pt;
 }
@@ -810,97 +818,6 @@ input[type=checkbox]{
 }
 
 /*--------------------------------------------------------------
-# Carousel
---------------------------------------------------------------*/
-.carousel-indicators{
-  bottom: -20px;
-}
-
-.carousel-indicators .indicator{
-  background-color: rgb(134, 140, 167);
-}
-
-.carousel-indicators .indicator.active{
-  opacity: .3;
-}
-
-.charity-share{
-  font-size: 12px;
-}
-
-.border-top{
-  border-color: #DEE6E9 !important;
-}
-
-.carousel-item .imageContainer, .featured-banner .imageContainer{
-  height: 300px;
-  width: 100%;
-  overflow: hidden;
-}
-
-.carousel-item .centerImage, .featured-banner .centerImage{
-  position: relative;
-  height: 100%;
-  width: auto;
-  margin-left: -25%;
-}
-
-.carousel-caption{
-  width: 100%;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  padding-bottom: 0;
-  padding-top: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-.carousel-caption > h3{
-  color: #ffffff;
-  font-weight: 600;
-  font-size: 12pt;
-  line-height: 3px; /* this may seem strange but it gets the height of he background to where I want */
-  padding: 0 5%;
-}
-
-.carousel-caption > h3 > span{
-    text-decoration: underline;
-}
-
-.carousel-caption > p{
-  color: #ffffff;
-  font-weight: 500;
-  font-size: 9pt;
-  padding: 0 5%;
-  line-height: 14pt;
-}
-
-.slideDescription {
-    width: 100%;
-    max-height: 120px;
-    height: auto;
-    padding: 20px 0 20px 0;
-    overflow: hidden;
-    float: left;
-    background-color: rgba(0, 0, 0, 0.5);
-    position: absolute;
-    bottom: 0px;
-}
-
-.slideDescription .container .btn_callToAction{
-  float: right !important;
-  font-size: 9px;
-  height: auto;
-  width: auto;
-  padding: 3px 15px;
-  margin: 0px 9%;
-}
-
-.group-gift-breakdown{
-  border: none;
-}
-
-/*--------------------------------------------------------------
 # Tables
 --------------------------------------------------------------*/
 .table-container{
@@ -911,7 +828,9 @@ input[type=checkbox]{
 
 .table-ua{
   margin: 0;
-  background-color: transparent !important;
+  /*background-color: transparent !important;*/
+  background-color: #FFFFFF !important;
+
 }
 
 .table-ua td, .table-ua th{
@@ -919,14 +838,13 @@ input[type=checkbox]{
   border: none;
 }
 
-.table-striped.table-ua tbody tr:nth-of-type(odd) {
-    background-color: #f8f9fa;
-    border-radius: 10px;
+.table-ua td>p, .table-ua th>p{
+  padding: 10px 10px 0px 10px;
+  margin-bottom: 0;
 }
 
-.table-ua td>p, .table-ua th>p{
-  padding: 10px;
-  margin-bottom: 0;
+p.desc-text{
+    padding: 0px 10px 10px 10px !important;
 }
 
 .rounded-bottom-left{
@@ -941,116 +859,12 @@ input[type=checkbox]{
   border-top: none;
 }
 
-.table-faq{
-    font-family: Montserrat;
-    font-weight: 500;
-    font-size: 11pt !important;
-}
-
-.table-faq td:nth-child(even){
-    padding-left: 10px;
-}
-
-/*--------------------------------------------------------------
-# Breadcrumbs
---------------------------------------------------------------*/
-.breadcrumb-item + .breadcrumb-item::before
-{
-  font-family: "Font Awesome 5 Free";
-  font-size: 14px;
-  font-weight: 600;
-  color: #ADBFC8;
-  content: "\f0da" !important;
-}
-
-.breadcrumb-item{
-  font-family: Montserrat;
-  font-weight: 500;
-  color: #ADBFC8;
-}
-
-.breadcrumb-item.link a{
-  color: #E74850;
-  font-weight: 600;
-}
-
-.breadcrumb-item.active{
-  color: #4D7488;
-  font-weight: 600;
-}
-
-.mobile-breadcrumb{
-  width: auto;
-  border-radius: 5px;
-  background: #F0F3F4;
-}
-
-.mobile-breadcrumb .previous-page{
-  color: #E74850 !important;
-  font-family: Montserrat;
-  font-weight: 600;
-  font-size: 14px;
-}
-
-.mobile-breadcrumb .next-page{
-  color: #ADBFC8;
-  font-family: Montserrat;
-  font-weight: 600;
-  font-size: 14px;
-}
-
-.mobile-breadcrumb .done{
-  color: #ADBFC8;
-  font-family: Montserrat;
-  font-weight: 600;
-  font-size: 14px;
-  margin-right: 10px;
-}
-
-.mobile-breadcrumb .previous-page::before{
-  font-family: "Font Awesome 5 Free";
-  font-weight: 600;
-  font-size: 14px;
-  color: #4D7488;
-  margin-right: 10px;
-  content: "\f0d9" !important;
-}
-
-.mobile-breadcrumb .next-page::after{
-  font-family: "Font Awesome 5 Free";
-  font-weight: 600;
-  font-size: 14px;
-  color: #ADBFC8;
-  margin-left: 10px;
-  content: "\f0da" !important;
-}
-
 /*--------------------------------------------------------------
 # Dashboard
 --------------------------------------------------------------*/
-.rsvp-breakdown{
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
 
-.tab-content{
-  padding: 10px;
-  background-color: #ffffff;
-  border: none;
-  border-radius: 0px 0px 10px 10px;
-}
-
-.dashboard .nav{
-  border-color: #D7E0E5;
-}
-
-.dashboard .nav-item{
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  font-size: 16px;
-  font-weight: 600;
-  text-transform: uppercase;
+hr.item-deliniation {
+    margin-top: 0px !important;
 }
 
 .dashboard .nav-item.active{
@@ -1081,16 +895,6 @@ input[type=checkbox]{
     background-color: #4D7488;
     color: #ffffff !important;
 }
-
-h5.evt-header{
-    color: #4D7488;
-    line-height: 15pt;
-    margin: 0;
-}
-
-h5.evt-header-loc{
-    margin: 15px 0 0 0 !important;
-}
   
 /*--------------------------------------------------------------
 # Event Details
@@ -1117,20 +921,6 @@ h5.evt-header-loc{
     border: none;
     cursor: pointer;  
 }
-
-/*
-.rsvp-graph .graph-container .rsvps{
-  background: #F5BE5C;
-  border-radius: 10px;
-  width: 45%;
-  height: 100%;
-  float: left;
-  z-index: 3;
-  position: absolute;
-  border: none;
-  cursor: pointer;
-}
-*/
 
 .rsvp-graph .graph-container .declined{
   background: #DE5766;
@@ -1182,111 +972,6 @@ h5.evt-header-loc{
 .add-photo-button a{
   color: #4D7488;
   text-transform: uppercase;
-}
-
-/*.invite-photo, .invite-bg, .invite-photo-modal{*/
-.invite-photo, .invite-bg{
-  border-radius: 10px;
-  overflow: hidden;
-  height: 250px;
-  border: 1px solid #DEE6E9;
-  background-color: #ffffff;
-}
-
-.invite-photo-container{
-    height: 250px;
-    width: 100%;
-/*
-    border: 1px solid #DEE6E9;
-    background-image: url("images/invitemedia/evt_a81550c802150051.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    overflow: hidden;
-    background-color: rgb(230, 230, 230);
-*/
-}
-
-.invite-photo-modal{
-    border: 10px solid #DEE6E9;
-    /*background-image: url("images/inviteMedia/evt_a81550c802150051.jpg");*/
-    border: none;
-    background-position: center;
-    background-repeat: no-repeat; 
-    background-size: cover;
-    /*background-color: rgb(230, 230, 230);*/
-    height: 250px;
-    border-radius: 10px;
-    overflow: hidden;
-    width: 100%;
-}
-
-  
-.invite-bg{
-    -webkit-transition: all 0.5s ease 0s;
-    -moz-transition: all 0.5s ease 0s;
-    -o-transition: all 0.5s ease 0s;
-    -ms-transition: all 0.5s ease 0s;
-    transition: all 0.5s ease 0s;
-    -webkit-transition-timing-function: ease-in-out;
-    transition-timing-function: ease-in-out;
-}
-
-.invite-modal-title{
-    font-size: 16pt !important;
-}
-  
-.invite-modal-subtype{
-    font-size: 14pt !important;
-}  
-
-/*
-    Handling this via jQuery for better ux when selecting an invite bg
-.invite-bg:hover{
-    border-color: 1px solid rgb(92, 169, 211);
-    box-shadow: 0 0 10px 0 rgb(92, 169, 211);
-    cursor: pointer;
-}
-*/
-
-.invite-bg-hover{
-    border-color: 1px solid rgb(30, 144, 255); /* Dodger Blue */
-    box-shadow: 0 0 10px 0 rgb(30, 144, 255);
-    cursor: pointer;
-}
-
-.invite-bg-selected{
-    border-color: 1px solid rgb(0, 35, 102); /* Royal Blue */
-    box-shadow: 0 0 10px 0 rgb(0, 35, 102);
-}
-
-.invite-photo.thumb{
-  height: 190px;
-}
-
-.invite-photo.thumb.small{
-  width: 100%;
-  height: 120px;
-}
-
-.invite-photo.thumb.med, .invite-bg.thumb.med{
-    width: 100%;
-    height: 150px;
-}
-  
-.invite-photo>img{
-  width: 100%;
-  height: auto;
-}
-
-.invite-photo-modal>img{
-    width: 100%;
-    height: auto;
-}
-
-.invite-photo.thumb>img{
-  width: 100%;
-  height: auto;
 }
 
 .invite-header{
@@ -1381,65 +1066,8 @@ div.res-content ul>ol{
 }
 
 /*--------------------------------------------------------------
-# Site Map
---------------------------------------------------------------*/
-div.sitemap h4{
-    color: #4D7488 !important;
-    margin-bottom: 3px !important;
-}
-
-/*--------------------------------------------------------------
-# Featured
---------------------------------------------------------------*/
-.featured-banner{
-  width: 100%;
-  height: 300px;
-  background: rgb(241, 241, 241);
-  overflow: hidden;
-}
-
-.featured-blurbs{
-  height: auto;
-  background: #F6F8FA;
-  border-bottom: 1px solid #e5edf6;
-}
-
-.featured-blurbs .container{
-  padding: 50px 0;
-}
-
-.featured-blurbs p{
-  font-weight: 500;
-  padding: 0 10px;
-}
-
-.featured-blurbs .blurb{
-  text-align: center;
-}
-  
-.featured-post h3>a{
-  color: #4EABDE;
-}
-
-.featured-post h3>a:hover{
-  color: #1F82B8;
-}
-
-.featured-post .link{
-  color: #E74850;
-  font-family: Montserrat;
-  font-size: 11pt;
-  font-weight: 600;
-}
-
-.featured-post .link:hover{
-  color: #B31820;
-}
-
-/*--------------------------------------------------------------
 # Others
 --------------------------------------------------------------*/
-
 /* About us styling */
 div.about-us p {
     margin-right: 30px;
@@ -1479,24 +1107,6 @@ h3.tou, p.last-updated {
     display: none;
 }
 
-.rsvp-content{
-    padding: 10px;
-    background-color: #ffffff;
-    border: 1px solid #DEE6E9; 
-    /*border-radius: 10px 10px 10px 10px;*/
-    border-radius: 10px;
-}
-/***********/  
-
-.rsvp-details{
-  list-style: none;
-}
-
-.collapsedMenu{
-  border-top: 1px #D7E0E5 solid;
-  background-color: #F0F3F4;
-}
-
 .container{
     max-width: none;
 }
@@ -1528,10 +1138,6 @@ h3.tou, p.last-updated {
   margin: 10px;
 }
 
-ion-icon{
-  vertical-align: sub;
-}
-
 .panel.green{
   border-color: #B7EAC8 !important;
   background-color: #F5FCF4 !important;
@@ -1539,10 +1145,6 @@ ion-icon{
 
 .panel p{
   margin: 0;
-}
-
-.add-photo-switch-row{
-    padding: 3px 0px 12px 0px;
 }
 
 /*
@@ -1556,15 +1158,6 @@ ion-icon{
 
 p.heading{
     margin-bottom: 0 !important;
-}
-
-/* View invitation event date styling */
-h4.inv-mod-evt-dt{
-    color: #000000 !important;
-    font-size: 14pt;
-    font-weight: 500;
-    margin: 0 !important;
-    line-height: 22pt;
 }
 
 /*--------------------------------------------------------------
@@ -1658,10 +1251,6 @@ h4.inv-mod-evt-dt{
   margin-top: 85px;
 }
 
-.banner-inner, .carousel-inner{ /* put this some place else ˘L˘ */
-    cursor: pointer;
-}
-
 /*--------------------------------------------------------------
 # Media Queries for different screen sizes
 --------------------------------------------------------------*/
@@ -1676,16 +1265,6 @@ h4.inv-mod-evt-dt{
     .modal-dialog.modal-600{
         max-width:600px !important;
     }
-}
-
-@media (max-width: 768px) { /* Max */
-    .carousel-caption > h3{
-        color: #ffffff;
-        font-weight: 600;
-        font-size: 10pt;
-        line-height: 16px;
-        padding: 0 15%;
-      }    
 }
 
 @media (min-width: 768px){
@@ -1712,12 +1291,6 @@ h4.inv-mod-evt-dt{
     .ua-list-filter, .guest-list-filter{
         font-size: 12px;
     }
-
-    /*Will prioritize height*/
-    .invite-photo.thumb>img{
-        width: auto;
-        height: 100%;
-    }
 }
 
 @media(min-width: 992px){
@@ -1743,23 +1316,6 @@ h4.inv-mod-evt-dt{
 
   .container{
     max-width: 960px;
-  }
-
-  .carousel-item .imageContainer, .featured-banner .imageContainer{
-    max-height: 450px;
-  }
-
-  .carousel-item .centerImage, .featured-banner .centerImage{
-    position: relative;
-    width: 100%;
-    height: auto;
-    margin-left: 0;
-  }
-
-  /*Will prioritize height*/
-  .invite-photo.thumb>img{
-    width: 100%;
-    height: auto;
   }
 
   .modal-lg {
@@ -1796,10 +1352,6 @@ h4.inv-mod-evt-dt{
     font-size: 12px;
   }
 
-  .mobile-breadcrumb .previous-page, .mobile-breadcrumb .next-page{
-    font-size: 12px;
-  }
-
   .article-image{
     margin: 10px 0;
     width: 100%;
@@ -1826,77 +1378,9 @@ h3.note-from{
     margin-top: 0px !important;
 }
 
-/*--------------------------------------------------------------
-# Invitation Style Selection Modal
---------------------------------------------------------------*/
-.modal-padding{
-    padding: 25px 30px;
-}
-.modal-backdrop.in{
-    opacity: 0.75;
-}
-.invdsgn-modal{
-    text-align: center;
-    padding: 0 !important;
-}
-.invdsgn-modal:before{
-    content: '';
-    display: inline-block;
-    height: 100%;
-    /*vertical-align: middle;*/
-    margin-right: -4px;
-}
-.invdsgn-modal .modal-dialog{
-    display: inline-block;
-    text-align: left;
-    /*vertical-align: middle;*/
-}
-.invdsgn-modal .modal-title{
-    font-size: 22px;
-}
-.invdsgn-modal .modal-content{
-    box-shadow: none;
-    border: 0;
-}
-.invdsgn-modal .modal-header, 
-.invdsgn-modal .modal-body, 
-.invdsgn-modal .modal-footer{
-    border: 0;padding: 0;
-}
-.invdsgn-modal .modal-header{
-    margin-bottom: 20px;
-}
-.invdsgn-modal .modal-footer{
-    margin-top: 30px;
-}
-.invdsgn-modal .modal-body p + p{
-    margin-top: 15px;
-}
-
 section span.hidden{
     display: none;
 }
-/*
-.invdsgn-modal .close{
-    margin-top: 0;
-    position: absolute;
-    right: -15px;
-    top: -15px;
-    font-weight: 300;
-    background: #333;
-    color: #fff;
-    width: 30px;
-    height: 30px;
-    text-align: center;
-    line-height: 30px;
-    opacity: 1;
-    font-size: 13px;
-    transition: .3s ease all;
-}
-.invdsgn-modal .close:hover{
-    background: #222;
-}
-*/
 
 /*--------------------------------------------------------------
 # Animation
@@ -1954,27 +1438,6 @@ li.get-started{
 /* Pushing down the progress bars just a little for a better UX */
 .progress-section {
     margin: 0px 0px; 
-}
-/****************************************************/
-/********************** Circles *********************/
-.rsvp-status-circle{
-    width:40px !important;
-    height:40px !important;
-    border-radius:250px !important; 
-    font-size:14px !important;
-    color:#fff !important;
-    line-height:40px !important;
-    text-align:center !important;
-}
-/****************************************************/
-
-/*--------------------------------------------------------------
-# Coming Soon
---------------------------------------------------------------*/
-.cust-col {
-    flex-basis: 0;
-    flex-grow: 0;
-    max-width: 100%;
 }
 
 /*--------------------------------------------------------------

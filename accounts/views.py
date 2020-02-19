@@ -1,7 +1,9 @@
+import random
 from django.shortcuts import render, redirect, HttpResponseRedirect
 from django.contrib import messages, auth
 from django.core.urlresolvers import reverse
 from .forms import UserLoginForm, UserRegistrationForm
+from home.constants import NO_BOTS
 from django.template.context_processors import csrf
 from django.contrib.auth.decorators import login_required
 
@@ -50,22 +52,21 @@ def profile(request):
 def register(request):
     """A view that manages the registration form"""
     if request.method == 'POST':
-        user_form = UserRegistrationForm(request.POST)
-        if user_form.is_valid():
-            user_form.save()
-
-            user = auth.authenticate(request.POST.get('email'),
+        user = auth.authenticate(request.POST.get('email'),
                                      password=request.POST.get('password1'))
 
-            if user:
-                auth.login(request, user)
-                messages.success(request, "You have successfully registered")
-                return redirect(reverse('index'))
-
-            else:
-                messages.error(request, "unable to log you in at this time!")
+        """Check to see if that email address already exists"""
+        if user:
+            auth.login(request, user)
+            messages.error(request, "There is already an account with that email address.")
     else:
-        user_form = UserRegistrationForm()
+        """
+        Generate a random question that helps to prevent robots from creating accounts.
+        In the real world the result stored in the session would be encrypted and
+        then decrypted when verifying.
+        """
+        no_bot_q, request.session['_asdf_'] = random.choice(list(NO_BOTS.items()))
+        return render(request, 'register.html', {"no_bot_q":no_bot_q})
 
-    args = {'user_form': user_form}
-    return render(request, 'register.html', args)
+    #args = {'user_form': user_form}
+    return render(request, 'register.html')
