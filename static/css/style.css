@@ -1068,6 +1068,19 @@ div.res-content ul>ol{
 /*--------------------------------------------------------------
 # Others
 --------------------------------------------------------------*/
+/* Prevent an input type=number field from displaying the arrows */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Firefox */
+input[type=number] {
+    -moz-appearance:textfield;
+}
+/*****************************************************************/
+
 /* About us styling */
 div.about-us p {
     margin-right: 30px;

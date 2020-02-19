@@ -7,44 +7,11 @@
         <h3 class="text-center mt-3 mb-3">Create New Account</h3>
         <div class="row justify-content-center">
             <form class="form-container col-md-4" id="register-form" action="{% url 'register' %}" method="POST">
+                {% csrf_token %}
+                {{ user_form | as_bootstrap }}
                 <div class="form-group">
-                    <label for="firstname" class="text-field-label">First Name *</label>
-                    <input type="text" class="form-control required alpha-only text-capitalize" id="firstname" name="firstname" maxlength="40" aria-describedby="first name" placeholder="First name">
-                </div>
-
-                <div class="form-group">
-                    <label for="surname" class="text-field-label">Surname *</label>
-                    <input type="text" class="form-control required alpha-only text-capitalize" id="surname" name="surname" maxlength="40" placeholder="Surname">
-                </div>
-
-                <div class="form-group">
-                    <label for="email-addr" class="text-field-label">Email *</label>
-                    <input type="text" class="form-control required" id="email-addr" name="emailaddr" maxlength="60" aria-describedby="email address" placeholder="Email address">
-                </div>
-
-                <div class="row">
-                    <div class="form-group col-11 ab-container">
-                        <label for="new-pwd" class="text-field-label">Password *</label>
-                        <input type="password" class="form-control pwd required" id="new-pwd" name="register-pwd" minlength="8" maxlength="11" placeholder="Password (8 - 11 characters)">
-                    </div>
-                    <div class="col-1">
-                        <span id="new-pwd-check" class="centred-check"></span>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="form-group col-11">
-                        <label for="pwd-con" class="text-field-label">Confirm Password *</label>
-                        <input type="password" class="form-control pwd required" id="pwd-con" minlength="8" maxlength="11" placeholder="Repeat password">
-                    </div>
-                    <div class="col-1">
-                        <span id="pwd-con-check" class="centred-check"></span>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="one-and-one-and-one" class="text-field-label">{{ no_bot_q }} is... *</label>
-                    <input type="password" class="form-control numeric-only" id="no-bot-q" minlength="1" maxlength="1" placeholder="">
+                    <label for="no-bot-q" class="text-field-label">{{ no_bot_q }} is... *</label>
+                    <input type="password" class="form-control numeric-only" id="no-bot-q" name="no_bot_q" minlength="1" maxlength="1" placeholder="">
                 </div>
 
                 <p class="text-center">

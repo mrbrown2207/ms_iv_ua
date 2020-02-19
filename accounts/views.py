@@ -51,22 +51,46 @@ def profile(request):
 
 def register(request):
     """A view that manages the registration form"""
-    if request.method == 'POST':
-        user = auth.authenticate(request.POST.get('email'),
-                                     password=request.POST.get('password1'))
 
-        """Check to see if that email address already exists"""
+    """
+    Generate a random question that helps to prevent robots from creating accounts.
+    In the real world the result stored in the session would be encrypted and
+    then decrypted when verifying.
+    """
+    no_bot_q, request.session['_asdf_'] = random.choice(list(NO_BOTS.items()))
+
+    if request.method == 'POST':
+        reg_form = UserRegistrationForm(request.POST)
+        if reg_form.is_valid():
+            # We need to check to ensure that the no bot validation
+            # question is correct. We have saved both the random
+            # question and the random answer in our session.
+            if request.session['_asdf_'] != request.POST.get("no_bot_q"):
+                if 'failed_bot_test_count' in request.session:
+                    request.session.failed_bot_test_count += 1
+                    if request.session.failed_bot_test_count == 5:
+                        return redirect(reverse('index'))
+                else:
+                    request.session.failed_bot_test_count = 1
+
+                messages.error(request, "Robot test failed. Please try again")
+
+            # Have the username and email be the same. We only prompt for
+            # email address at login
+            reg_user = reg_form.save(commit=False)
+            reg_user.username = request.POST.get('email')
+            reg_user.save()
+
+        # Now let's authenticate the user
+        user = auth.authenticate(
+            username=request.POST.get('email'),
+            password=request.POST.get('pwd1'))
+
         if user:
             auth.login(request, user)
             messages.error(request, "There is already an account with that email address.")
     else:
-        """
-        Generate a random question that helps to prevent robots from creating accounts.
-        In the real world the result stored in the session would be encrypted and
-        then decrypted when verifying.
-        """
-        no_bot_q, request.session['_asdf_'] = random.choice(list(NO_BOTS.items()))
-        return render(request, 'register.html', {"no_bot_q":no_bot_q})
+        reg_form = UserRegistrationForm()
 
-    #args = {'user_form': user_form}
-    return render(request, 'register.html')
+    args = {"reg_form":reg_form, "no_bot_q":no_bot_q}
+    return render(request, 'register.html', args)
