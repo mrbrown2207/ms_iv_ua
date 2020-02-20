@@ -67,16 +67,15 @@
         </div>
     </header>
 
-    {% if messages %}
-        <div class="alert alert-success">
-            <div class="messages">
-                {% for message in messages %}
-                    {{ message }}
-                {% endfor %}
-            </div>
-        </div>
-    {% endif %}
     <div class="container">
+        {% if messages %}
+            {% for msg in messages %}
+            <div class="alert alert-{{ msg.level_tag }}" role="alert">
+                {{ msg.message }}
+            </div>
+            {% endfor %}
+        {% endif %}
+
         {% block content %} {% endblock %}
     </div>
 

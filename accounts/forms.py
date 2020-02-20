@@ -6,9 +6,21 @@ from home.constants import NO_BOTS
 
 
 class UserLoginForm(forms.Form):
-    username_or_email = forms.CharField()
-    password = forms.CharField(widget=forms.PasswordInput)
-
+    email = forms.CharField(
+        label="Email Address *",
+        min_length=3, max_length=40,
+        widget=forms.EmailInput(attrs={
+            'class':'form-control required',
+            'aria-describedby':'email address',
+            'placeholder':'Enter email address',
+        }),
+    )
+    password = forms.CharField(
+        label="Password",
+        widget=forms.PasswordInput(attrs={
+            'aria-describedby':'password',
+            'placeholder':'Password'
+        }))
 
 class UserRegistrationForm(UserCreationForm):
     """
@@ -45,7 +57,7 @@ class UserRegistrationForm(UserCreationForm):
         widget=forms.EmailInput(attrs={
             'class':'form-control required',
             'aria-describedby':'email address',
-            'placeholder':'Email address',
+            'placeholder':'Enter email address',
         }),
         required=True
     )
@@ -80,7 +92,7 @@ class UserRegistrationForm(UserCreationForm):
         email = self.cleaned_data.get('email')
         #username = self.cleaned_data.get('username')
         if User.objects.filter(email=email):
-            raise forms.ValidationError(u'Email addresses must be unique.')
+            raise forms.ValidationError(u'Email address already used.')
         return email
 
     def clean_password2(self):
@@ -90,7 +102,7 @@ class UserRegistrationForm(UserCreationForm):
         # This should not happen as JS should prevent us from getting to this
         # code until all required fields are entered.
         if not password1 or not password2:
-            raise ValidationError("Password must not be empty")
+            raise ValidationError("Password fields must not be empty")
 
         # Ditto. JS should not allow us to get here if passwords to not match.
         if password1 != password2:

@@ -10,8 +10,8 @@
                 {% csrf_token %}
                 {{ reg_form | as_bootstrap }}
                 <div class="form-group">
-                    <label for="no-bot-q" class="text-field-label">{{ no_bot_q }} is... *</label>
-                    <input type="password" class="form-control numeric-only" id="no-bot-q" name="no_bot_q" minlength="1" maxlength="1" placeholder="">
+                    <label for="no-bot-q" class="text-field-label">{{ request.session.botq }} is... *</label>
+                    <input type="password" class="form-control numeric-only" id="no-bot-a" name="nobota" minlength="1" maxlength="1" placeholder="">
                 </div>
 
                 <p class="text-center">

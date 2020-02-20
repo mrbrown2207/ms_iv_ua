@@ -5,8 +5,6 @@ from .models import Issue
 from .forms import IssueForm
 
 
-# Create your views here.
-
 @login_required()
 def issue(request):
     if request.method == "POST":
@@ -34,7 +32,6 @@ def upvote(request, id):
     i.upvotes += 1
     i.save()
 
-    issues = Issue.objects.all()
-
-    return render(request, "index.html", {"issues": issues})
+    # Take user back to main page, but ensure we maintain the filter state
+    return redirect(reverse('filters', args=(request.session['issue_filter'],)))
 

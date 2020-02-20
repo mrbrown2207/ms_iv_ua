@@ -20,26 +20,21 @@ def logout(request):
 def login(request):
     """A view that manages the login form"""
     if request.method == 'POST':
-        user_form = UserLoginForm(request.POST)
-        if user_form.is_valid():
-            user = auth.authenticate(request.POST['username_or_email'],
+        login_form = UserLoginForm(request.POST)
+        if login_form.is_valid():
+            user = auth.authenticate(username=request.POST['email'],
                                      password=request.POST['password'])
 
             if user:
                 auth.login(request, user)
-                messages.error(request, "You have successfully logged in")
-
-                if request.GET and request.GET['next'] !='':
-                    next = request.GET['next']
-                    return HttpResponseRedirect(next)
-                else:
-                    return redirect(reverse('index'))
+                messages.success(request, "You have successfully logged in")
+                return redirect(reverse('index'))
             else:
-                user_form.add_error(None, "Your username or password are incorrect")
+                login_form.add_error(None, "Your username or password are incorrect")
     else:
-        user_form = UserLoginForm()
+        login_form = UserLoginForm()
 
-    args = {'user_form': user_form, 'next': request.GET.get('next', '')}
+    args = {'login_form': login_form}
     return render(request, 'login.html', args)
 
 
@@ -52,12 +47,12 @@ def profile(request):
 def register(request):
     """A view that manages the registration form"""
     if request.method == 'POST':
-        no_bot_q = request.session['_asdf_']
+        #no_bot_q = request.session['_asdf_']
         reg_form = UserRegistrationForm(request.POST)
         if reg_form.is_valid():
             # We need to check to ensure that the no bot validation
             # answer is correct. We have saved the answer in our session.
-            if request.session['_asdf_'] != request.POST.get("no_bot_q"):
+            if request.session['bota'] != request.POST.get("nobota"):
                 if 'failed_bot_test_count' in request.session:
                     request.session['failed_bot_test_count'] += 1
                     if request.session['failed_bot_test_count'] == 5:
@@ -67,8 +62,8 @@ def register(request):
                     request.session['failed_bot_test_count'] = 1
 
                 # Display error message and generate new question
-                messages.error(request, "Robot test failed. Please try again.")
-                no_bot_q = gen_no_bot_q(request)
+                messages.add_message(request, messages.ERROR, "Robot test failed. Please try again.")
+                gen_no_bot_test(request)
             else:
                 # Have the username and email be the same. We only prompt for
                 # email address at login
@@ -85,31 +80,29 @@ def register(request):
 
                 if user:
                     auth.login(request, user)
-                    messages.success(request, "You have been successfully registered!")
+                    messages.add_message(request, messages.SUCCESS, "You have been successfully registered. Welcome to the UA community " + request.POST.get('first_name') + "!")
                     return redirect(reverse('index'))
     else:
-        no_bot_q = gen_no_bot_q(request)
+        gen_no_bot_test(request)
         reg_form = UserRegistrationForm()
 
-    args = {"reg_form":reg_form, "no_bot_q":no_bot_q}
+    args = {"reg_form":reg_form}
     return render(request, 'register.html', args)
 
 
 def session_cleanup(request):
     """Cleanup some session variables"""
-    del request.session['_asdf_']
+    del request.session['bota']
+    del request.session['botq']
     if 'failed_bot_test_count' in request.session:
         del request.session['failed_bot_test_count']
 
-    return
 
-def gen_no_bot_q(request):
+def gen_no_bot_test(request):
     """
     Generate a random question that helps to prevent robots from creating accounts.
     In the real world the result stored in the session would be encrypted and
     then decrypted when verifying.
     """
-    no_bot_q, request.session['_asdf_'] = random.choice(list(NO_BOTS.items()))
-
-    return no_bot_q
+    request.session['botq'], request.session['bota'] = random.choice(list(NO_BOTS.items()))
 

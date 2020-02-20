@@ -1068,6 +1068,28 @@ div.res-content ul>ol{
 /*--------------------------------------------------------------
 # Others
 --------------------------------------------------------------*/
+/*
+When using Flash messages, messages.ERROR (see accounts/views.py)
+results in a class of alert-error. There seems to be no such class in
+bootstrap and there is no such message type as messages.DANGER. To 
+that end, give it the same style as bootstrap's alert-danger.
+*/
+.alert-error{
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb
+}
+
+/*
+forms.ValidationError sets this class, but there is no styling.
+Give it some colour and make the font slightly smaller
+*/
+.error-msg{
+    color: #d11e36 !important;
+    font-size: 10pt !important; 
+    font-weight: 600
+}
+
 /* Prevent an input type=number field from displaying the arrows */
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
