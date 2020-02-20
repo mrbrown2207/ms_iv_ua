@@ -4,7 +4,7 @@ from issue.models import Issue
 from feature.models import Feature
 from .constants import *
 
-# Create your views here.
+
 def index(request):
     """
     A view that displays an index page showing a list of
@@ -17,7 +17,7 @@ def index(request):
     current_tab = ISSUES_TAB
 
     return render(request, "index.html", {
-        "issues": issues, "features": features, "current_tab": current_tab})
+        "issues":issues, "features":features, "current_tab":current_tab, "li":request.user.is_authenticated()})
 
 
 def filters(request, filterid):
@@ -43,4 +43,4 @@ def filters(request, filterid):
             status=request.session['feature_filter']).order_by('-date_added')
 
     return render(request, "index.html", {
-        "issues": issues, "features": features, "current_tab": current_tab})
+        "issues": issues, "features":features, "current_tab":current_tab, "li":request.user.is_authenticated()})

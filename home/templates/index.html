@@ -74,7 +74,11 @@
                                     </div>
                                 </div>
                                 <div class="col-12 px-0 col-md-4 offset-md-2 order-1 order-md-2">
+                                    {% if li == True %}
                                     <a href="{% url 'issue' %}" class="btn btn-primary btn-ua w-100">Report Issue</a>
+                                    {% else %}
+                                    <a href="{% url 'issue' %}" class="btn btn-primary btn-ua w-100 disabled">Report Issue</a>
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>
@@ -226,7 +230,11 @@
                                     </div>
                                 </div>
                                 <div class="col-12 px-0 col-md-4 offset-md-2 order-1 order-md-2">
+                                    {% if li == True %}
                                     <a href="{% url 'feature' %}" class="btn btn-primary btn-ua w-100">Request Feature</a>
+                                    {% else %}
+                                    <a href="{% url 'feature' %}" class="btn btn-primary btn-ua w-100 disabled">Request Feature</a>
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>

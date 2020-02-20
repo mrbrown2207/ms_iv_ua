@@ -8,8 +8,6 @@ from django.template.context_processors import csrf
 from django.contrib.auth.decorators import login_required
 
 
-# Create your views here.
-
 def logout(request):
     """A view that logs the user out and redirects back to the index page"""
     auth.logout(request)
@@ -47,7 +45,6 @@ def profile(request):
 def register(request):
     """A view that manages the registration form"""
     if request.method == 'POST':
-        #no_bot_q = request.session['_asdf_']
         reg_form = UserRegistrationForm(request.POST)
         if reg_form.is_valid():
             # We need to check to ensure that the no bot validation
@@ -63,7 +60,7 @@ def register(request):
 
                 # Display error message and generate new question
                 messages.add_message(request, messages.ERROR, "Robot test failed. Please try again.")
-                gen_no_bot_test(request)
+                gen_bot_test(request)
             else:
                 # Have the username and email be the same. We only prompt for
                 # email address at login
@@ -83,7 +80,7 @@ def register(request):
                     messages.add_message(request, messages.SUCCESS, "You have been successfully registered. Welcome to the UA community " + request.POST.get('first_name') + "!")
                     return redirect(reverse('index'))
     else:
-        gen_no_bot_test(request)
+        gen_bot_test(request)
         reg_form = UserRegistrationForm()
 
     args = {"reg_form":reg_form}
@@ -98,7 +95,7 @@ def session_cleanup(request):
         del request.session['failed_bot_test_count']
 
 
-def gen_no_bot_test(request):
+def gen_bot_test(request):
     """
     Generate a random question that helps to prevent robots from creating accounts.
     In the real world the result stored in the session would be encrypted and
