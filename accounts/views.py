@@ -13,7 +13,7 @@ from django.contrib.auth.decorators import login_required
 def logout(request):
     """A view that logs the user out and redirects back to the index page"""
     auth.logout(request)
-    messages.success(request, 'You have successfully logged out')
+    messages.add_message(request, messages.SUCCESS, 'You have successfully logged out.')
     return redirect(reverse('index'))
 
 
@@ -27,10 +27,10 @@ def login(request):
 
             if user:
                 auth.login(request, user)
-                messages.success(request, "You have successfully logged in")
+                messages.add_message(request, messages.SUCCESS, "You have successfully logged in. Welcome back " + user.first_name + "!")
                 return redirect(reverse('index'))
             else:
-                login_form.add_error(None, "Your username or password are incorrect")
+                login_form.add_error(None, "Your username or password are incorrect.")
     else:
         login_form = UserLoginForm()
 
