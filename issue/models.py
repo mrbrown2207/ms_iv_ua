@@ -11,7 +11,7 @@ class Issue(models.Model):
     desc = models.TextField(blank=False)
     status = models.PositiveSmallIntegerField(default=ISSUES_REPORTED)
     upvotes = models.PositiveIntegerField(default=0)
-    date_closed = models.DateField(null=True, default=None)
+    date_closed = models.DateField(null=True, default=None, blank=True)
     date_modified = models.DateTimeField(auto_now=True)
     date_added = models.DateTimeField(auto_now_add=True)
 

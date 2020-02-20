@@ -77,7 +77,7 @@
                                     {% if li == True %}
                                     <a href="{% url 'issue' %}" class="btn btn-primary btn-ua w-100">Report Issue</a>
                                     {% else %}
-                                    <a href="{% url 'issue' %}" class="btn btn-primary btn-ua w-100 disabled">Report Issue</a>
+                                    <a href="{% url 'issue' %}" class="btn btn-primary btn-ua w-100 ua-disabled">Report Issue</a>
                                     {% endif %}
                                 </div>
                             </div>
@@ -135,10 +135,10 @@
                                                         <table class="table table-ua">
                                                             <tbody>
                                                                 <tr>
-                                                                    <th scope="row">
+                                                                    <td>
                                                                         <p><strong>Entered By: </strong></p>
-                                                                    </th>
-                                                                    <td class="text-right">
+                                                                    </td>
+                                                                    <td>
                                                                         <p>{{ issue.entered_by }}</p>
                                                                     </td>
                                                                 </tr>
@@ -152,11 +152,19 @@
                                                                         <p class=desc-text>{{ issue.desc }}</p>
                                                                     </td>
                                                                 </tr>
+                                                                {% if issue.status != 3 %}
                                                                 <tr>
+                                                                    {% if li == True %}
                                                                     <td colspan="2">
-                                                                        <a class="upvote" href="{% url 'upvote' issue.id %}">Upvote this issue!</a>
+                                                                        <a class="det-icon upvote" href="{% url 'upvote' issue.id %}">Upvote this issue!</a>
                                                                     </td>
+                                                                    {% else %}
+                                                                    <td colspan="2">
+                                                                        <a class="det-icon det-icon-disabled upvote upvote-disabled">You must be logged in to upvote this issue.</a>
+                                                                    </td>
+                                                                    {% endif %}
                                                                 </tr>
+                                                                {% endif %}
                                                             </tbody>
                                                         </table>
                                                     </div>
@@ -206,10 +214,13 @@
                                                 <a href="{% url 'filters' '5' %}" id="show-requested-feat" class="ua-list-filter {% show_class 2 5 request.session.feature_filter %}">Requested</a>
                                             </li>
                                             <li class="list-group-item text-center py-2">
-                                                <a href="{% url 'filters' '6' %}" id="show-upcoming-feat" class="ua-list-filter {% show_class 2 6 request.session.feature_filter %}">Upcoming</a>
+                                                <a href="{% url 'filters' '6' %}" id="show-accepted-feat" class="ua-list-filter {% show_class 2 6 request.session.feature_filter %}">Accepted</a>
                                             </li>
                                             <li class="list-group-item text-center py-2">
-                                                <a href="{% url 'filters' '7' %}" id="show-finished-feat" class="ua-list-filter {% show_class 2 7 request.session.feature_filter %}">Finished</a>
+                                                <a href="{% url 'filters' '7' %}" id="show-accepted-feat" class="ua-list-filter {% show_class 2 7 request.session.feature_filter %}">Declined</a>
+                                            </li>
+                                            <li class="list-group-item text-center py-2">
+                                                <a href="{% url 'filters' '8' %}" id="show-finished-feat" class="ua-list-filter {% show_class 2 8 request.session.feature_filter %}">Finished</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -222,10 +233,13 @@
                                             <a href="{% url 'filters' '5' %}" id="show-requested-feat" class="ua-list-filter {% show_class 2 5 request.session.feature_filter %}">Requested</a>
                                         </div>
                                         <div class="col-3 text-center">
-                                            <a href="{% url 'filters' '6' %}" id="show-upcoming-feat" class="ua-list-filter {% show_class 2 6 request.session.feature_filter %}">Upcoming</a>
+                                            <a href="{% url 'filters' '6' %}" id="show-accepted-feat" class="ua-list-filter {% show_class 2 6 request.session.feature_filter %}">Accepted</a>
                                         </div>
+                                        <!--<div class="col-3 text-center">
+                                            <a href="{% url 'filters' '7' %}" id="show-accepted-feat" class="ua-list-filter {% show_class 2 7 request.session.feature_filter %}">Declined</a>
+                                        </div>-->
                                         <div class="col-3 text-center">
-                                            <a href="{% url 'filters' '7' %}" id="show-Finished-feat" class="ua-list-filter {% show_class 2 7 request.session.feature_filter %}">Finished</a>
+                                            <a href="{% url 'filters' '8' %}" id="show-Finished-feat" class="ua-list-filter {% show_class 2 8 request.session.feature_filter %}">Finished</a>
                                         </div>
                                     </div>
                                 </div>
@@ -233,7 +247,7 @@
                                     {% if li == True %}
                                     <a href="{% url 'feature' %}" class="btn btn-primary btn-ua w-100">Request Feature</a>
                                     {% else %}
-                                    <a href="{% url 'feature' %}" class="btn btn-primary btn-ua w-100 disabled">Request Feature</a>
+                                    <a href="{% url 'feature' %}" class="btn btn-primary btn-ua w-100 ua-disabled">Request Feature</a>
                                     {% endif %}
                                 </div>
                             </div>
@@ -268,7 +282,9 @@
                                             {% if feature.status == 5 %}
                                                 Requested
                                             {% elif feature.status == 6 %}
-                                                Upcoming
+                                                Accepted
+                                            {% elif feature.status == 7 %}
+                                                Declined
                                             {% else %}
                                                 Finished
                                             {% endif %}
@@ -289,10 +305,10 @@
                                                         <table class="table table-ua">
                                                             <tbody>
                                                                 <tr>
-                                                                    <th scope="row">
-                                                                        <p><strong>Entered By: </strong></p>
-                                                                    </th>
-                                                                    <td class="text-right">
+                                                                    <td>
+                                                                        <p><strong>Requested By: </strong></p>
+                                                                    </td>
+                                                                    <td>
                                                                         <p>{{ feature.entered_by }}</p>
                                                                     </td>
                                                                 </tr>
@@ -300,12 +316,12 @@
                                                                     <td>
                                                                         <p><strong>Feature:</strong></p>
                                                                     </td>
-                                                                    <td colspan="2">
-                                                                        <p class=desc-text>{{ feature.feature }}</p>
+                                                                    <td>
+                                                                        <p>{{ feature.feature }}</p>
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td>
+                                                                    <td colspan="2">
                                                                         <p><strong>Feature Description:</strong></p>
                                                                     </td>
                                                                 </tr>
@@ -314,6 +330,29 @@
                                                                         <p class=desc-text>{{ feature.desc }}</p>
                                                                     </td>
                                                                 </tr>
+                                                                {% if user.is_superuser %}
+                                                                <tr>
+                                                                    {% if feature.status == 5 %}
+                                                                    <td>
+                                                                        <a class="det-icon accept-feature" href="{% url 'updstatus' feature.id '6' %}">Accept Feature Request</a>
+                                                                    </td>
+                                                                    <td>
+                                                                        <a class="det-icon deny-feature" href="{% url 'updstatus' feature.id '7' %}">Decline Feature Request</a>
+                                                                    </td>
+                                                                    {% elif feature.status == 6 %}
+                                                                    <td colspan="2">
+                                                                        <a class="det-icon completed-feature" href="{% url 'updstatus' feature.id '8' %}">Mark Completed</a>
+                                                                    </td>
+                                                                    {% elif feature.status == 8 %}
+                                                                    <td>
+                                                                        <p><strong>Date Completed:</strong></p>
+                                                                    </td>
+                                                                    <td>
+                                                                        <p>{{ feature.date_completed }}</p>
+                                                                    </td>
+                                                                    {% endif %}
+                                                                </tr>
+                                                                {% endif %}
                                                             </tbody>
                                                         </table>
                                                     </div>

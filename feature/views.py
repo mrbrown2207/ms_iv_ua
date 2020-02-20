@@ -24,3 +24,15 @@ def feature(request):
         feature_form = FeatureForm()
 
     return render(request, "feature.html", {'feature_form': feature_form})
+
+
+def updstatus(request, id, status):
+    """Change the status of the feature"""
+
+    f = Feature.objects.get(id=id)
+    f.status = int(status)
+    f.save()
+
+    # Take user back to main page, but ensure we maintain the filter state
+    return redirect(reverse('filters', args=(request.session['feature_filter'],)))
+

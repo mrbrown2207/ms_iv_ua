@@ -10,6 +10,7 @@ class Feature(models.Model):
     desc = models.TextField(blank=False)
     status = models.PositiveSmallIntegerField(default=FEATURES_REQUESTED)
     bid = models.DecimalField(max_digits=6, decimal_places=2)
+    date_completed = models.DateField(null=True, default=None, blank=True)
     date_modified = models.DateTimeField(auto_now=True)
     date_added = models.DateTimeField(auto_now_add=True)
 
