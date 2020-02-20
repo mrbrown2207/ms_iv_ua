@@ -81,15 +81,17 @@ def register(request):
             reg_user.username = request.POST.get('email')
             reg_user.save()
 
-        # Now let's authenticate the user
+        # Now let's authenticate the user and send them to main page.
         user = auth.authenticate(
             username=request.POST.get('email'),
             password=request.POST.get('pwd1'))
 
         if user:
             auth.login(request, user)
-            messages.error(request, "There is already an account with that email address.")
+            messages.success(request, "You have been successfully registerd!")
+            return redirect(reverse('index'))
     else:
+        print("I am loading UserRegistrationForm")
         reg_form = UserRegistrationForm()
 
     args = {"reg_form":reg_form, "no_bot_q":no_bot_q}

@@ -50,6 +50,7 @@ class UserRegistrationForm(UserCreationForm):
         required=True
     )
 
+    """
     pwd1 = forms.CharField(
         label="Password *",
         min_length=8, max_length=11,
@@ -62,7 +63,7 @@ class UserRegistrationForm(UserCreationForm):
     )
 
     pwd2 = forms.CharField(
-        label="Password *",
+        label="Confirm Password *",
         min_length=8, max_length=11,
         widget=forms.PasswordInput(attrs={
             'class':'form-control pwd required',
@@ -71,10 +72,11 @@ class UserRegistrationForm(UserCreationForm):
         }),
         required=True
     )
+    """
 
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'email', 'pwd1', 'pwd2']
+        fields = ['first_name', 'last_name', 'email']
 
     def clean_email(self):
         email = self.cleaned_data.get('email')
