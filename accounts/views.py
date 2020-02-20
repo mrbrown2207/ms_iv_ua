@@ -51,7 +51,59 @@ def profile(request):
 
 def register(request):
     """A view that manages the registration form"""
+    if request.method == 'POST':
+        no_bot_q = request.session['_asdf_']
+        reg_form = UserRegistrationForm(request.POST)
+        if reg_form.is_valid():
+            # We need to check to ensure that the no bot validation
+            # answer is correct. We have saved the answer in our session.
+            if request.session['_asdf_'] != request.POST.get("no_bot_q"):
+                if 'failed_bot_test_count' in request.session:
+                    request.session['failed_bot_test_count'] += 1
+                    if request.session['failed_bot_test_count'] == 5:
+                        session_cleanup(request)
+                        return redirect(reverse('index'))
+                else:
+                    request.session['failed_bot_test_count'] = 1
 
+                # Display error message and generate new question
+                messages.error(request, "Robot test failed. Please try again.")
+                no_bot_q = gen_no_bot_q(request)
+            else:
+                # Have the username and email be the same. We only prompt for
+                # email address at login
+                reg_user = reg_form.save(commit=False)
+                reg_user.username = request.POST.get('email')
+                reg_user.save()
+
+                session_cleanup(request)
+
+                # Now let's authenticate the user and send them to main page.
+                user = auth.authenticate(
+                    username=request.POST.get('email'),
+                    password=request.POST.get('password1'))
+
+                if user:
+                    auth.login(request, user)
+                    messages.success(request, "You have been successfully registered!")
+                    return redirect(reverse('index'))
+    else:
+        no_bot_q = gen_no_bot_q(request)
+        reg_form = UserRegistrationForm()
+
+    args = {"reg_form":reg_form, "no_bot_q":no_bot_q}
+    return render(request, 'register.html', args)
+
+
+def session_cleanup(request):
+    """Cleanup some session variables"""
+    del request.session['_asdf_']
+    if 'failed_bot_test_count' in request.session:
+        del request.session['failed_bot_test_count']
+
+    return
+
+def gen_no_bot_q(request):
     """
     Generate a random question that helps to prevent robots from creating accounts.
     In the real world the result stored in the session would be encrypted and
@@ -59,40 +111,5 @@ def register(request):
     """
     no_bot_q, request.session['_asdf_'] = random.choice(list(NO_BOTS.items()))
 
-    if request.method == 'POST':
-        reg_form = UserRegistrationForm(request.POST)
-        if reg_form.is_valid():
-            # We need to check to ensure that the no bot validation
-            # question is correct. We have saved both the random
-            # question and the random answer in our session.
-            if request.session['_asdf_'] != request.POST.get("no_bot_q"):
-                if 'failed_bot_test_count' in request.session:
-                    request.session.failed_bot_test_count += 1
-                    if request.session.failed_bot_test_count == 5:
-                        return redirect(reverse('index'))
-                else:
-                    request.session.failed_bot_test_count = 1
+    return no_bot_q
 
-                messages.error(request, "Robot test failed. Please try again")
-
-            # Have the username and email be the same. We only prompt for
-            # email address at login
-            reg_user = reg_form.save(commit=False)
-            reg_user.username = request.POST.get('email')
-            reg_user.save()
-
-        # Now let's authenticate the user and send them to main page.
-        user = auth.authenticate(
-            username=request.POST.get('email'),
-            password=request.POST.get('pwd1'))
-
-        if user:
-            auth.login(request, user)
-            messages.success(request, "You have been successfully registerd!")
-            return redirect(reverse('index'))
-    else:
-        print("I am loading UserRegistrationForm")
-        reg_form = UserRegistrationForm()
-
-    args = {"reg_form":reg_form, "no_bot_q":no_bot_q}
-    return render(request, 'register.html', args)

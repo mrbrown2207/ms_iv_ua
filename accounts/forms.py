@@ -50,8 +50,7 @@ class UserRegistrationForm(UserCreationForm):
         required=True
     )
 
-    """
-    pwd1 = forms.CharField(
+    password1 = forms.CharField(
         label="Password *",
         min_length=8, max_length=11,
         widget=forms.PasswordInput(attrs={
@@ -62,7 +61,7 @@ class UserRegistrationForm(UserCreationForm):
         required=True
     )
 
-    pwd2 = forms.CharField(
+    password2 = forms.CharField(
         label="Confirm Password *",
         min_length=8, max_length=11,
         widget=forms.PasswordInput(attrs={
@@ -72,11 +71,10 @@ class UserRegistrationForm(UserCreationForm):
         }),
         required=True
     )
-    """
 
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'email']
+        fields = ['first_name', 'last_name', 'email', 'password1', 'password2']
 
     def clean_email(self):
         email = self.cleaned_data.get('email')
@@ -85,17 +83,18 @@ class UserRegistrationForm(UserCreationForm):
             raise forms.ValidationError(u'Email addresses must be unique.')
         return email
 
-    def clean_pwd2(self):
-        pwd1 = self.cleaned_data.get('pwd1')
-        pwd2 = self.cleaned_data.get('pwd2')
+    def clean_password2(self):
+        password1 = self.cleaned_data.get('password1')
+        password2 = self.cleaned_data.get('password2')
 
         # This should not happen as JS should prevent us from getting to this
         # code until all required fields are entered.
-        if not pwd1 or not pwd2:
+        if not password1 or not password2:
             raise ValidationError("Password must not be empty")
 
         # Ditto. JS should not allow us to get here if passwords to not match.
-        if pwd1 != pwd2:
+        if password1 != password2:
             raise ValidationError("Passwords do not match")
 
-        return pwd2
+        return password2
+
