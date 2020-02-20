@@ -18,7 +18,7 @@ Downloaded fonts locally on server for access and development offline
 # Tables
 # Dashboard
 # Event Details
-# Invites
+# Issue and Feature Detail Icons
 # Resource Content and Index (index and content pages for blogs, press, news postings)
 # Others
 # Footer
@@ -33,80 +33,80 @@ Downloaded fonts locally on server for access and development offline
 # CSS Variables
 --------------------------------------------------------------*/
 :root {
-    --btn-min-wid: 135px;
-    --btn-ptb: 8px;
+	--btn-min-wid: 135px;
+	--btn-ptb: 8px;
 
-    --btn-dark-grey-color: #FFFFFF;
-    --btn-dark-grey-border: 2px solid #4D7488;
-    --btn-dark-grey-bg: #4D7488;
+	--btn-dark-grey-color: #FFFFFF;
+	--btn-dark-grey-border: 2px solid #4D7488;
+	--btn-dark-grey-bg: #4D7488;
 }
 
 /*--------------------------------------------------------------
 # Spacing, Dimensions & Alignment
 --------------------------------------------------------------*/
 div.heading{
-    margin-bottom: -20px !important;
+	margin-bottom: -20px !important;
 }
 
 .pl-0{
-    padding-left: 0px;
+	padding-left: 0px;
 }
 
 .h-60{
-    height: 60%;
+	height: 60%;
 }
 
 .section-pb-1{
-    padding-bottom: 1px;
+	padding-bottom: 1px;
 }
 
 .mb-half-rem{
-    margin-bottom: 0.5rem !important;
+	margin-bottom: 0.5rem !important;
 }
 
 /* To vertically align column contents */
 .vert-align-col{
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
 }
 
 html {
-    scroll-behavior: smooth !important;
+	scroll-behavior: smooth !important;
 }
 
 /*--------------------------------------------------------------
 # Typography
 --------------------------------------------------------------*/
 body, h1, h2, h3, h4, h5, p, a, label, small, input, ul>li{
-  font-family: Montserrat;
+	font-family: Montserrat;
 }
 
 body{
-  color: #4D7488;
+	color: #4D7488;
 }
 
 h1{
-    font-size: 24pt;
+	font-size: 24pt;
 }
 
 h2{
-  font-size: 20pt;
-  line-height: 28pt;
-  color: #4D7488;
-  margin: 0 0 20px 0;
+	font-size: 20pt;
+	line-height: 28pt;
+	color: #4D7488;
+	margin: 0 0 20px 0;
 }
 
 h2.howitworks{
-    margin: 15px 0 10px 0 !important;
+	margin: 15px 0 10px 0 !important;
 }
 
 h3{
-  color: #4EABDE;
-  font-size: 18pt;
-  line-height: 26pt;
-  font-weight: 500;
-  margin: 15px 0;
+	color: #4EABDE;
+	font-size: 18pt;
+	line-height: 26pt;
+	font-weight: 500;
+	margin: 15px 0;
 }
 
 h4{
@@ -160,8 +160,8 @@ small{
 }
 
 .text-muted{
-    color: #BBCAD2 !important;
-    font-weight: 500 !important;
+	color: #BBCAD2 !important;
+	font-weight: 500 !important;
 }
 
 /*--------------------------------------------------------------
@@ -233,26 +233,10 @@ small{
   border-color: #4EABDE;
 }
 
-a.disabled { /* This is because you cannot disable a link like you can a button */
-    opacity: 0.5;
-    pointer-events: none;
-    cursor: default;
-}
-
-.diary-link::before{
-  font-family: "Font Awesome 5 Free";
-  font-weight: 600;
-  margin-right: 5px;
-  content: "\f073" !important; /* fa-calendar */
-}
-
-.sub-type{
-    color: #4EABDE !important;
-    font-weight: 500 !important;
-}
-
-.sub-type:hover{
-    cursor: pointer;
+a.ua-disabled { /* This is because you cannot disable a link like you can a button */
+	opacity: 0.25;
+	pointer-events: none;
+	cursor: default;
 }
 
 .menu-tile{
@@ -263,28 +247,28 @@ a.disabled { /* This is because you cannot disable a link like you can a button 
 }
 
 .menu-tile-not-selectable{
-    background: #F6F8FA;
-    border: 1px solid #DEE6E9;
-    border-radius: 10px;
-    height: auto;
+	background: #F6F8FA;
+	border: 1px solid #DEE6E9;
+	border-radius: 10px;
+	height: auto;
   }
   
 .tile-centre-image{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;    
+	display: block;
+	margin-left: auto;
+	margin-right: auto;    
 }
 
 .tile-x-space{
-    margin-right: -12px !important;
+	margin-right: -12px !important;
 }
 .tile-other-space{
-    width: 50% !important;
-    align-content: center;
+	width: 50% !important;
+	align-content: center;
 }
 
 .mr-adjust{
-    margin-left: inherit; /* A bit of a hack */
+	margin-left: inherit; /* A bit of a hack */
 }
 
 .menu-tile:hover{
@@ -308,36 +292,36 @@ a.disabled { /* This is because you cannot disable a link like you can a button 
 }
 
 .btn-ua {
-    font-family: Montserrat;
-    font-weight: 600;
-    border-radius: 28px;
-    min-width: var(--btn-min-wid);
-    text-transform: uppercase;
-    padding: var(--btn-ptb);
+	font-family: Montserrat;
+	font-weight: 600;
+	border-radius: 28px;
+	min-width: var(--btn-min-wid);
+	text-transform: uppercase;
+	padding: var(--btn-ptb);
 }
 
 .btn-ua.btn-diary {
-    color: var(--btn-dark-grey-color);
-    border: var(--btn-dark-grey-border);
-    background: var(--btn-dark-grey-bg);
+	color: var(--btn-dark-grey-color);
+	border: var(--btn-dark-grey-border);
+	background: var(--btn-dark-grey-bg);
 }
 
 .btn-ua.btn-diary:hover{
-    color: var(--btn-dark-grey-color);
-    border: var(--btn-dark-grey-border);
-    box-shadow: 0 2px 5px 0 rgb(55, 83, 97);
+	color: var(--btn-dark-grey-color);
+	border: var(--btn-dark-grey-border);
+	box-shadow: 0 2px 5px 0 rgb(55, 83, 97);
   }
   
 .btn-ua.inactive {
-    color: #FFFFFF;
-    font-family: Montserrat;
-    font-weight: 600;
-    border-color: rgb(230, 113, 119);
-    background: rgb(230, 113, 119);
-    border-radius: 28px;
-    min-width: var(--btn-min-wid);
-    text-transform: uppercase;
-    padding: var(--btn-ptb);
+	color: #FFFFFF;
+	font-family: Montserrat;
+	font-weight: 600;
+	border-color: rgb(230, 113, 119);
+	background: rgb(230, 113, 119);
+	border-radius: 28px;
+	min-width: var(--btn-min-wid);
+	text-transform: uppercase;
+	padding: var(--btn-ptb);
 }
 
 .btn-ua.small{
@@ -352,16 +336,16 @@ a.disabled { /* This is because you cannot disable a link like you can a button 
 }
 
 .btn-ua-small-modal{
-    color: #FFFFFF;
-    border-color: #E74850;
-    background: #E74850;
-    border-radius: 28px;
-    padding: 0 10px;
-    font-size: 12px;
-    margin: 0;
-    height: 30px;
-    max-width: 75px;
-    min-width: 75px;
+	color: #FFFFFF;
+	border-color: #E74850;
+	background: #E74850;
+	border-radius: 28px;
+	padding: 0 10px;
+	font-size: 12px;
+	margin: 0;
+	height: 30px;
+	max-width: 75px;
+	min-width: 75px;
 }
   
 .btn-ua-secondary{
@@ -377,27 +361,27 @@ a.disabled { /* This is because you cannot disable a link like you can a button 
 }
 
 .btn-login{
-    max-width: 200px !important;
+	max-width: 200px !important;
 }
 
 .btn-ua-start{
-    padding-left: 25px !important;
-    padding-right: 25px !important;
+	padding-left: 25px !important;
+	padding-right: 25px !important;
 }
 
 .btn-ua-secondary-small-modal{
-    color: #4D7488;
-    font-family: Montserrat;
-    font-weight: 600;
-    background: #E0EFF7;
-    border: 3px solid #CEE2EC;
-    height: 30px;
-    border-radius: 28px;
-    font-size: 12px;
-    max-width: 75px;
-    min-width: 75px;
-    margin: 0;
-    padding: 0 10px;
+	color: #4D7488;
+	font-family: Montserrat;
+	font-weight: 600;
+	background: #E0EFF7;
+	border: 3px solid #CEE2EC;
+	height: 30px;
+	border-radius: 28px;
+	font-size: 12px;
+	max-width: 75px;
+	min-width: 75px;
+	margin: 0;
+	padding: 0 10px;
 }
   
 .btn-ua-floating{
@@ -425,9 +409,9 @@ a.disabled { /* This is because you cannot disable a link like you can a button 
 }
 
 .btn-ua-tertiary.btn-msg{
-    color: var(--btn-dark-grey-color);
-    border: var(--btn-dark-grey-border);
-    background: var(--btn-dark-grey-bg);
+	color: var(--btn-dark-grey-color);
+	border: var(--btn-dark-grey-border);
+	background: var(--btn-dark-grey-bg);
 }
   
 .btn-ua-tertiary.btn-msg:hover{
@@ -437,16 +421,16 @@ a.disabled { /* This is because you cannot disable a link like you can a button 
 }
 
 .btn-ua-tertiary.highlight{
-    background: #4EABDE;
-    border: 2px solid #4EABDE;
-    color: #ffffff;
+	background: #4EABDE;
+	border: 2px solid #4EABDE;
+	color: #ffffff;
 }
   
 .btn-ua-tertiary.highlight:hover{
-    background: #4cb9f5;
-    border: 2px solid #4cb9f5;
-    color: #ffffff;
-    box-shadow: 0 2px 5px 0 #4cb9f5;
+	background: #4cb9f5;
+	border: 2px solid #4cb9f5;
+	color: #ffffff;
+	box-shadow: 0 2px 5px 0 #4cb9f5;
 }
   
 .btn-ua-tertiary.destructive{
@@ -513,30 +497,26 @@ a.disabled { /* This is because you cannot disable a link like you can a button 
 }
 
 .founder-photo{
-    height: 100px;
-    width: 100px;
-    border-radius: 100px;
-    background-color: rgb(135, 135, 135);
+	height: 100px;
+	width: 100px;
+	border-radius: 100px;
+	background-color: rgb(135, 135, 135);
   }
 
 .edit-profile{
-    /* Centre image container within div */
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    /*************************************/
-    height: 55px;
-    width: 55px;
-    border-radius: 100px;
-    background-color: rgb(135, 135, 135);
-    overflow: hidden;
-    /*float: left;*/
-    /*position: absolute*/
-    z-index: 100;
-}
-
-#edit-text.centre-tweak{
-    margin-left: 18px;
+	/* Centre image container within div */
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	/*************************************/
+	height: 55px;
+	width: 55px;
+	border-radius: 100px;
+	background-color: rgb(135, 135, 135);
+	overflow: hidden;
+	/*float: left;*/
+	/*position: absolute*/
+	z-index: 100;
 }
   
 .profile-photo img, .edit-profile img{
@@ -545,10 +525,10 @@ a.disabled { /* This is because you cannot disable a link like you can a button 
 }
 
 .profile-photo-container{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 40%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 40%;
 }
 
 .user-account-badge:hover{
@@ -635,28 +615,6 @@ a.disabled { /* This is because you cannot disable a link like you can a button 
   content: "\f0d7" !important;
 }
 
-.call-to-action{
-  margin: -20px 0 0 0;
-}
-
-.upvote{
-    font-size: 11pt;
-    font-weight: 500;
-    padding: 2px 10px;
-    margin-bottom: 10px;
-    cursor: pointer;
-    color: #688796 !important;
-}
-
-.upvote::before{
-    font-family: "FontAwesome";
-    font-weight: 500;
-    font-size: 20px;
-    margin: 20px 10px 10px 0px;
-    color: #0d60ff;
-    content: "\f164" !important;
-}
-
 .status-pill{
   padding: 5px 10px;
   background-color: #4D7488;
@@ -687,85 +645,74 @@ a.disabled { /* This is because you cannot disable a link like you can a button 
 }
 
 .status-pill.accepted{
-    background-color: #0d60ff;
+	background-color: #0d60ff;
 }
   
 .status-pill.declined{
-    background-color: #d11e36;
+	background-color: #d11e36;
 }
   
 .status-pill.viewed{
-    background-color: #F5BE5C;
+	background-color: #F5BE5C;
 }
   
 .status-pill.notviewed{
-    background-color: lightgray;
-    color: #4D7488;
+	background-color: lightgray;
+	color: #4D7488;
 }
 
 .status-pill.notsent{
-    background-color: #1692a9;
+	background-color: #1692a9;
 }
-/***********/
   
 /*--------------------------------------------------------------
 # Forms
 --------------------------------------------------------------*/
 label{
-  font-size: 11pt;
-  font-weight: 500;
-  margin: 0;
-  color: #4D7488; /* 30.2% red, 45.5% green, 53.3% blue */
+	font-size: 11pt;
+	font-weight: 500;
+	margin: 0;
+	color: #4D7488; /* 30.2% red, 45.5% green, 53.3% blue */
 }
 
-input[type=text].form-control,input[type=password].form-control{
-  height: 35px;
+input[type=text].form-control, input[type=password].form-control{
+	height: 35px;
 }
 
 select.form-control{
-  border-radius: 10px;
+	border-radius: 10px;
 }
 
-input[type=time], input[type=text], textarea.form-control{
-  font-family: Montserrat;
-  font-size: 9pt;
-  font-weight: 500;
-  color: #4D7488 !important;
-}
-
-.no-time-form-check{
-    position: absolute;
-    margin-top: .2rem;
-    margin-left: 0;
-}
-
-.no-time-form-check-label{
-    margin-left: 20px !important;
+input[type=text], textarea.form-control{
+	font-family: Montserrat;
+	font-size: 9pt;
+	font-weight: 500;
+	color: #4D7488 !important;
 }
 
 .form-check{
-  margin-left: 20px;
-  padding-left: 0;
+	margin-left: 20px;
+	padding-left: 0;
 }
 
 input[type=checkbox]{
-  background: #FFFFFF;
-  border: 3px solid #BBCAD2;
-  border-radius: 5px;
+	background: #FFFFFF;
+	border: 3px solid #BBCAD2;
+	border-radius: 5px;
 }
 
 .text-field-label{
-  color: #688796;
-  font-size: 10pt;
+	color: #688796;
+	font-size: 10pt;
 }
 
 .form-control{
-  border-radius: 10px;
-  border-width: 2px;
-  border-color: #BBCAD2;
-  color: #4D7488;
-  font-size: 14px;
-  font-weight: 500;
+	border-radius: 10px;
+	border-width: 2px;
+	border-color: #BBCAD2;
+	color: #4D7488;
+	font-size: 14px;
+	font-weight: 500;
 }
 
 .form-control-lg{
@@ -779,34 +726,34 @@ input[type=checkbox]{
 }
 
 .form-control::placeholder, textarea.form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: #BBCAD2;
-    font-size: 10pt;
-    font-weight: 500;
-    font-style: italic;
-    opacity: 1; /* Firefox */
-    text-transform: none;
+	color: #BBCAD2;
+	font-size: 10pt;
+	font-weight: 500;
+	font-style: italic;
+	opacity: 1; /* Firefox */
+	text-transform: none;
 }
 
 .form-control-lg::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: #BBCAD2;
-    font-weight: 500;
-    font-style: italic;
-    opacity: 1; /* Firefox */
-    text-transform: none;
+	color: #BBCAD2;
+	font-weight: 500;
+	font-style: italic;
+	opacity: 1; /* Firefox */
+	text-transform: none;
 }
 
 .form-control:-ms-input-placeholder { /* Internet Explorer 10-11 */
-    color: #BBCAD2;
-    font-weight: 500;
-    font-size: 10pt;
-    text-transform: none;
+	color: #BBCAD2;
+	font-weight: 500;
+	font-size: 10pt;
+	text-transform: none;
 }
 
 .form-control::-ms-input-placeholder { /* Microsoft Edge */
-    color: #BBCAD2;
-    font-weight: 500;
-    font-size: 10pt;
-    text-transform: none;
+	color: #BBCAD2;
+	font-weight: 500;
+	font-size: 10pt;
+	text-transform: none;
 }
 
 .input-group-append .input-group-text{
@@ -844,7 +791,7 @@ input[type=checkbox]{
 }
 
 p.desc-text{
-    padding: 0px 10px 10px 10px !important;
+	padding: 0px 10px 10px 10px !important;
 }
 
 .rounded-bottom-left{
@@ -864,7 +811,7 @@ p.desc-text{
 --------------------------------------------------------------*/
 
 hr.item-deliniation {
-    margin-top: 0px !important;
+	margin-top: 0px !important;
 }
 
 .dashboard .nav-item.active{
@@ -888,12 +835,12 @@ hr.item-deliniation {
 }
 
 .ua-list-filter:hover{
-    color: #4D7488;
+	color: #4D7488;
 }
  
 .ua-list-filter.active{
-    background-color: #4D7488;
-    color: #ffffff !important;
+	background-color: #4D7488;
+	color: #ffffff !important;
 }
   
 /*--------------------------------------------------------------
@@ -910,16 +857,16 @@ hr.item-deliniation {
 }
 
 .rsvp-graph .graph-container .accepted{
-    background: #0d60ff;
-    border-radius: 10px;
-    /*width: 45%; calculated and set dynamically*/
-    height: 100%;
-    float: left;
-    /*z-index: 3;*/
-    z-index: 4;
-    position: absolute;
-    border: none;
-    cursor: pointer;  
+	background: #0d60ff;
+	border-radius: 10px;
+	/*width: 45%; calculated and set dynamically*/
+	height: 100%;
+	float: left;
+	/*z-index: 3;*/
+	z-index: 4;
+	position: absolute;
+	border: none;
+	cursor: pointer;  
 }
 
 .rsvp-graph .graph-container .declined{
@@ -949,120 +896,122 @@ hr.item-deliniation {
 }
 
 .rsvp-graph .graph-container .not-viewed{
-    background: lightgray;
-    border-radius: 10px;
-    width: 100%;
-    height: 100%;
-    float: left;
-    z-index: 1;
-    position: absolute;
-    border: none;
-    cursor: pointer;
+	background: lightgray;
+	border-radius: 10px;
+	width: 100%;
+	height: 100%;
+	float: left;
+	z-index: 1;
+	position: absolute;
+	border: none;
+	cursor: pointer;
 }  
 
 /*--------------------------------------------------------------
-# Invites
+# Issue and Feature Detail Icons
 --------------------------------------------------------------*/
-.add-photo-button{
-  background: rgba(255,255,255,0.50);
-  border: 2px solid #FFFFFF;
-  border-radius: 10px;
+.det-icon{
+	font-size: 11pt;
+	font-weight: 500;
+	padding: 2px 10px;
+	margin-bottom: 10px;
+	cursor: pointer;
+	color: #688796 !important;
 }
 
-.add-photo-button a{
-  color: #4D7488;
-  text-transform: uppercase;
+.det-icon::before{
+	font-family: "FontAwesome";
+	font-weight: 500;
+	font-size: 20px;
+	margin: 20px 10px 10px 0px;
 }
 
-.invite-header{
-  background-position: center;
-  background-size: cover;
-  -o-background-size: cover;
-  -moz-background-size: cover;
-  -webkit-background-size: cover;
-  background-color: rgb(230, 230, 230);
-  height: auto;
-  border-radius: 10px 10px 0 0;
-  background-repeat: no-repeat; /* This needs to be last for Safari */
+.det-icon-disabled{
+	cursor: default !important;
 }
 
-.event-details .note{
-  background-color: #2F3E59;
-  margin: 0;
+.upvote::before{
+	color: #0d60ff;
+	content: "\f164" !important; /* Thumbs up */
 }
 
-.event-details .note p{
-    color: #ffffff;
+.upvote-disabled::before{
+	opacity: 0.25;
 }
 
-.other-event-details{
-  border: 1px solid #D7E0E5;
-  border-radius: 0 0 10px 10px;
-  margin: 0;
+.accept-feature::before{
+	color: #259a36;
+	content: "\f164" !important; /* Thumbs down */
 }
 
-.invite-contrib-row{
-    padding-left: 15px;;
+.deny-feature::before{
+	color: #d11e36;
+	content: "\f165" !important; /* Thumbs down */
+}
+
+.completed-feature::before{
+	color: #259a36;
+	content: "\f00c" !important; /* Check mark */
 }
 
 /*--------------------------------------------------------------
 # Resource Content and Index (index page for blogs, press, news postings)
 --------------------------------------------------------------*/
 div.res-content h5{
-    font-weight: 500 !important;
-    margin-top: 10px !important;
+	font-weight: 500 !important;
+	margin-top: 10px !important;
 }
 
 div.res-idx-content{
-    min-height: 180px;
-    max-height: 180px;
+	min-height: 180px;
+	max-height: 180px;
 }
 
 p.res-heading{
-    font-weight: 400 !important;
-    font-size: 10pt !important;
-    color: #4D7488 !important;
+	font-weight: 400 !important;
+	font-size: 10pt !important;
+	color: #4D7488 !important;
 }
 
 div.intro > p{
-    font-size: 10px !important;
+	font-size: 10px !important;
 }
 
 div.reslink > p{
-    text-align: right;
-    font-size: 11px !important;
+	text-align: right;
+	font-size: 11px !important;
 }
 
 div.res-info{
-    margin-bottom: 40px;
-    padding-top: 25px;
-    border-top: 1px solid #acacac;
-    max-width: 250px;
-    font-size: 0.8rem;
-    font-weight: 400;
+	margin-bottom: 40px;
+	padding-top: 25px;
+	border-top: 1px solid #acacac;
+	max-width: 250px;
+	font-size: 0.8rem;
+	font-weight: 400;
 }
 
 div.res-info .res-info-cat{
-    font-weight: 500;
-    margin-bottom: 5px;
+	font-weight: 500;
+	margin-bottom: 5px;
 }
 
 div.res-content>p, div.res-content ul{
-    font-size: 10pt;
+	font-size: 10pt;
 }
 
 div.res-content>p{
-    padding-bottom: 10px !important;
+	padding-bottom: 10px !important;
 }
 
 div.res-content ul{
-    font-weight: 500 !important;
-    padding-left: 20px;
+	font-weight: 500 !important;
+	padding-left: 20px;
 }
 
 div.res-content ul>ol{
-    padding: 10px 0;
-    color: #688796 !important;
+	padding: 10px 0;
+	color: #688796 !important;
 }
 
 /*--------------------------------------------------------------
@@ -1075,9 +1024,9 @@ bootstrap and there is no such message type as messages.DANGER. To
 that end, give it the same style as bootstrap's alert-danger.
 */
 .alert-error{
-    color: #721c24;
-    background-color: #f8d7da;
-    border-color: #f5c6cb
+	color: #721c24;
+	background-color: #f8d7da;
+	border-color: #f5c6cb
 }
 
 /*
@@ -1085,9 +1034,9 @@ forms.ValidationError sets this class, but there is no styling.
 Give it some colour and make the font slightly smaller
 */
 .error-msg{
-    color: #d11e36 !important;
-    font-size: 10pt !important; 
-    font-weight: 600
+	color: #d11e36 !important;
+	font-size: 10pt !important; 
+	font-weight: 600
 }
 
 /* Prevent an input type=number field from displaying the arrows */
@@ -1099,51 +1048,51 @@ input::-webkit-inner-spin-button {
 }
 /* Firefox */
 input[type=number] {
-    -moz-appearance:textfield;
+	-moz-appearance:textfield;
 }
 /*****************************************************************/
 
 /* About us styling */
 div.about-us p {
-    margin-right: 30px;
+	margin-right: 30px;
 }
 
 /* Terms of Use and privacy policy page styling */
 h3.tou, p.last-updated {
-    text-align: center;
+	text-align: center;
 }
 
 .toc .col-2 {
-    flex: 0 0 16.666667%;
-    max-width: 3% !important;
+	flex: 0 0 16.666667%;
+	max-width: 3% !important;
 }
 
 /* Centres fa check next to an input text box. The input text box has a label above */
 .centred-check {
-    margin: 0;
-    position: absolute;
-    top: 40%;
-    left: 20%;
-    -ms-transform: translate(-20%, -40%);
-    transform: translate(-20%, -40%);
+	margin: 0;
+	position: absolute;
+	top: 40%;
+	left: 20%;
+	-ms-transform: translate(-20%, -40%);
+	transform: translate(-20%, -40%);
 }
 
 /* Yeah, a bit of a hack ˘L˘ */
 .centred-check-1 {
-    margin: 0;
-    position: absolute;
-    top: 60%;
-    left: 20%;
-    -ms-transform: translate(-20%, -60%);
-    transform: translate(-20%, -60%);
+	margin: 0;
+	position: absolute;
+	top: 60%;
+	left: 20%;
+	-ms-transform: translate(-20%, -60%);
+	transform: translate(-20%, -60%);
 }
 
 .hide{
-    display: none;
+	display: none;
 }
 
 .container{
-    max-width: none;
+	max-width: none;
 }
 
 .custom-toggler .navbar-toggler-icon {
@@ -1183,16 +1132,16 @@ h3.tou, p.last-updated {
 }
 
 /*
-    Adjust span class that is dynamically built. Forces group gift allocation
-    drop down to be same length as charity allocation drop down.
+	Adjust span class that is dynamically built. Forces group gift allocation
+	drop down to be same length as charity allocation drop down.
 */
 .width-adjust{
-    max-width: 100%;
-    flex: 0 0 100%;
+	max-width: 100%;
+	flex: 0 0 100%;
 }
 
 p.heading{
-    margin-bottom: 0 !important;
+	margin-bottom: 0 !important;
 }
 
 /*--------------------------------------------------------------
@@ -1217,7 +1166,7 @@ p.heading{
 }
 
 .footer-links ul>li{
-    line-height: 10pt;
+	line-height: 10pt;
 }
 
 .footer-links a{
@@ -1237,31 +1186,31 @@ p.heading{
 }
 
 .copyright p{
-    color: #ffffff;
-    padding: 10px 0 0 0;
-    margin: 0 0 0 10px;
-    font-size: 9pt;
-    font-weight: 500;
-    width: 100%;
-    text-align: center;
+	color: #ffffff;
+	padding: 10px 0 0 0;
+	margin: 0 0 0 10px;
+	font-size: 9pt;
+	font-weight: 500;
+	width: 100%;
+	text-align: center;
 }
 
 .copyright a{
-    color: #ffffff;
+	color: #ffffff;
 }
 
 .copyright span{
-    color: #ffffff;
-    margin: 0px 8px 0px 5px; 
+	color: #ffffff;
+	margin: 0px 8px 0px 5px; 
 }
 .copyright p.rights-reserved {
-    color: #ffffff;
-    padding: 0 0 10px 0;
-    margin: 0 0 0 10px;
-    font-size: 8pt;
-    font-weight: 400;
-    width: 100%;
-    text-align: center;
+	color: #ffffff;
+	padding: 0 0 10px 0;
+	margin: 0 0 0 10px;
+	font-size: 8pt;
+	font-weight: 400;
+	width: 100%;
+	text-align: center;
 }
 
 .socialMedia-title{
@@ -1290,106 +1239,106 @@ p.heading{
 # Media Queries for different screen sizes
 --------------------------------------------------------------*/
 @media (max-width: 576px) {
-    .header-logo{
-        max-height: 80px;
-    }
+	.header-logo{
+		max-height: 80px;
+	}
 }
 
 /* modal.scss sets this to 500, need it a bit wider */
 @media (min-width: 576px) {
-    .modal-dialog.modal-600{
-        max-width:600px !important;
-    }
+	.modal-dialog.modal-600{
+		max-width:600px !important;
+	}
 }
 
 @media (min-width: 768px){
-    h2{
-        /*
-        font-size: 22pt;
-        line-height: 24pt;
-        */
-        color: #4D7488;
-        margin: 0 0 35px 0;
-    }
+	h2{
+		/*
+		font-size: 22pt;
+		line-height: 24pt;
+		*/
+		color: #4D7488;
+		margin: 0 0 35px 0;
+	}
 
-    .featured-banner .imageContainer{
-        max-height: 450px;
-    }
+	.featured-banner .imageContainer{
+		max-height: 450px;
+	}
 
-    .featured-banner .centerImage{
-        position: relative;
-        width: auto;
-        height: 100%;
-        margin-left: 0;
-    }
+	.featured-banner .centerImage{
+		position: relative;
+		width: auto;
+		height: 100%;
+		margin-left: 0;
+	}
 
-    .ua-list-filter, .guest-list-filter{
-        font-size: 12px;
-    }
+	.ua-list-filter, .guest-list-filter{
+		font-size: 12px;
+	}
 }
 
 @media(min-width: 992px){
   input[type=time], input[type=text], textarea.form-control{
-    font-family: Montserrat;
-    font-size: 11pt;
-    font-weight: 500;
-    color: #4D7488 !important;
+	font-family: Montserrat;
+	font-size: 11pt;
+	font-weight: 500;
+	color: #4D7488 !important;
   }
 
   .navbar-ua .navbar-nav .nav-link{
-    font-size: 10pt;
+	font-size: 10pt;
   }
 
   .navbar-ua .dropdown-item{
-    font-size: 10pt;
+	font-size: 10pt;
   }
 
   .collapsedMenu{
-    border: none;
-    background-color: inherit;
+	border: none;
+	background-color: inherit;
   }
 
   .container{
-    max-width: 960px;
+	max-width: 960px;
   }
 
   .modal-lg {
-    width: 65%;
-    max-width: 1034px;
+	width: 65%;
+	max-width: 1034px;
   }
 }
 
 @media (min-width: 1200px) {
   .container{
-    max-width: 1140px;
+	max-width: 1140px;
   }
 
   .navbar-ua .navbar-nav .nav-link{
-    font-size: 11pt;
+	font-size: 11pt;
   }
 
   .navbar-ua .dropdown-item{
-    font-size: 11pt;
+	font-size: 11pt;
   }
 }
 
 @media (max-width: 374px) {
   .btn-ua-tertiary{
-    font-size: 11px;
-    padding: 5px;
+	font-size: 11px;
+	padding: 5px;
   }
 
   .ua-list-filter, .guest-list-filter{
-    font-size: 10px;
+	font-size: 10px;
   }
 
   .dashboard .nav-item{
-    font-size: 12px;
+	font-size: 12px;
   }
 
   .article-image{
-    margin: 10px 0;
-    width: 100%;
+	margin: 10px 0;
+	width: 100%;
   }
 }
 
@@ -1397,48 +1346,48 @@ p.heading{
 # About us page
 --------------------------------------------------------------*/
 p.photo-caption{
-    margin-bottom: -5px !important;
+	margin-bottom: -5px !important;
 }
 
 p.about-content{
-    text-align: justify;
+	text-align: justify;
 }
 
 p.enhance{
-    font-style: italic;
-    font-weight: bold;
+	font-style: italic;
+	font-weight: bold;
 }
 
 h3.note-from{
-    margin-top: 0px !important;
+	margin-top: 0px !important;
 }
 
 section span.hidden{
-    display: none;
+	display: none;
 }
 
 /*--------------------------------------------------------------
 # Animation
 --------------------------------------------------------------*/
 [class*='fnz-animation-']{
-    -webkit-animation-duration: 0.5s;
-    animation-duration: 0.5s;
-    -webkit-animation-timing-function: ease-out;
-    animation-timing-function: ease-out;
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both;
+	-webkit-animation-duration: 0.5s;
+	animation-duration: 0.5s;
+	-webkit-animation-timing-function: ease-out;
+	animation-timing-function: ease-out;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
 }
 .fnz-animation-scale-up{
-    -webkit-animation-name: fnz-animation-scale-up;
-    animation-name: fnz-animation-scale-up;
+	-webkit-animation-name: fnz-animation-scale-up;
+	animation-name: fnz-animation-scale-up;
 }
 @-webkit-keyframes fnz-animation-scale-up {
-    0% {opacity: 0;-webkit-transform: scale(0.2);}
-    100% {opacity: 1;-webkit-transform: scale(1);}
+	0% {opacity: 0;-webkit-transform: scale(0.2);}
+	100% {opacity: 1;-webkit-transform: scale(1);}
 }
 @keyframes fnz-animation-scale-up {
-    0% {opacity: 0;transform: scale(0.2);}
-    100% {opacity: 1;transform: scale(1);}
+	0% {opacity: 0;transform: scale(0.2);}
+	100% {opacity: 1;transform: scale(1);}
 }
 
 /*--------------------------------------------------------------
@@ -1447,185 +1396,185 @@ section span.hidden{
 /******************* progress Bar *******************/
 /* override the default background color for bootstrap progress bar */
 .progress-container {
-    width: 100%;
+	width: 100%;
 }
 
 .progress {
-    background-color: darkgray;
-    position: relative;
-    height: 25px;
+	background-color: darkgray;
+	position: relative;
+	height: 25px;
 }
 
 /* This represents the text and we want it to sit on top of the progress bar */
 .progress-type {
-    position: absolute;
-    left: 0px;
-    font-weight: 400;
-    padding: 3px 30px 2px 10px;
-    color: #fafafa;
-    /*background-color: rgba(25,25,25,0.2);*/
+	position: absolute;
+	left: 0px;
+	font-weight: 400;
+	padding: 3px 30px 2px 10px;
+	color: #fafafa;
+	/*background-color: rgba(25,25,25,0.2);*/
 }
 
 li.get-started{
-    font-family: Montserrat !important;
+	font-family: Montserrat !important;
 }
 
 /* Pushing down the progress bars just a little for a better UX */
 .progress-section {
-    margin: 0px 0px; 
+	margin: 0px 0px; 
 }
 
 /*--------------------------------------------------------------
 # Spinner
 --------------------------------------------------------------*/
 .show-spinner {
-    display: inline-block;
+	display: inline-block;
 }
 
 .hide-spinner {
-    display: none;
+	display: none;
 }
 
 #overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    /*height: 100%;*/ /* This will be dynamically set via JS */
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 999;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	/*height: 100%;*/ /* This will be dynamically set via JS */
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 999;
 }
 
 .spinner {
-    font-size: 30px;
-    position: fixed;
-    width: 50px;
-    height: 50px;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    z-index: 9999;
+	font-size: 30px;
+	position: fixed;
+	width: 50px;
+	height: 50px;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	z-index: 9999;
 }
 
 .spinner div {
-    position: absolute;
-    left: 0.4629em;
-    bottom: 0;
-    width: 0.074em;
-    height: 0.2777em;
-    border-radius: 0.5em;
-    background-color: transparent;
-    -webkit-transform-origin: center -0.2222em;
-    -ms-transform-origin: center -0.2222em;
-    transform-origin: center -0.2222em;
-    -webkit-animation: spinner-fade 1s infinite linear;
-    animation: spinner-fade 1s infinite linear;
+	position: absolute;
+	left: 0.4629em;
+	bottom: 0;
+	width: 0.074em;
+	height: 0.2777em;
+	border-radius: 0.5em;
+	background-color: transparent;
+	-webkit-transform-origin: center -0.2222em;
+	-ms-transform-origin: center -0.2222em;
+	transform-origin: center -0.2222em;
+	-webkit-animation: spinner-fade 1s infinite linear;
+	animation: spinner-fade 1s infinite linear;
 }
 .spinner div:nth-child(1) {
-    -webkit-animation-delay: 0s;
-    animation-delay: 0s;
-    -webkit-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
+	-webkit-animation-delay: 0s;
+	animation-delay: 0s;
+	-webkit-transform: rotate(0deg);
+	-ms-transform: rotate(0deg);
+	transform: rotate(0deg);
 }
 .spinner div:nth-child(2) {
-    -webkit-animation-delay: 0.083s;
-    animation-delay: 0.083s;
-    -webkit-transform: rotate(30deg);
-    -ms-transform: rotate(30deg);
-    transform: rotate(30deg);
+	-webkit-animation-delay: 0.083s;
+	animation-delay: 0.083s;
+	-webkit-transform: rotate(30deg);
+	-ms-transform: rotate(30deg);
+	transform: rotate(30deg);
 }
 .spinner div:nth-child(3) {
-    -webkit-animation-delay: 0.166s;
-    animation-delay: 0.166s;
-    -webkit-transform: rotate(60deg);
-    -ms-transform: rotate(60deg);
-    transform: rotate(60deg);
+	-webkit-animation-delay: 0.166s;
+	animation-delay: 0.166s;
+	-webkit-transform: rotate(60deg);
+	-ms-transform: rotate(60deg);
+	transform: rotate(60deg);
 }
 .spinner div:nth-child(4) {
-    -webkit-animation-delay: 0.249s;
-    animation-delay: 0.249s;
-    -webkit-transform: rotate(90deg);
-    -ms-transform: rotate(90deg);
-    transform: rotate(90deg);
+	-webkit-animation-delay: 0.249s;
+	animation-delay: 0.249s;
+	-webkit-transform: rotate(90deg);
+	-ms-transform: rotate(90deg);
+	transform: rotate(90deg);
 }
 .spinner div:nth-child(5) {
-    -webkit-animation-delay: 0.332s;
-    animation-delay: 0.332s;
-    -webkit-transform: rotate(120deg);
-    -ms-transform: rotate(120deg);
-    transform: rotate(120deg);
+	-webkit-animation-delay: 0.332s;
+	animation-delay: 0.332s;
+	-webkit-transform: rotate(120deg);
+	-ms-transform: rotate(120deg);
+	transform: rotate(120deg);
 }
 .spinner div:nth-child(6) {
-    -webkit-animation-delay: 0.415s;
-    animation-delay: 0.415s;
-    -webkit-transform: rotate(150deg);
-    -ms-transform: rotate(150deg);
-    transform: rotate(150deg);
+	-webkit-animation-delay: 0.415s;
+	animation-delay: 0.415s;
+	-webkit-transform: rotate(150deg);
+	-ms-transform: rotate(150deg);
+	transform: rotate(150deg);
 }
 .spinner div:nth-child(7) {
-    -webkit-animation-delay: 0.498s;
-    animation-delay: 0.498s;
-    -webkit-transform: rotate(180deg);
-    -ms-transform: rotate(180deg);
-    transform: rotate(180deg);
+	-webkit-animation-delay: 0.498s;
+	animation-delay: 0.498s;
+	-webkit-transform: rotate(180deg);
+	-ms-transform: rotate(180deg);
+	transform: rotate(180deg);
 }
 .spinner div:nth-child(8) {
-    -webkit-animation-delay: 0.581s;
-    animation-delay: 0.581s;
-    -webkit-transform: rotate(210deg);
-    -ms-transform: rotate(210deg);
-    transform: rotate(210deg);
+	-webkit-animation-delay: 0.581s;
+	animation-delay: 0.581s;
+	-webkit-transform: rotate(210deg);
+	-ms-transform: rotate(210deg);
+	transform: rotate(210deg);
 }
 .spinner div:nth-child(9) {
-    -webkit-animation-delay: 0.664s;
-    animation-delay: 0.664s;
-    -webkit-transform: rotate(240deg);
-    -ms-transform: rotate(240deg);
-    transform: rotate(240deg);
+	-webkit-animation-delay: 0.664s;
+	animation-delay: 0.664s;
+	-webkit-transform: rotate(240deg);
+	-ms-transform: rotate(240deg);
+	transform: rotate(240deg);
 }
 .spinner div:nth-child(10) {
-    -webkit-animation-delay: 0.747s;
-    animation-delay: 0.747s;
-    -webkit-transform: rotate(270deg);
-    -ms-transform: rotate(270deg);
-    transform: rotate(270deg);
+	-webkit-animation-delay: 0.747s;
+	animation-delay: 0.747s;
+	-webkit-transform: rotate(270deg);
+	-ms-transform: rotate(270deg);
+	transform: rotate(270deg);
 }
 .spinner div:nth-child(11) {
-    -webkit-animation-delay: 0.83s;
-    animation-delay: 0.83s;
-    -webkit-transform: rotate(300deg);
-    -ms-transform: rotate(300deg);
-    transform: rotate(300deg);
+	-webkit-animation-delay: 0.83s;
+	animation-delay: 0.83s;
+	-webkit-transform: rotate(300deg);
+	-ms-transform: rotate(300deg);
+	transform: rotate(300deg);
 }
 .spinner div:nth-child(12) {
-    -webkit-animation-delay: 0.913s;
-    animation-delay: 0.913s;
-    -webkit-transform: rotate(330deg);
-    -ms-transform: rotate(330deg);
-    transform: rotate(330deg);
+	-webkit-animation-delay: 0.913s;
+	animation-delay: 0.913s;
+	-webkit-transform: rotate(330deg);
+	-ms-transform: rotate(330deg);
+	transform: rotate(330deg);
 }
 
 @-webkit-keyframes spinner-fade {
-    0% {
-        /*background-color: #69717d;*/
-        background-color: #ffffff;
-    }
-    100% {
-        background-color: transparent;
-    }
+	0% {
+		/*background-color: #69717d;*/
+		background-color: #ffffff;
+	}
+	100% {
+		background-color: transparent;
+	}
 }
 
 @keyframes spinner-fade {
-    0% {
-        /*background-color: #69717d;*/
-        background-color: #ffffff;
-    }
-    100% {
-        background-color: transparent;
-    }
+	0% {
+		/*background-color: #69717d;*/
+		background-color: #ffffff;
+	}
+	100% {
+		background-color: transparent;
+	}
 }
 
 /*--------------------------------------------------------------
@@ -1633,8 +1582,8 @@ li.get-started{
 --------------------------------------------------------------*/
 
 .invalid-input {
-    padding-top: 5px;
-    color: red;
-    font-style: italic; 
+	padding-top: 5px;
+	color: red;
+	font-style: italic; 
 }
 
