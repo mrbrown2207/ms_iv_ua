@@ -2,8 +2,7 @@ import datetime
 from django import forms
 
 
-class AddressDetailsForm(forms.Form):
-
+class PersonDetailsForm(forms.Form):
     full_name = forms.CharField(
         label='Full Name *',
         min_length=5, max_length=40,
