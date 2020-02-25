@@ -12,3 +12,5 @@ $('.toggle-button').click(function() {
         $(this).removeClass('open');
     }
 });
+
+$('[data-toggle="tooltip"]').tooltip();

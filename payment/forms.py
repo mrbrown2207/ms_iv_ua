@@ -1,20 +1,15 @@
 import datetime
 from django import forms
-from .models import Feature
 
 
-class MakePaymentForm(forms.Form):
-    now = datetime.datetime.now()
-
-    MONTH_CHOICES = [(i, i) for i in range(1, 12)]
-    YEAR_CHOICES = [(i, i) for i in range(now.year, now.year+10)]
+class AddressDetailsForm(forms.Form):
 
     full_name = forms.CharField(
         label='Full Name *',
         min_length=5, max_length=40,
         required=True,
         widget=forms.TextInput(attrs={
-            'class':'form-control required',
+            'class':'form-control alpha-only required',
             'aria-describedby':'full name',
             'placeholder':'Enter full name',
         }))
@@ -44,7 +39,7 @@ class MakePaymentForm(forms.Form):
         min_length=5, max_length=40,
         required=True,
         widget=forms.TextInput(attrs={
-            'class':'form-control required',
+            'class':'form-control alpha-only required',
             'aria-describedby':'town or city',
             'placeholder':'Town or city',
         }))
@@ -54,10 +49,17 @@ class MakePaymentForm(forms.Form):
         min_length=5, max_length=40,
         required=False,
         widget=forms.TextInput(attrs={
-            'class':'form-control',
+            'class':'form-control alpha-only',
             'aria-describedby':'county',
             'placeholder':'County',
         }))
+
+
+class CCDetailsForm(forms.Form):
+    now = datetime.datetime.now()
+
+    MONTH_CHOICES = [(i, i) for i in range(1, 12)]
+    YEAR_CHOICES = [(i, i) for i in range(now.year, now.year+10)]
 
     """Setting required=False because stripe will be dealing with it???"""
     credit_card_number = forms.CharField(
@@ -94,14 +96,3 @@ class MakePaymentForm(forms.Form):
 
     stripe_id = forms.CharField(widget=forms.HiddenInput)
 
-
-class FeatureForm(forms.ModelForm):
-    class Meta:
-        model = Feature
-        fields = ('entered_by', 'feature', 'desc', 'bid')
-        labels = {
-            'entered_by':'Your Name',
-            'feature':'Feature',
-            'desc':'Detailed Feature Description',
-            'bid':'Your Bid'
-            }

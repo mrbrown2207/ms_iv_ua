@@ -954,6 +954,41 @@ hr.item-deliniation {
 	content: "\f00c" !important; /* Check mark */
 }
 
+.accepted-feature{
+	font-size: 11pt;
+	font-weight: 500;
+	padding: 2px 10px;
+	margin-bottom: 10px;
+	cursor: pointer;
+	color: #688796 !important;
+}
+
+.accepted-feature::after{
+	font-family: "FontAwesome";
+	font-weight: 500;
+	font-size: 15px;
+	margin: 0px 0px 0px 10px;
+}
+
+.waiting-payment::after{
+	color: #d11e36;
+    content: "\f154" !important; /* Pound sign */
+}
+
+.working::after{
+    color: #259a36;
+    content: "\f085" !important; /* Cogs (gears) */
+}
+
+.tooltip .tooltip-inner{
+    background-color: #0d60ff;
+    color: #FFFFFF;
+}
+
+.fuck + .tooltip.top > .tooltip-arrow{
+    border-top: 5x solid blue !important;
+}
+
 /*--------------------------------------------------------------
 # Resource Content and Index (index page for blogs, press, news postings)
 --------------------------------------------------------------*/
