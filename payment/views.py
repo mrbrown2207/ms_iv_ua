@@ -2,8 +2,9 @@ from django.shortcuts import render, redirect, reverse
 from .forms import PersonDetailsForm, CCDetailsForm
 
 # Create your views here.
-def paymentdetails(request):
+def paymentdetails(request, id):
     """A view that manages the payment details form"""
+    print("id = " + id)
     person_details_form = PersonDetailsForm()
     cc_details_form = CCDetailsForm()
 

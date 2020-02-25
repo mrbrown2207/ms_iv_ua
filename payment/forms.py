@@ -8,7 +8,7 @@ class PersonDetailsForm(forms.Form):
         min_length=5, max_length=40,
         required=True,
         widget=forms.TextInput(attrs={
-            'class':'form-control alpha-only required',
+            'class':'form-control alpha-only required text-capitalize',
             'aria-describedby':'full name',
             'placeholder':'Enter full name',
         }))
@@ -62,21 +62,21 @@ class CCDetailsForm(forms.Form):
 
     """Setting required=False because stripe will be dealing with it???"""
     credit_card_number = forms.CharField(
-        label='Credit card number',
+        label='Credit Card Number *',
         required=False,
         min_length=16, max_length=16, # No AMEX
         widget=forms.TextInput(attrs={
-            'class':'form-control numeric-only',
+            'class':'form-control numeric-only required',
             'aria-describedby':'credit card number',
             'placeholder':'Credit card number',
         }))
 
     cvv = forms.CharField(
-        label='Security code (CVV)',
+        label='Security Code (CVV) *',
         required=False,
         min_length=3, max_length=3, # No AMEX
         widget=forms.TextInput(attrs={
-            'class':'form-control numeric-only',
+            'class':'form-control numeric-only required',
             'aria-describedby':'cvv',
             'placeholder':'CVV',
         }))

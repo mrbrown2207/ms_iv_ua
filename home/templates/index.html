@@ -282,7 +282,7 @@
                                             {% if feature.status == 5 %}
                                                 Requested
                                             {% elif feature.status == 6 %}
-                                                <a class="accepted-feature waiting-payment" href="{% url 'paymentdetails' %}" data-toggle="tooltip" data-placement="top" title="Accepted, waiting payment. Click icon to make payment.">Accepted</a>
+                                                <a class="accepted-feature waiting-payment" href="{% url 'paymentdetails' feature.id %}" data-toggle="tooltip" data-placement="top" title="Accepted, waiting payment. Click icon to make payment.">Accepted</a>
                                             {% elif feature.status == 7 %}
                                                 <a class="accepted-feature working" href="/" data-toggle="tooltip" data-placement="top" title="Accepted, working as fast as we can!">Accepted</a>
                                             {% elif feature.status == 8 %}
