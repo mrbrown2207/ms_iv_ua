@@ -985,7 +985,7 @@ hr.item-deliniation {
     color: #FFFFFF;
 }
 
-.fuck + .tooltip.top > .tooltip-arrow{
+.tooltip.top .tooltip-arrow{
     border-top: 5x solid blue !important;
 }
 
