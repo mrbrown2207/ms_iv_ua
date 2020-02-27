@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.db.models import Q
 from issue.models import Issue
 from feature.models import Feature
 from .constants import TABS, FILTERS
@@ -40,10 +41,16 @@ def filters(request, filterid):
             status=request.session['issue_filter']).order_by('-date_added')
 
     if request.session['feature_filter'] == FILTERS.get('features_all'):
-        features = Feature.objects.all().order_by('-date_added')
+        features = Feature.objects.order_by('-date_added')
     else:
-        features = Feature.objects.all().filter(
-            status=request.session['feature_filter']).order_by('-date_added')
+        # Accepted filter is slightly different because of the way I am
+        # displaying in the UI.
+        if request.session.get('feature_filter') == FILTERS.get('features_accepted'):
+            features = Feature.objects.filter(Q(status=FILTERS.get('features_accepted'))|
+                Q(status=FILTERS.get('features_working')))
+        else:
+            features = Feature.objects.filter(
+                status=request.session['feature_filter']).order_by('-date_added')
 
     return render(request, "index.html", {
         "issues": issues, "features":features, "current_tab":current_tab, "li":request.user.is_authenticated()})

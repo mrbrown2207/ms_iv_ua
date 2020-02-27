@@ -38,3 +38,5 @@ NO_BOTS = {
     '5 and 4 and 0':'9',
     '4 and 1 and 1':'6'
 }
+
+DEFAULT_CURRENCY = 'GBP'
