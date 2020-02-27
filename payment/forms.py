@@ -1,22 +1,23 @@
 import datetime
 from django import forms
+from django_countries.fields import CountryField
 
 
 class PersonDetailsForm(forms.Form):
     full_name = forms.CharField(
-        label='Full Name *',
+        label='Card Holder Name *',
         min_length=5, max_length=40,
-        required=True,
+        required=False, # I am handling required
         widget=forms.TextInput(attrs={
             'class':'form-control alpha-only required text-capitalize',
             'aria-describedby':'full name',
-            'placeholder':'Enter full name',
+            'placeholder':"Enter card holder's name",
         }))
 
     addr_line1 = forms.CharField(
         label='Address Line 1 *',
         min_length=5, max_length=40,
-        required=True,
+        required=False, # I am handling required
         widget=forms.TextInput(attrs={
             'class':'form-control required',
             'aria-describedby':'address line1',
@@ -36,22 +37,26 @@ class PersonDetailsForm(forms.Form):
     addr_city = forms.CharField(
         label='Town or City *',
         min_length=5, max_length=40,
-        required=True,
+        required=False, # I am handling required
         widget=forms.TextInput(attrs={
-            'class':'form-control alpha-only required',
+            'class':'form-control alpha-only required text-capitalize',
             'aria-describedby':'town or city',
             'placeholder':'Town or city',
         }))
 
-    addr_country = forms.CharField(
-        label='County',
-        min_length=5, max_length=40,
-        required=False,
+    addr_postcode = forms.CharField(
+        label='Postcode *',
+        min_length=5, max_length=8,
+        required=False, # I am handling required
         widget=forms.TextInput(attrs={
-            'class':'form-control alpha-only',
-            'aria-describedby':'county',
-            'placeholder':'County',
+            'class':'form-control required text-uppercase',
+            'aria-describedby':'postcode',
+            'placeholder':'Postcode',
         }))
+
+    addr_country = CountryField().formfield(
+        label='Country', initial='GB'
+    )
 
 
 class CCDetailsForm(forms.Form):
@@ -68,7 +73,7 @@ class CCDetailsForm(forms.Form):
         widget=forms.TextInput(attrs={
             'class':'form-control numeric-only required',
             'aria-describedby':'credit card number',
-            'placeholder':'Credit card number',
+            'placeholder':'0000 0000 0000 0000',
         }))
 
     cvv = forms.CharField(
@@ -76,22 +81,31 @@ class CCDetailsForm(forms.Form):
         required=False,
         min_length=3, max_length=3, # No AMEX
         widget=forms.TextInput(attrs={
-            'class':'form-control numeric-only required',
+            'class':'form-control numeric-only required short-input-field',
             'aria-describedby':'cvv',
             'placeholder':'CVV',
         }))
 
     expiry_month = forms.ChoiceField(
-        label='Month',
+        label='Expires Month',
         choices=MONTH_CHOICES,
-        required=False
-    )
+        initial=str(now.month),
+        required=False,
+        widget=forms.Select(attrs={
+            'minlength': '2',
+            'maxlength': '2',
+            'class': 'short-input-field',
+        }))
 
     expiry_year = forms.ChoiceField(
-        label='Year',
+        label='Expires Year',
         choices=YEAR_CHOICES,
-        required=False
-    )
+        required=False,
+        widget=forms.Select(attrs={
+            'minlength': '4',
+            'maxlength': '4',
+            'class': 'short-input-field',
+        }))
 
     stripe_id = forms.CharField(widget=forms.HiddenInput)
 

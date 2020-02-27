@@ -1,21 +1,24 @@
 """Definitions for entire project go here"""
 
 """Tab Ids"""
-ISSUES_TAB = 1
-FEATURES_TAB = 2
+TABS = {
+    'issues':1,
+    'features':2,
+}
 
 """Filter codes"""
-ISSUES_ALL = 0
-ISSUES_REPORTED = 1
-ISSUES_ONGOING = 2
-ISSUES_CLOSED = 3
-
-FEATURES_ALL = 4
-FEATURES_REQUESTED = 5
-FEATURES_ACCEPTED = 6
-FEATURES_WAITING_PAYMENT = 7
-FEATURES_DECLINED = 8
-FEATURES_FINISHED = 9
+FILTERS = {
+    'issues_all':0,
+    'issues_reported':1,
+    'issues_ongoing':2,
+    'issues_closed':3,
+    'features_all':4,
+    'features_requested':5,
+    'features_accepted':6, # UA has accepted feature and awaits payment from requester
+    'features_working':7, # Requester has paid
+    'features_declined':8,
+    'features_finished':9,
+}
 
 NO_BOTS = {
     '1 and 1 and 1':'3',

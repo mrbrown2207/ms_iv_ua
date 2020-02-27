@@ -233,7 +233,7 @@ small{
   border-color: #4EABDE;
 }
 
-a.ua-disabled { /* This is because you cannot disable a link like you can a button */
+a.ua-disabled, button.ua-disabled { /* This is because you cannot disable a link like you can a button */
 	opacity: 0.25;
 	pointer-events: none;
 	cursor: default;
@@ -433,13 +433,13 @@ a.ua-disabled { /* This is because you cannot disable a link like you can a butt
 	box-shadow: 0 2px 5px 0 #4cb9f5;
 }
   
-.btn-ua-tertiary.destructive{
+.destructive{
   background: #c4343b;
   border: 2px solid #c4343b;
   color: #ffffff;
 }
 
-.btn-ua-tertiary.destructive:hover{
+.destructive:hover{
   background: #d7353d;
   border: 2px solid #d7353d;
   color: #ffffff;
@@ -1074,6 +1074,20 @@ Give it some colour and make the font slightly smaller
 	font-weight: 600
 }
 
+.feature-det-panel{
+    background-color: #FFFFFF !important;
+}
+
+.feature-det-row{
+    margin-bottom: 5px !important;
+}
+
+.short-input-field{
+    max-width: 80px;
+    min-width: 80px;
+    width: 80px !important;
+}
+
 /* Prevent an input type=number field from displaying the arrows */
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
@@ -1166,15 +1180,6 @@ h3.tou, p.last-updated {
   margin: 0;
 }
 
-/*
-	Adjust span class that is dynamically built. Forces group gift allocation
-	drop down to be same length as charity allocation drop down.
-*/
-.width-adjust{
-	max-width: 100%;
-	flex: 0 0 100%;
-}
-
 p.heading{
 	margin-bottom: 0 !important;
 }
@@ -1261,14 +1266,6 @@ p.heading{
   padding: 15px;
 }
 
-.group-panel{ /* Items grouped together - see: setup-invitation.html */
-  margin-right: 0px !important;
-  margin-left: 0px !important;
-}
-
-.group-change-btn{ /* force button to bottom of column and event with the bottom of contribution panel */
-  margin-top: 85px;
-}
 
 /*--------------------------------------------------------------
 # Media Queries for different screen sizes
@@ -1399,30 +1396,6 @@ h3.note-from{
 
 section span.hidden{
 	display: none;
-}
-
-/*--------------------------------------------------------------
-# Animation
---------------------------------------------------------------*/
-[class*='fnz-animation-']{
-	-webkit-animation-duration: 0.5s;
-	animation-duration: 0.5s;
-	-webkit-animation-timing-function: ease-out;
-	animation-timing-function: ease-out;
-	-webkit-animation-fill-mode: both;
-	animation-fill-mode: both;
-}
-.fnz-animation-scale-up{
-	-webkit-animation-name: fnz-animation-scale-up;
-	animation-name: fnz-animation-scale-up;
-}
-@-webkit-keyframes fnz-animation-scale-up {
-	0% {opacity: 0;-webkit-transform: scale(0.2);}
-	100% {opacity: 1;-webkit-transform: scale(1);}
-}
-@keyframes fnz-animation-scale-up {
-	0% {opacity: 0;transform: scale(0.2);}
-	100% {opacity: 1;transform: scale(1);}
 }
 
 /*--------------------------------------------------------------

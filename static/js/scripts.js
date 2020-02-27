@@ -16,7 +16,7 @@ $('.toggle-button').click(function() {
 $('[data-toggle="tooltip"]').tooltip();
 
 $(document).on("keyup paste", ".required", function() {
-    var fields = ".required";
+    var fields = $(".required");
     var disable = false;
     for (var i = 0; i < fields.length; i++) { // For loop faster than $.each
         if ($(fields[i]).val() == "") {
@@ -25,8 +25,8 @@ $(document).on("keyup paste", ".required", function() {
         }
     }
 
-    if (disable) {$("#submit").addClass("disabled");}
-    else {$("#submit").removeClass("disabled");}
+    if (disable) {$("#submit-btn").addClass("ua-disabled");}
+    else {$("#submit-btn").removeClass("ua-disabled");}
 });
 
 $(document).on("keypress paste", ".numeric-only", function(key) {
