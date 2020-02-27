@@ -36,4 +36,3 @@ $(document).on("keypress paste", ".numeric-only", function(key) {
 $(document).on("keypress paste", ".alpha-only", function(key) {
     if (key.charCode >= 48 && key.charCode <= 57) {return false;}
 });
-
