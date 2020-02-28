@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect, HttpResponseRedirect
 from django.contrib import messages, auth
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
+from django.forms.models import inlineformset_factory
 from .forms import UserLoginForm, UserRegistrationForm, UserProfileForm, UserForm
 from home.constants import NO_BOTS
 from django.template.context_processors import csrf
@@ -42,13 +43,27 @@ def login(request):
 def profile(request):
     """A view that displays the profile page of a logged in user"""
     if request.method == 'POST':
-        pass
+        user_form = UserForm(request.POST)
+        profile_form = UserProfileForm(request.POST)
+        if all((user_form.is_valid(), profile_form.is_valid())):
+            # You need to pull out the first name and surname and update the user that way.
+            new_user_info = user_form.save()
+            user_profile = profile_form.save(commit=False)
+            user_profile.user = new_user_info
+            user_profile.save()
     else:
-        # Get the profile record for the logged in user, keeping in mind
-        # that a profile record may not exist.
-        # Get the user object
-        user_form = User.objects.get(username__exact=request.user)
-        profile_form = Profile.objects.get(user=user)
+        user = User.objects.get(username__exact=request.user.username)
+
+        # This will populate our user form
+        user_form = UserForm(instance=user)
+
+        try:
+            user_profile = user.userprofile.all()
+        except user._meta.model.userprofile.RelatedObjectDoesNotExist:
+            print('No profile found')
+            user_profile = None
+
+        profile_form = UserProfileForm(user_profile)
 
     return render(request, 'profile.html', {'user_form': user_form, 'profile_form': profile_form})
 
