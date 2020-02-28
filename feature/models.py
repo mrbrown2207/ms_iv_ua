@@ -6,6 +6,7 @@ class Feature(models.Model):
     """ Feature model """
     id = models.AutoField(primary_key=True)
     entered_by = models.CharField(max_length=40, blank=False)
+    entered_by_email = models.EmailField(max_length=80, blank=False)
     feature = models.CharField(max_length=80, blank=False)
     desc = models.TextField(blank=False)
     status = models.PositiveSmallIntegerField(default=FILTERS.get('features_requested'))

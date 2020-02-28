@@ -44,28 +44,28 @@ Downloaded fonts locally on server for access and development offline
 /*--------------------------------------------------------------
 # Spacing, Dimensions & Alignment
 --------------------------------------------------------------*/
-div.heading{
+div.heading {
 	margin-bottom: -20px !important;
 }
 
-.pl-0{
+.pl-0 {
 	padding-left: 0px;
 }
 
-.h-60{
+.h-60 {
 	height: 60%;
 }
 
-.section-pb-1{
+.section-pb-1 {
 	padding-bottom: 1px;
 }
 
-.mb-half-rem{
+.mb-half-rem {
 	margin-bottom: 0.5rem !important;
 }
 
 /* To vertically align column contents */
-.vert-align-col{
+.vert-align-col {
 	display: flex;
 	align-items: center;
 	flex-wrap: wrap;
@@ -78,30 +78,30 @@ html {
 /*--------------------------------------------------------------
 # Typography
 --------------------------------------------------------------*/
-body, h1, h2, h3, h4, h5, p, a, label, small, input, ul>li{
+body, h1, h2, h3, h4, h5, p, a, label, small, input, ul>li {
 	font-family: Montserrat;
 }
 
-body{
+body {
 	color: #4D7488;
 }
 
-h1{
+h1 {
 	font-size: 24pt;
 }
 
-h2{
+h2 {
 	font-size: 20pt;
 	line-height: 28pt;
 	color: #4D7488;
 	margin: 0 0 20px 0;
 }
 
-h2.howitworks{
+h2.howitworks {
 	margin: 15px 0 10px 0 !important;
 }
 
-h3{
+h3 {
 	color: #4EABDE;
 	font-size: 18pt;
 	line-height: 26pt;
@@ -109,7 +109,7 @@ h3{
 	margin: 15px 0;
 }
 
-h4{
+h4 {
   color: #4EABDE;
   font-size: 14pt;
   font-weight: 500;
@@ -117,7 +117,7 @@ h4{
   line-height: 22pt;
 }
 
-h5{
+h5 {
   color: #4D7488;
   font-size: 12pt;
   font-weight: 700;
@@ -125,33 +125,33 @@ h5{
   margin: 10px 0 10px 0;
 }
 
-p, ul>li, .toc{
+p, ul>li, .toc {
   color: #688796;
   font-size: 11pt;
   font-weight: 500;
   line-height: 20pt;
 }
 
-p{
+p {
   margin-bottom: 15px;
 }
 
-a{
+a {
   color: #4EABDE;
   font-weight: 500;
 }
 
-a:hover{
+a:hover {
 	color:#4D7488;
 	text-decoration: none;
 }
 
-.emphasized{
+.emphasized {
   font-weight: 600;
   text-decoration: underline;
 }
 
-small{
+small {
   opacity: 0.7;
   font-weight: 500;
   font-size: 12px;
@@ -159,7 +159,7 @@ small{
   line-height: 20px;
 }
 
-.text-muted{
+.text-muted {
 	color: #BBCAD2 !important;
 	font-weight: 500 !important;
 }
@@ -167,11 +167,11 @@ small{
 /*--------------------------------------------------------------
 # Navigation
 --------------------------------------------------------------*/
-.page-header{
+.page-header {
   border-top: 3px #4EABDE solid;
 }
 
-.navbar-nav .nav-item .nav-link{
+.navbar-nav .nav-item .nav-link {
   color: #4D7488;
   font-family: Montserrat;
   font-size: 11pt;
@@ -180,45 +180,45 @@ small{
   padding: 15px 0;
 }
 
-.navbar-light .navbar-toggler{
+.navbar-light .navbar-toggler {
   border: none;
 }
 
-.navbar-ua .navbar-nav .nav-link:hover{
+.navbar-ua .navbar-nav .nav-link:hover {
   color: #4EABDE;
 }
 
-.navbar-ua .show>.nav-link{
+.navbar-ua .show>.nav-link {
   color: #E74850 !important;
 }
 
-.navbar-ua .dropdown-item{
+.navbar-ua .dropdown-item {
   font-weight: 500;
   color: #4D7488;
 }
 
-.navbar-ua .dropdown-item:hover{
+.navbar-ua .dropdown-item:hover {
   color: #4EABDE;
 }
 
-.header-logo{
+.header-logo {
   max-height: 160px;
 }
 
 /*--------------------------------------------------------------
 # Links, Buttons and Badges
 --------------------------------------------------------------*/
-.btn-link{
+.btn-link {
   color: #4EABDE;
   font-weight: 500;
 }
 
-.btn-link:hover{
+.btn-link:hover {
   text-decoration: none;
   color: #4D7488;
 }
 
-.print-link, .test-email-link, .diary-link{
+.print-link, .test-email-link, .diary-link {
   font-weight: 400;
   color: #4D7488;
   font-size: 12px;
@@ -227,7 +227,7 @@ small{
   border-radius: 3px;
 }
 
-.print-link:hover, .test-email-link:hover, .diary-link:hover{ 
+.print-link:hover, .test-email-link:hover, .diary-link:hover { 
   background: #4EABDE;
   color: #ffffff;
   border-color: #4EABDE;
@@ -239,53 +239,53 @@ a.ua-disabled, button.ua-disabled { /* This is because you cannot disable a link
 	cursor: default;
 }
 
-.menu-tile{
+.menu-tile {
   background: #F6F8FA;
   border: 1px solid #DEE6E9;
   border-radius: 10px;
   height: auto;
 }
 
-.menu-tile-not-selectable{
+.menu-tile-not-selectable {
 	background: #F6F8FA;
 	border: 1px solid #DEE6E9;
 	border-radius: 10px;
 	height: auto;
   }
   
-.tile-centre-image{
+.tile-centre-image {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;    
 }
 
-.tile-x-space{
+.tile-x-space {
 	margin-right: -12px !important;
 }
-.tile-other-space{
+.tile-other-space {
 	width: 50% !important;
 	align-content: center;
 }
 
-.mr-adjust{
+.mr-adjust {
 	margin-left: inherit; /* A bit of a hack */
 }
 
-.menu-tile:hover{
+.menu-tile:hover {
   background: #FAFDFE;
   border: 1px solid #D7E0E5;
   box-shadow: 0 2px 5px 0 #D7E0E5;
   border-radius: 10px;
 }
 
-.menu-tile:focus{
+.menu-tile:focus {
   background: #FFF5F6;
   border: 1px solid #E1C4C5;
   box-shadow: 0 2px 5px 0 #FFDCDD;
   border-radius: 10px;
 }
 
-.menu-tile .label{
+.menu-tile .label {
   color: #4D7488;
   font-weight: 600;
   font-size: 14px;
@@ -293,24 +293,14 @@ a.ua-disabled, button.ua-disabled { /* This is because you cannot disable a link
 
 .btn-ua {
 	font-family: Montserrat;
-	font-weight: 600;
+    font-weight: 600;
+    border: 2px solid #007bff;
 	border-radius: 28px;
 	min-width: var(--btn-min-wid);
 	text-transform: uppercase;
 	padding: var(--btn-ptb);
 }
 
-.btn-ua.btn-diary {
-	color: var(--btn-dark-grey-color);
-	border: var(--btn-dark-grey-border);
-	background: var(--btn-dark-grey-bg);
-}
-
-.btn-ua.btn-diary:hover{
-	color: var(--btn-dark-grey-color);
-	border: var(--btn-dark-grey-border);
-	box-shadow: 0 2px 5px 0 rgb(55, 83, 97);
-  }
   
 .btn-ua.inactive {
 	color: #FFFFFF;
@@ -324,18 +314,18 @@ a.ua-disabled, button.ua-disabled { /* This is because you cannot disable a link
 	padding: var(--btn-ptb);
 }
 
-.btn-ua.small{
-  color: #FFFFFF;
-  border-color: #E74850;
-  background: #E74850;
-  border-radius: 100px;
-  padding: 0 10px;
-  font-size: 12px;
-  margin: 0;
-  height: 35px;
+.btn-ua.small {
+    color: #FFFFFF;
+    border-color: #E74850;
+    background: #E74850;
+    border-radius: 100px;
+    padding: 0 10px;
+    font-size: 12px;
+    margin: 0;
+    height: 35px;
 }
 
-.btn-ua-small-modal{
+.btn-ua-small-modal {
 	color: #FFFFFF;
 	border-color: #E74850;
 	background: #E74850;
@@ -348,7 +338,7 @@ a.ua-disabled, button.ua-disabled { /* This is because you cannot disable a link
 	min-width: 75px;
 }
   
-.btn-ua-secondary{
+.btn-ua-secondary {
   color: #4D7488;
   font-family: Montserrat;
   font-weight: 600;
@@ -360,16 +350,16 @@ a.ua-disabled, button.ua-disabled { /* This is because you cannot disable a link
   padding: var(--btn-ptb);
 }
 
-.btn-login{
+.btn-login {
 	max-width: 200px !important;
 }
 
-.btn-ua-start{
+.btn-ua-start {
 	padding-left: 25px !important;
 	padding-right: 25px !important;
 }
 
-.btn-ua-secondary-small-modal{
+.btn-ua-secondary-small-modal {
 	color: #4D7488;
 	font-family: Montserrat;
 	font-weight: 600;
@@ -384,7 +374,7 @@ a.ua-disabled, button.ua-disabled { /* This is because you cannot disable a link
 	padding: 0 10px;
 }
   
-.btn-ua-floating{
+.btn-ua-floating {
   background: rgba(255,255,255,0.50);
   border: 2px solid #FFFFFF;
   border-radius: 20px;
@@ -394,7 +384,7 @@ a.ua-disabled, button.ua-disabled { /* This is because you cannot disable a link
   font-size: 14px;
 }
 
-.btn-ua-tertiary{
+.btn-ua-tertiary {
   color: #4D7488;
   font-family: Montserrat;
   font-weight: 600;
@@ -408,70 +398,59 @@ a.ua-disabled, button.ua-disabled { /* This is because you cannot disable a link
   height: 35px;
 }
 
-.btn-ua-tertiary.btn-msg{
+.btn-ua-tertiary.btn-msg {
 	color: var(--btn-dark-grey-color);
 	border: var(--btn-dark-grey-border);
 	background: var(--btn-dark-grey-bg);
 }
   
-.btn-ua-tertiary.btn-msg:hover{
+.btn-ua-tertiary.btn-msg:hover {
   color: var(--btn-dark-grey-color);
   border: var(--btn-dark-grey-border);
   box-shadow: 0 2px 5px 0 rgb(55, 83, 97);
 }
 
-.btn-ua-tertiary.highlight{
+.btn-ua-tertiary.highlight {
 	background: #4EABDE;
 	border: 2px solid #4EABDE;
 	color: #ffffff;
 }
   
-.btn-ua-tertiary.highlight:hover{
+.btn-ua-tertiary.highlight:hover {
 	background: #4cb9f5;
 	border: 2px solid #4cb9f5;
 	color: #ffffff;
 	box-shadow: 0 2px 5px 0 #4cb9f5;
 }
   
-.destructive{
-  background: #c4343b;
-  border: 2px solid #c4343b;
-  color: #ffffff;
+.destructive {
+    background: #c4343b;
+    border: 2px solid #c4343b;
+    color: #ffffff;
 }
 
-.destructive:hover{
-  background: #d7353d;
-  border: 2px solid #d7353d;
-  color: #ffffff;
-  box-shadow: 0 2px 5px 0 #c6262d;
+.destructive:hover {
+    background: #d7353d;
+    border: 2px solid #d7353d;
+    color: #ffffff;
+    box-shadow: 0 2px 5px 0 #c6262d;
 }
 
-.btn-ua-special{
-  background: #DEE6E9;
-  border: 2px solid #4D7488;
-  font-size: 12px;
-  font-family: Montserrat;
-  font-weight: 600;
-  color: #4D7488;
-  border-radius: 10px;
-  text-transform: uppercase;
-}
-
-.btn-ua-secondary:hover, .btn-ua-tertiary:hover{
+.btn-ua-secondary:hover, .btn-ua-tertiary:hover {
   color:#4D7488;
   box-shadow: 0 2px 5px 0 #b6cfdb;
 }
 
-.btn-ua:hover{
+.btn-ua:hover {
   box-shadow: 0 2px 5px 0 #b6cfdb;
 }
 
-.btn-ua-floating:hover{
+.btn-ua-floating:hover {
   color:#4D7488;
   box-shadow: 0 2px 5px 0 #b6cfdb;
 }
 
-.user-account-badge .name-badge{
+.user-account-badge .name-badge {
   min-width: 150px;
   max-width: 250px;
   width: auto;
@@ -485,7 +464,7 @@ a.ua-disabled, button.ua-disabled { /* This is because you cannot disable a link
   padding-left: 65px;
 }
 
-.user-account-badge .profile-photo{
+.user-account-badge .profile-photo {
   height: 55px;
   width: 55px;
   border-radius: 100px;
@@ -496,14 +475,14 @@ a.ua-disabled, button.ua-disabled { /* This is because you cannot disable a link
   z-index: 100;
 }
 
-.founder-photo{
+.founder-photo {
 	height: 100px;
 	width: 100px;
 	border-radius: 100px;
 	background-color: rgb(135, 135, 135);
   }
 
-.edit-profile{
+.edit-profile {
 	/* Centre image container within div */
 	display: block;
 	margin-left: auto;
@@ -519,31 +498,31 @@ a.ua-disabled, button.ua-disabled { /* This is because you cannot disable a link
 	z-index: 100;
 }
   
-.profile-photo img, .edit-profile img{
+.profile-photo img, .edit-profile img {
   width: 100%;
   height: auto;
 }
 
-.profile-photo-container{
+.profile-photo-container {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
 	width: 40%;
 }
 
-.user-account-badge:hover{
+.user-account-badge:hover {
   border-radius: 100px;
   cursor: pointer;
   box-shadow: 0 2px 5px 0 #D7E0E5;
 }
 
-.user-account-badge .name-badge .profile-name{
+.user-account-badge .name-badge .profile-name {
   display: inline-block;
   width: auto;
   padding: 10px 0;
 }
 
-.user-account-badge .name-badge .profile-name .welcome{
+.user-account-badge .name-badge .profile-name .welcome {
   font-weight: 600;
   font-size: 12px;
   width: auto;
@@ -552,7 +531,7 @@ a.ua-disabled, button.ua-disabled { /* This is because you cannot disable a link
   margin-bottom: 0;
 }
 
-.user-account-badge .name-badge .profile-name .name{
+.user-account-badge .name-badge .profile-name .name {
   font-size: 18px;
   color: #4EABDE;
   width: auto;
@@ -561,7 +540,7 @@ a.ua-disabled, button.ua-disabled { /* This is because you cannot disable a link
   margin-bottom: 0;
 }
 
-.inline-button{
+.inline-button {
   font-size: 9pt;
   font-weight: 600;
   padding: 2px 5px;
@@ -572,12 +551,12 @@ a.ua-disabled, button.ua-disabled { /* This is because you cannot disable a link
   cursor: pointer;
 }
 
-.inline-button:hover{
+.inline-button:hover {
   color: #4EABDE;
   box-shadow: 0 1px 3px 0 #DEE6E9;
 }
 
-.toggle-button{
+.toggle-button {
   font-size: 8pt;
   font-weight: 600;
   padding: 2px 5px;
@@ -587,126 +566,72 @@ a.ua-disabled, button.ua-disabled { /* This is because you cannot disable a link
   color: #E74850 !important;
 }
 
-.toggle-button.open::before{
+.toggle-button.open::before {
   font-family: "FontAwesome";
   font-weight: 600;
   margin-right: 5px;
   content: "\f0d8" !important;
 }
 
-.toggle-button.open::after{
+.toggle-button.open::after {
   font-family: "FontAwesome";
   font-weight: 600;
   margin-right: 5px;
   content: "\f0d8" !important;
 }
 
-.toggle-button::before{
+.toggle-button::before {
   font-family: "FontAwesome";
   font-weight: 600;
   margin-right: 5px;
   content: "\f0d7" !important;
 }
 
-.toggle-button::after{
+.toggle-button::after {
   font-family: "FontAwesome";
   font-weight: 600;
   margin-left: 5px;
   content: "\f0d7" !important;
 }
 
-.status-pill{
-  padding: 5px 10px;
-  background-color: #4D7488;
-  color: #ffffff;
-  font-size: 10px;
-  font-weight: 600;
-  font-family: Montserrat;
-  border-radius: 100px;
-  text-transform: uppercase;
-  margin: 0 10px;
-}
-
-.status-pill.active{
-  background-color: #5BE751;
-}
-
-.status-pill.ready{
-  background-color: #F5BE5C;
-}
-
-.status-pill.muted{
-  background-color: #A1B5C0;
-}
-
-.status-pill.inverse{
-  background-color: #D3DDE3;
-  color: #4D7488;
-}
-
-.status-pill.accepted{
-	background-color: #0d60ff;
-}
-  
-.status-pill.declined{
-	background-color: #d11e36;
-}
-  
-.status-pill.viewed{
-	background-color: #F5BE5C;
-}
-  
-.status-pill.notviewed{
-	background-color: lightgray;
-	color: #4D7488;
-}
-
-.status-pill.notsent{
-	background-color: #1692a9;
-}
   
 /*--------------------------------------------------------------
 # Forms
 --------------------------------------------------------------*/
-label{
+label {
 	font-size: 11pt;
 	font-weight: 500;
 	margin: 0;
 	color: #4D7488; /* 30.2% red, 45.5% green, 53.3% blue */
 }
 
-input[type=text].form-control, input[type=password].form-control{
+input[type=text].form-control, input[type=password].form-control {
 	height: 35px;
 }
 
-select.form-control{
+select.form-control {
 	border-radius: 10px;
 }
 
-input[type=text], textarea.form-control{
+input[type=text], textarea.form-control {
 	font-family: Montserrat;
 	font-size: 9pt;
 	font-weight: 500;
 	color: #4D7488 !important;
 }
 
-.form-check{
-	margin-left: 20px;
-	padding-left: 0;
-}
-
-input[type=checkbox]{
+input[type=checkbox] {
 	background: #FFFFFF;
 	border: 3px solid #BBCAD2;
 	border-radius: 5px;
 }
 
-.text-field-label{
+.text-field-label {
 	color: #688796;
 	font-size: 10pt;
 }
 
-.form-control{
+.form-control {
 	border-radius: 10px;
 	border-width: 2px;
 	border-color: #BBCAD2;
@@ -715,7 +640,7 @@ input[type=checkbox]{
 	font-weight: 500;
 }
 
-.form-control-lg{
+.form-control-lg {
   border-radius: 10px;
   border-width: 2px;
   border-color: #BBCAD2;
@@ -756,53 +681,43 @@ input[type=checkbox]{
 	text-transform: none;
 }
 
-.input-group-append .input-group-text{
-  border-radius: 10px;
-  border-color: #BBCAD2;
-  border-width: 2px 2px 2px 0;
-  border-color: #BBCAD2;
-  padding: 0 10px;
-}
-
 /*--------------------------------------------------------------
 # Tables
 --------------------------------------------------------------*/
-.table-container{
-  border: 1px solid #DEE6E9;
-  border-radius: 10px;
-  overflow: hidden;
+.table-container {
+    border: 1px solid #DEE6E9;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
-.table-ua{
-  margin: 0;
-  /*background-color: transparent !important;*/
-  background-color: #FFFFFF !important;
-
+.table-ua {
+    margin: 0;
+    background-color: #FFFFFF !important;
 }
 
-.table-ua td, .table-ua th{
-  padding: 0;
-  border: none;
+.table-ua td, .table-ua th {
+    padding: 0;
+    border: none;
 }
 
-.table-ua td>p, .table-ua th>p{
-  padding: 10px 10px 0px 10px;
-  margin-bottom: 0;
+.table-ua td>p, .table-ua th>p {
+    padding: 10px 10px 0px 10px;
+    margin-bottom: 0;
 }
 
-p.desc-text{
+p.desc-text {
 	padding: 0px 10px 10px 10px !important;
 }
 
-.rounded-bottom-left{
+.rounded-bottom-left {
   border-bottom-left-radius: 10px;
 }
 
-.rounded-bottom-right{
+.rounded-bottom-right {
   border-bottom-right-radius: 10px;
 }
 
-.table-ua tr:first-child>td, .table-ua tr:first-child>th{
+.table-ua tr:first-child>td, .table-ua tr:first-child>th {
   border-top: none;
 }
 
@@ -814,17 +729,17 @@ hr.item-deliniation {
 	margin-top: 0px !important;
 }
 
-.dashboard .nav-item.active{
+.dashboard .nav-item.active {
   border-color: #D7E0E5;
   border-bottom: none;
   color: #4D7488;
 }
 
-.dashboard .nav-item:hover{
+.dashboard .nav-item:hover {
   color: #4D7488;
 }
 
-.ua-list-filter{
+.ua-list-filter {
   font-weight: 600;
   color: #4EABDE;
   font-size: 12px;
@@ -834,11 +749,11 @@ hr.item-deliniation {
   border-radius: 100px;
 }
 
-.ua-list-filter:hover{
+.ua-list-filter:hover {
 	color: #4D7488;
 }
  
-.ua-list-filter.active{
+.ua-list-filter.active {
 	background-color: #4D7488;
 	color: #ffffff !important;
 }
@@ -846,7 +761,7 @@ hr.item-deliniation {
 /*--------------------------------------------------------------
 # Event Details
 --------------------------------------------------------------*/
-.rsvp-graph .graph-container{
+.rsvp-graph .graph-container {
   background: #F6F8FA;
   border: 1px solid #DEE6E9;
   border-radius: 10px;
@@ -856,7 +771,7 @@ hr.item-deliniation {
   overflow: hidden;
 }
 
-.rsvp-graph .graph-container .accepted{
+.rsvp-graph .graph-container .accepted {
 	background: #0d60ff;
 	border-radius: 10px;
 	/*width: 45%; calculated and set dynamically*/
@@ -869,7 +784,7 @@ hr.item-deliniation {
 	cursor: pointer;  
 }
 
-.rsvp-graph .graph-container .declined{
+.rsvp-graph .graph-container .declined {
   background: #DE5766;
   border-radius: 10px;
   /*width: 55%; calculated and set dynamically*/
@@ -882,7 +797,7 @@ hr.item-deliniation {
   cursor: pointer;
 }
 
-.rsvp-graph .graph-container .viewed{  /* this is viewed but no RSVP */
+.rsvp-graph .graph-container .viewed {  /* this is viewed but no RSVP */
   background: #F5BE5C;
   border-radius: 10px;
   /*width: 70%; calculated and set dynamically*/ 
@@ -895,7 +810,7 @@ hr.item-deliniation {
   cursor: pointer;
 }
 
-.rsvp-graph .graph-container .not-viewed{
+.rsvp-graph .graph-container .not-viewed {
 	background: lightgray;
 	border-radius: 10px;
 	width: 100%;
@@ -910,7 +825,7 @@ hr.item-deliniation {
 /*--------------------------------------------------------------
 # Issue and Feature Detail Icons
 --------------------------------------------------------------*/
-.det-icon{
+.det-icon {
 	font-size: 11pt;
 	font-weight: 500;
 	padding: 2px 10px;
@@ -919,42 +834,42 @@ hr.item-deliniation {
 	color: #688796 !important;
 }
 
-.det-icon::before{
+.det-icon::before {
 	font-family: "FontAwesome";
 	font-weight: 500;
 	font-size: 20px;
 	margin: 20px 10px 10px 0px;
 }
 
-.det-icon-disabled{
+.det-icon-disabled {
 	cursor: default !important;
 }
 
-.upvote::before{
+.upvote::before {
 	color: #0d60ff;
 	content: "\f164" !important; /* Thumbs up */
 }
 
-.upvote-disabled::before{
+.upvote-disabled::before {
 	opacity: 0.25;
 }
 
-.accept-feature::before{
+.accept-feature::before {
 	color: #259a36;
 	content: "\f164" !important; /* Thumbs down */
 }
 
-.deny-feature::before{
+.deny-feature::before {
 	color: #d11e36;
 	content: "\f165" !important; /* Thumbs down */
 }
 
-.completed-feature::before{
+.completed-feature::before {
 	color: #259a36;
 	content: "\f00c" !important; /* Check mark */
 }
 
-.accepted-feature{
+.accepted-feature {
 	font-size: 11pt;
 	font-weight: 500;
 	padding: 2px 10px;
@@ -963,61 +878,61 @@ hr.item-deliniation {
 	color: #688796 !important;
 }
 
-.accepted-feature::after{
+.accepted-feature::after {
 	font-family: "FontAwesome";
 	font-weight: 500;
 	font-size: 15px;
 	margin: 0px 0px 0px 10px;
 }
 
-.waiting-payment::after{
+.waiting-payment::after {
 	color: #d11e36;
     content: "\f154" !important; /* Pound sign */
 }
 
-.working::after{
+.working::after {
     color: #259a36;
     content: "\f085" !important; /* Cogs (gears) */
 }
 
-.tooltip .tooltip-inner{
+.tooltip .tooltip-inner {
     background-color: #0d60ff;
     color: #FFFFFF;
 }
 
-.tooltip.top .tooltip-arrow{
+.tooltip.top .tooltip-arrow {
     border-top: 5x solid blue !important;
 }
 
 /*--------------------------------------------------------------
 # Resource Content and Index (index page for blogs, press, news postings)
 --------------------------------------------------------------*/
-div.res-content h5{
+div.res-content h5 {
 	font-weight: 500 !important;
 	margin-top: 10px !important;
 }
 
-div.res-idx-content{
+div.res-idx-content {
 	min-height: 180px;
 	max-height: 180px;
 }
 
-p.res-heading{
+p.res-heading {
 	font-weight: 400 !important;
 	font-size: 10pt !important;
 	color: #4D7488 !important;
 }
 
-div.intro > p{
+div.intro > p {
 	font-size: 10px !important;
 }
 
-div.reslink > p{
+div.reslink > p {
 	text-align: right;
 	font-size: 11px !important;
 }
 
-div.res-info{
+div.res-info {
 	margin-bottom: 40px;
 	padding-top: 25px;
 	border-top: 1px solid #acacac;
@@ -1026,25 +941,25 @@ div.res-info{
 	font-weight: 400;
 }
 
-div.res-info .res-info-cat{
+div.res-info .res-info-cat {
 	font-weight: 500;
 	margin-bottom: 5px;
 }
 
-div.res-content>p, div.res-content ul{
+div.res-content>p, div.res-content ul {
 	font-size: 10pt;
 }
 
-div.res-content>p{
+div.res-content>p {
 	padding-bottom: 10px !important;
 }
 
-div.res-content ul{
+div.res-content ul {
 	font-weight: 500 !important;
 	padding-left: 20px;
 }
 
-div.res-content ul>ol{
+div.res-content ul>ol {
 	padding: 10px 0;
 	color: #688796 !important;
 }
@@ -1058,7 +973,7 @@ results in a class of alert-error. There seems to be no such class in
 bootstrap and there is no such message type as messages.DANGER. To 
 that end, give it the same style as bootstrap's alert-danger.
 */
-.alert-error{
+.alert-error {
 	color: #721c24;
 	background-color: #f8d7da;
 	border-color: #f5c6cb
@@ -1068,21 +983,21 @@ that end, give it the same style as bootstrap's alert-danger.
 forms.ValidationError sets this class, but there is no styling.
 Give it some colour and make the font slightly smaller
 */
-.error-msg{
+.error-msg {
 	color: #d11e36 !important;
 	font-size: 10pt !important; 
 	font-weight: 600
 }
 
-.feature-det-panel{
+.feature-det-panel {
     background-color: #FFFFFF !important;
 }
 
-.feature-det-row{
+.feature-det-row {
     margin-bottom: 5px !important;
 }
 
-.short-input-field{
+.short-input-field {
     max-width: 80px;
     min-width: 80px;
     width: 80px !important;
@@ -1136,11 +1051,11 @@ h3.tou, p.last-updated {
 	transform: translate(-20%, -60%);
 }
 
-.hide{
+.hide {
 	display: none;
 }
 
-.container{
+.container {
 	max-width: none;
 }
 
@@ -1148,46 +1063,46 @@ h3.tou, p.last-updated {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#4D7488' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
 
-.profile-photo{
+.profile-photo {
   border-radius: 100px;
   background-color: rgb(135, 135, 135);
   overflow: hidden
 }
 
-.popover{
+.popover {
   border: 1px solid #D7E0E5;
 }
 
-.popover-body{
+.popover-body {
   padding: 0;
   box-shadow: 0 2px 5px 0 #D7E0E5;
 }
 
-.popover-body .list-group-item{
+.popover-body .list-group-item {
   border: none;
 }
 
-.article-image{
+.article-image {
   margin: 10px;
 }
 
-.panel.green{
+.panel.green {
   border-color: #B7EAC8 !important;
   background-color: #F5FCF4 !important;
 }
 
-.panel p{
+.panel p {
   margin: 0;
 }
 
-p.heading{
+p.heading {
 	margin-bottom: 0 !important;
 }
 
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
-.footer{
+.footer {
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -1196,20 +1111,20 @@ p.heading{
   background-color: #f5f5f5;
 }
 
-.page-footer{
+.page-footer {
   background: #F6F8FA;
   border-top: 1px solid #e5edf6;
 }
 
-.footer-links ul{
+.footer-links ul {
   list-style: none;
 }
 
-.footer-links ul>li{
+.footer-links ul>li {
 	line-height: 10pt;
 }
 
-.footer-links a{
+.footer-links a {
   color: #4EABDE;
   font-family: Montserrat;
   font-weight: 600;
@@ -1217,15 +1132,15 @@ p.heading{
   line-height: 40pt;
 }
 
-.footer-links a:hover{
+.footer-links a:hover {
   color: #1F82B8;
 }
 
-.copyright{
+.copyright {
   background-color: #4EABDE;
 }
 
-.copyright p{
+.copyright p {
 	color: #ffffff;
 	padding: 10px 0 0 0;
 	margin: 0 0 0 10px;
@@ -1235,11 +1150,11 @@ p.heading{
 	text-align: center;
 }
 
-.copyright a{
+.copyright a {
 	color: #ffffff;
 }
 
-.copyright span{
+.copyright span {
 	color: #ffffff;
 	margin: 0px 8px 0px 5px; 
 }
@@ -1253,13 +1168,13 @@ p.heading{
 	text-align: center;
 }
 
-.socialMedia-title{
+.socialMedia-title {
   font-size: 12pt;
   font-weight: 600;
   color: #4D7488;
 }
 
-.form-container, .panel{
+.form-container, .panel {
   background: #F6F8FA;
   border: 1px solid #DEE6E9;
   border-radius: 10px;
@@ -1271,20 +1186,20 @@ p.heading{
 # Media Queries for different screen sizes
 --------------------------------------------------------------*/
 @media (max-width: 576px) {
-	.header-logo{
+	.header-logo {
 		max-height: 80px;
 	}
 }
 
 /* modal.scss sets this to 500, need it a bit wider */
 @media (min-width: 576px) {
-	.modal-dialog.modal-600{
+	.modal-dialog.modal-600 {
 		max-width:600px !important;
 	}
 }
 
-@media (min-width: 768px){
-	h2{
+@media (min-width: 768px) {
+	h2 {
 		/*
 		font-size: 22pt;
 		line-height: 24pt;
@@ -1293,44 +1208,44 @@ p.heading{
 		margin: 0 0 35px 0;
 	}
 
-	.featured-banner .imageContainer{
+	.featured-banner .imageContainer {
 		max-height: 450px;
 	}
 
-	.featured-banner .centerImage{
+	.featured-banner .centerImage {
 		position: relative;
 		width: auto;
 		height: 100%;
 		margin-left: 0;
 	}
 
-	.ua-list-filter, .guest-list-filter{
+	.ua-list-filter, .guest-list-filter {
 		font-size: 12px;
 	}
 }
 
-@media(min-width: 992px){
-  input[type=time], input[type=text], textarea.form-control{
+@media(min-width: 992px) {
+  input[type=time], input[type=text], textarea.form-control {
 	font-family: Montserrat;
 	font-size: 11pt;
 	font-weight: 500;
 	color: #4D7488 !important;
   }
 
-  .navbar-ua .navbar-nav .nav-link{
+  .navbar-ua .navbar-nav .nav-link {
 	font-size: 10pt;
   }
 
-  .navbar-ua .dropdown-item{
+  .navbar-ua .dropdown-item {
 	font-size: 10pt;
   }
 
-  .collapsedMenu{
+  .collapsedMenu {
 	border: none;
 	background-color: inherit;
   }
 
-  .container{
+  .container {
 	max-width: 960px;
   }
 
@@ -1341,34 +1256,34 @@ p.heading{
 }
 
 @media (min-width: 1200px) {
-  .container{
+  .container {
 	max-width: 1140px;
   }
 
-  .navbar-ua .navbar-nav .nav-link{
+  .navbar-ua .navbar-nav .nav-link {
 	font-size: 11pt;
   }
 
-  .navbar-ua .dropdown-item{
+  .navbar-ua .dropdown-item {
 	font-size: 11pt;
   }
 }
 
 @media (max-width: 374px) {
-  .btn-ua-tertiary{
+  .btn-ua-tertiary {
 	font-size: 11px;
 	padding: 5px;
   }
 
-  .ua-list-filter, .guest-list-filter{
+  .ua-list-filter, .guest-list-filter {
 	font-size: 10px;
   }
 
-  .dashboard .nav-item{
+  .dashboard .nav-item {
 	font-size: 12px;
   }
 
-  .article-image{
+  .article-image {
 	margin: 10px 0;
 	width: 100%;
   }
@@ -1377,24 +1292,24 @@ p.heading{
 /*--------------------------------------------------------------
 # About us page
 --------------------------------------------------------------*/
-p.photo-caption{
+p.photo-caption {
 	margin-bottom: -5px !important;
 }
 
-p.about-content{
+p.about-content {
 	text-align: justify;
 }
 
-p.enhance{
+p.enhance {
 	font-style: italic;
 	font-weight: bold;
 }
 
-h3.note-from{
+h3.note-from {
 	margin-top: 0px !important;
 }
 
-section span.hidden{
+section span.hidden {
 	display: none;
 }
 
@@ -1423,7 +1338,7 @@ section span.hidden{
 	/*background-color: rgba(25,25,25,0.2);*/
 }
 
-li.get-started{
+li.get-started {
 	font-family: Montserrat !important;
 }
 

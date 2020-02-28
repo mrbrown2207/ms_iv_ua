@@ -33,14 +33,6 @@ def makepayment(request):
     if request.method == 'POST':
         person_details_form = PersonDetailsForm(request.POST)
         cc_details_form = CCDetailsForm(request.POST)
-        print("Current feature id: " + str(request.session.get('active_feature_id', {})))
-        print(cc_details_form.is_valid())
-        if cc_details_form.is_valid() == False:
-            print("cc details form failed")
-            print("****************** Form Errors *******************")
-            print(cc_details_form.errors)
-            print("*************** Non Field Errors *****************")
-            print(cc_details_form.non_field_errors)
         if person_details_form.is_valid() and cc_details_form.is_valid():
             feature = get_object_or_404(Feature, pk=request.session.get('active_feature_id', {}))
             try:
@@ -59,5 +51,18 @@ def makepayment(request):
                 feature.status = FILTERS.get('features_working')
                 feature.save()
                 messages.add_message(request, messages.SUCCESS, "Your payment was accepted. Thank you! We will start working immediately.")
+        else:
+            if cc_details_form.is_valid() == False:
+                print("cc details form failed")
+                print("****************** Form Errors *******************")
+                print(cc_details_form.errors)
+                print("*************** Non Field Errors *****************")
+                print(cc_details_form.non_field_errors)
+            else:
+                print("person details form failed")
+                print("****************** Form Errors *******************")
+                print(person_details_form.errors)
+                print("*************** Non Field Errors *****************")
+                print(person_details_form.non_field_errors)
 
     return redirect(reverse('index'))

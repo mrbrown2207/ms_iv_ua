@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.contrib.auth.models import User
 from .models import Issue
 from .forms import IssueForm
 
@@ -20,6 +21,8 @@ def issue(request):
             print(issue_form.errors)
             messages.error(request, "Unable to submit issue!")
     else:
+        current_user = request.user
+        print(current_user)
         issue_form = IssueForm()
 
     return render(request, "issue.html", {'issue_form': issue_form})
@@ -27,8 +30,7 @@ def issue(request):
 
 def upvote(request, id):
     """Increase the upvote count"""
-
-    i = Issue.objects.get(id=id)
+    i = get_object_or_404(Issue, pk=id)
     i.upvotes += 1
     i.save()
 
