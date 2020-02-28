@@ -1,11 +1,13 @@
 import random
 from django.shortcuts import render, redirect, HttpResponseRedirect
 from django.contrib import messages, auth
+from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
-from .forms import UserLoginForm, UserRegistrationForm
+from .forms import UserLoginForm, UserRegistrationForm, UserProfileForm, UserForm
 from home.constants import NO_BOTS
 from django.template.context_processors import csrf
 from django.contrib.auth.decorators import login_required
+from .models import Profile
 
 
 def logout(request):
@@ -39,7 +41,16 @@ def login(request):
 @login_required
 def profile(request):
     """A view that displays the profile page of a logged in user"""
-    return render(request, 'profile.html')
+    if request.method == 'POST':
+        pass
+    else:
+        # Get the profile record for the logged in user, keeping in mind
+        # that a profile record may not exist.
+        # Get the user object
+        user_form = User.objects.get(username__exact=request.user)
+        profile_form = Profile.objects.get(user=user)
+
+    return render(request, 'profile.html', {'user_form': user_form, 'profile_form': profile_form})
 
 
 def register(request):

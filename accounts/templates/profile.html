@@ -1,9 +1,30 @@
 {% extends "base.html" %}
-{% block content %}
-    <h2>Success!</h2>
-    <p>You are logged in as {{ user.email }} </p>
-    <p>You're username is {{ user.username }} </p>
-    <p>You're first name is {{ user.first_name }} </p>
-    <p>You're surname is {{ user.last_name }} </p>
+{% load bootstrap_tags %}
 
+{% block content %}
+<section class="login-form">
+    <main role="main" class="container">
+        <h3 class="text-center mt-3 mb-3">Your Profile</h3>
+        <div class="row justify-content-center">
+            <form class="form-container col-md-6" id="register-form" action="{% url 'register' %}" method="POST">
+                {% csrf_token %}
+                {{ user_form | as_bootstrap }}
+                {{ profile_form | as_bootstrap }}
+                <div class="row">
+                    <div class="offset-md-1 col-5">
+                        <p class="text-center">
+                            <a href="{% url 'index' %}" role="button" id="cancel-btn" name="cancel-btn" class="btn btn-ua destructive w-100 mt-2">Cancel</a>
+                        </p>
+                    </div>
+                    <div class="col-5">
+                        <p class="text-center">
+                            <button type="submit" name="submit" class="btn btn-primary btn-ua w-100 mt-2">Save Profile</button>
+                        </p>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </main>
+</section>
 {% endblock %}
