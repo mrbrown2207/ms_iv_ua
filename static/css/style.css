@@ -705,10 +705,6 @@ input[type=checkbox] {
     margin-bottom: 0;
 }
 
-p.desc-text {
-	padding: 0px 10px 10px 10px !important;
-}
-
 .rounded-bottom-left {
   border-bottom-left-radius: 10px;
 }
@@ -872,7 +868,7 @@ hr.item-deliniation {
 .accepted-feature {
 	font-size: 11pt;
 	font-weight: 500;
-	padding: 2px 10px;
+	/*padding: 2px 10px;*/
 	margin-bottom: 10px;
 	cursor: pointer;
 	color: #688796 !important;

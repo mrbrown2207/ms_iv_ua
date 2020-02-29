@@ -3,11 +3,10 @@ from django.shortcuts import render, redirect, HttpResponseRedirect
 from django.contrib import messages, auth
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
-from django.forms.models import inlineformset_factory
-from .forms import UserLoginForm, UserRegistrationForm, UserProfileForm, UserForm
-from home.constants import NO_BOTS
 from django.template.context_processors import csrf
 from django.contrib.auth.decorators import login_required
+from home.constants import NO_BOTS
+from .forms import UserLoginForm, UserRegistrationForm, UserProfileForm, UserForm
 from .models import Profile
 
 
@@ -42,31 +41,21 @@ def login(request):
 @login_required
 def userprofile(request):
     """A view that displays the profile page of a logged in user"""
+    user = User.objects.get(username__exact=request.user.username)
     if request.method == 'POST':
-        user_form = UserForm(request.POST)
-        profile_form = UserProfileForm(request.POST)
+        user_form = UserForm(request.POST, instance=user)
+        profile_form = UserProfileForm(request.POST, instance=user.profile)
         if all((user_form.is_valid(), profile_form.is_valid())):
             # You need to pull out the first name and surname and update the user that way.
-            new_user_info = user_form.save()
-            user_profile = profile_form.save(commit=False)
-            user_profile.user = new_user_info
-            user_profile.save()
+            user_form.save()
+            profile_form.save()
+            messages.add_message(request, messages.SUCCESS, "You have successfully updated your profile!")
+            return redirect(reverse('index'))
     else:
-        user_obj = User.objects.get(username__exact=request.user.username)
 
         # This will populate our user form
-        user_form = UserForm(instance=user_obj)
-
-        try:
-            #user_profile = user.userprofile.all()
-            profile_obj = Profile.objects.get(user=user_obj)
-
-
-        except user_obj._meta.model.userprofile.RelatedObjectDoesNotExist:
-            print('No profile found')
-            profile_obj = None
-
-        profile_form = UserProfileForm(profile_obj)
+        user_form = UserForm(instance=user)
+        profile_form = UserProfileForm(instance=user.profile)
 
     return render(request, 'profile.html', {'user_form': user_form, 'profile_form': profile_form})
 

@@ -122,51 +122,43 @@
                                         </div>
                                         <div class="col-md-2"><p>{{ issue.upvotes }}</p></div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-12">
+                                    <div class="row justify-content-center">
+                                        <div class="col-8">
                                             <div class="collapse" id="collapse-more-{{ issue.id }}">
                                                 <div class="row tab-content heading mt-1">
                                                     <div class="col-12 text-center">
                                                         <h5>Issue Details</h5>
                                                     </div>
                                                 </div>
-                                                <div class="row tab-content justify-content-center">
-                                                    <div class="table-container w-50 my-1 mx-1 my-lg-3 mx-lg-5">
-                                                        <table class="table table-ua">
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td>
-                                                                        <p><strong>Entered By: </strong></p>
-                                                                    </td>
-                                                                    <td>
-                                                                        <p>{{ issue.entered_by }}</p>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>
-                                                                        <p><strong>Issue Description:</strong></p>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td colspan="2">
-                                                                        <p class=desc-text>{{ issue.desc }}</p>
-                                                                    </td>
-                                                                </tr>
-                                                                {% if issue.status != 3 %}
-                                                                <tr>
-                                                                    {% if li == True %}
-                                                                    <td colspan="2">
-                                                                        <a class="det-icon upvote" href="{% url 'upvote' issue.id %}">Upvote this issue!</a>
-                                                                    </td>
-                                                                    {% else %}
-                                                                    <td colspan="2">
-                                                                        <a class="det-icon det-icon-disabled upvote upvote-disabled">You must be logged in to upvote this issue.</a>
-                                                                    </td>
-                                                                    {% endif %}
-                                                                </tr>
+                                                <div class="row tab-content panel feature-det-panel justify-content-center mt-2">
+                                                    <div class="col-12">
+                                                        <div class="row feature-det-row">
+                                                            <div class="col-3">
+                                                                <p><strong>Entered By: </strong></p>
+                                                            </div>
+                                                            <div class="col-9">
+                                                                <p>{{ issue.entered_by }}</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row feature-det-row">
+                                                            <div class="col-3">
+                                                                <p><strong>Description:</strong></p>
+                                                            </div>
+                                                            <div class="col-9">
+                                                                <p>{{ issue.desc }}</p>
+                                                            </div>
+                                                        </div>
+                                                        {% if issue.status != 3 %}
+                                                        <div class="row feature-det-row">
+                                                            <div class="col-12">
+                                                                {% if li == True %}
+                                                                <a class="det-icon upvote" href="{% url 'upvote' issue.id %}">Upvote this issue!</a>
+                                                                {% else %}
+                                                                <a class="det-icon det-icon-disabled upvote upvote-disabled">You must be logged in to upvote this issue.</a>
                                                                 {% endif %}
-                                                            </tbody>
-                                                        </table>
+                                                            </div>
+                                                        </div>
+                                                        {% endif %}
                                                     </div>
                                                 </div>
                                             </div>
@@ -294,69 +286,63 @@
                                         </div>
                                         <div class="col-md-2"><p>&#163; {{ feature.bid }}</p></div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-12">
+                                    <div class="row justify-content-center">
+                                        <div class="col-8">
                                             <div class="collapse" id="feat-collapse-more-{{ feature.id }}">
                                                 <div class="row tab-content heading mt-1">
                                                     <div class="col-12 text-center">
                                                         <h5>Feature Details</h5>
                                                     </div>
                                                 </div>
-                                                <div class="row tab-content justify-content-center">
-                                                    <div class="table-container w-50 my-1 mx-1 my-lg-3 mx-lg-5">
-                                                        <table class="table table-ua">
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td>
-                                                                        <p><strong>Requested By: </strong></p>
-                                                                    </td>
-                                                                    <td>
-                                                                        <p>{{ feature.entered_by }}</p>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>
-                                                                        <p><strong>Feature:</strong></p>
-                                                                    </td>
-                                                                    <td>
-                                                                        <p>{{ feature.feature }}</p>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td colspan="2">
-                                                                        <p><strong>Feature Description:</strong></p>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td colspan="2">
-                                                                        <p class=desc-text>{{ feature.desc }}</p>
-                                                                    </td>
-                                                                </tr>
-                                                                {% if user.is_superuser %}
-                                                                <tr>
-                                                                    {% if feature.status == 5 %}
-                                                                    <td>
-                                                                        <a class="det-icon accept-feature" href="{% url 'updstatus' feature.id '6' %}">Accept Feature Request</a>
-                                                                    </td>
-                                                                    <td>
-                                                                        <a class="det-icon deny-feature" href="{% url 'updstatus' feature.id '7' %}">Decline Feature Request</a>
-                                                                    </td>
-                                                                    {% elif feature.status == 6 %}
-                                                                    <td colspan="2">
-                                                                        <a class="det-icon completed-feature" href="{% url 'updstatus' feature.id '8' %}">Mark Completed</a>
-                                                                    </td>
-                                                                    {% elif feature.status == 8 %}
-                                                                    <td>
-                                                                        <p><strong>Date Completed:</strong></p>
-                                                                    </td>
-                                                                    <td>
-                                                                        <p>{{ feature.date_completed }}</p>
-                                                                    </td>
-                                                                    {% endif %}
-                                                                </tr>
-                                                                {% endif %}
-                                                            </tbody>
-                                                        </table>
+                                                <div class="row tab-content panel feature-det-panel justify-content-center mt-2">
+                                                    <div class="col-12">
+                                                        <div class="row feature-det-row">
+                                                            <div class="col-3">
+                                                                <p><strong>Requested By: </strong></p>
+                                                            </div>
+                                                            <div class="col-9">
+                                                                <p>{{ feature.entered_by }}</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row feature-det-row">
+                                                            <div class="col-3">
+                                                                <p><strong>Feature:</strong></p>
+                                                            </div>
+                                                            <div class="col-9">
+                                                                <p>{{ feature.feature }}</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row feature-det-row">
+                                                            <div class="col-3">
+                                                                <p><strong>Description:</strong></p>
+                                                            </div>
+                                                            <div class="col-9">
+                                                                <p>{{ feature.desc }}</p>
+                                                            </div>
+                                                        </div>
+                                                        {% if user.is_superuser %}
+                                                        <div class="row feature-det-row">
+                                                            {% if feature.status == 5 %}
+                                                            <div class="col-6">
+                                                                <a class="det-icon accept-feature" href="{% url 'updstatus' feature.id '6' %}">Accept Feature Request</a>
+                                                            </div>
+                                                            <div class="col-6">
+                                                                <a class="det-icon deny-feature" href="{% url 'updstatus' feature.id '7' %}">Decline Feature Request</a>
+                                                            </div>
+                                                            {% elif feature.status == 6 %}
+                                                            <div class="col-12">
+                                                                <a class="det-icon completed-feature" href="{% url 'updstatus' feature.id '8' %}">Mark Completed</a>
+                                                            </div>
+                                                            {% elif feature.status == 8 %}
+                                                            <div class="col-3">
+                                                                <p><strong>Date Completed:</strong></p>
+                                                            </div>
+                                                            <div class="col-9">
+                                                                <p>{{ feature.date_completed }}</p>
+                                                            </div>
+                                                            {% endif %}
+                                                        </div>
+                                                        {% endif %}
                                                     </div>
                                                 </div>
                                             </div>
