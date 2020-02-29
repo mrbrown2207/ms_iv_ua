@@ -40,7 +40,7 @@ def login(request):
 
 
 @login_required
-def profile(request):
+def userprofile(request):
     """A view that displays the profile page of a logged in user"""
     if request.method == 'POST':
         user_form = UserForm(request.POST)
@@ -52,18 +52,21 @@ def profile(request):
             user_profile.user = new_user_info
             user_profile.save()
     else:
-        user = User.objects.get(username__exact=request.user.username)
+        user_obj = User.objects.get(username__exact=request.user.username)
 
         # This will populate our user form
-        user_form = UserForm(instance=user)
+        user_form = UserForm(instance=user_obj)
 
         try:
-            user_profile = user.userprofile.all()
-        except user._meta.model.userprofile.RelatedObjectDoesNotExist:
-            print('No profile found')
-            user_profile = None
+            #user_profile = user.userprofile.all()
+            profile_obj = Profile.objects.get(user=user_obj)
 
-        profile_form = UserProfileForm(user_profile)
+
+        except user_obj._meta.model.userprofile.RelatedObjectDoesNotExist:
+            print('No profile found')
+            profile_obj = None
+
+        profile_form = UserProfileForm(profile_obj)
 
     return render(request, 'profile.html', {'user_form': user_form, 'profile_form': profile_form})
 
