@@ -41,7 +41,7 @@ if dev:
 else:
     DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'ms-iv-ua.herokuapp.com']
 
 
 # Application definition
@@ -108,6 +108,9 @@ if dev:
     }
 else:
     print("Using Postgres...")
+    DATABASES = {
+        "default": dj_database_url.parse(os.getenv("DATABASE_URL"))
+    }
 
 
 # Password validation
