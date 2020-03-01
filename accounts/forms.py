@@ -10,7 +10,7 @@ class UserLoginForm(forms.Form):
         label="Email Address *",
         min_length=3, max_length=40,
         widget=forms.EmailInput(attrs={
-            'class':'form-control required',
+            'class':'form-control ua-required',
             'aria-describedby':'email address',
             'placeholder':'Enter email address',
         }),
@@ -31,7 +31,7 @@ class UserRegistrationForm(UserCreationForm):
         label="First Name *",
         min_length=1, max_length=40,
         widget=forms.TextInput(attrs={
-            'class':'form-control required alpha-only text-capitalize',
+            'class':'form-control ua-required alpha-only text-capitalize',
             'aria-describedby':'first name',
             'placeholder':'First name',
             }),
@@ -42,7 +42,7 @@ class UserRegistrationForm(UserCreationForm):
         label="Surname *",
         min_length=1, max_length=40,
         widget=forms.TextInput(attrs={
-            'class':'form-control required alpha-only text-capitalize',
+            'class':'form-control ua-required alpha-only text-capitalize',
             'aria-describedby':'surname',
             'placeholder':'Surname',
             }),
@@ -55,7 +55,7 @@ class UserRegistrationForm(UserCreationForm):
         label="Email *",
         min_length=3, max_length=40,
         widget=forms.EmailInput(attrs={
-            'class':'form-control required',
+            'class':'form-control ua-required',
             'aria-describedby':'email address',
             'placeholder':'Enter email address',
         }),
@@ -66,7 +66,7 @@ class UserRegistrationForm(UserCreationForm):
         label="Password *",
         min_length=8, max_length=11,
         widget=forms.PasswordInput(attrs={
-            'class':'form-control pwd required',
+            'class':'form-control pwd ua-required',
             'aria-describedby':'password',
             'placeholder':'Password (8 - 11 characters)',
         }),
@@ -77,7 +77,7 @@ class UserRegistrationForm(UserCreationForm):
         label="Confirm Password *",
         min_length=8, max_length=11,
         widget=forms.PasswordInput(attrs={
-            'class':'form-control pwd required',
+            'class':'form-control pwd ua-required',
             'aria-describedby':'repeat password',
             'placeholder':'Repeat password',
         }),

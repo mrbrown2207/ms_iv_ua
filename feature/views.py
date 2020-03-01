@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from home.constants import MIN_BID, MAX_BID
 from .models import Feature
 from .forms import FeatureForm
 
@@ -13,12 +14,19 @@ def feature(request):
 
         if feature_form.is_valid():
             newfeature_req = feature_form.save(commit=False)
-            newfeature_req.entered_by = request.user.first_name + ' ' + request.user.first_name
+            newfeature_req.entered_by = request.user.first_name + ' ' + request.user.last_name
             newfeature_req.entered_by_email = request.user.email
-            newfeature_req.save()
+            newfeature_req.bid = request.POST.get('bid')
+                    #if all((user_form.is_valid(), profile_form.is_valid())):
+
+            if all((int(newfeature_req.bid) >= MIN_BID, int(newfeature_req.bid) <= MAX_BID)):
+                newfeature_req.save()
+            else:
+                messages.add_message(request, messages.ERROR, "Bid must be between £10 and £5000.")
+                return render(request, "feature.html", {'feature_form': feature_form})
 
             messages.add_message(request, messages.SUCCESS, "New feature request has been created!")
-            return redirect(reverse('feature'))
+            return redirect(reverse('filters', args=(request.session['feature_filter'],)))
 
         print(feature_form.errors)
         messages.add_message(request, messages.ERROR, "Unable to submit feature request!")

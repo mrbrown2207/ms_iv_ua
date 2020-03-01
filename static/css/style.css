@@ -75,6 +75,11 @@ html {
 	scroll-behavior: smooth !important;
 }
 
+/* Bootstraps .form-text puts too much margin */
+.form-text {
+    margin-top: -10px !important;
+}
+
 /*--------------------------------------------------------------
 # Typography
 --------------------------------------------------------------*/
@@ -110,11 +115,11 @@ h3 {
 }
 
 h4 {
-  color: #4EABDE;
-  font-size: 14pt;
-  font-weight: 500;
-  margin: 10px 0 15px 0;
-  line-height: 22pt;
+    color: #4EABDE;
+    font-size: 14pt;
+    font-weight: 500;
+    margin: 10px 0 15px 0;
+    line-height: 22pt;
 }
 
 h5 {
@@ -168,41 +173,41 @@ small {
 # Navigation
 --------------------------------------------------------------*/
 .page-header {
-  border-top: 3px #4EABDE solid;
+    border-top: 3px #4EABDE solid;
 }
 
 .navbar-nav .nav-item .nav-link {
-  color: #4D7488;
-  font-family: Montserrat;
-  font-size: 11pt;
-  font-weight: 600;
-  text-transform: uppercase;
-  padding: 15px 0;
+    color: #4D7488;
+    font-family: Montserrat;
+    font-size: 11pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 15px 0;
 }
 
 .navbar-light .navbar-toggler {
-  border: none;
+    border: none;
 }
 
 .navbar-ua .navbar-nav .nav-link:hover {
-  color: #4EABDE;
+    color: #4EABDE;
 }
 
 .navbar-ua .show>.nav-link {
-  color: #E74850 !important;
+    color: #E74850 !important;
 }
 
 .navbar-ua .dropdown-item {
-  font-weight: 500;
-  color: #4D7488;
+    font-weight: 500;
+    color: #4D7488;
 }
 
 .navbar-ua .dropdown-item:hover {
-  color: #4EABDE;
+    color: #4EABDE;
 }
 
 .header-logo {
-  max-height: 160px;
+    max-height: 160px;
 }
 
 .footer-logo {
@@ -1530,4 +1535,3 @@ li.get-started {
 	color: red;
 	font-style: italic; 
 }
-

@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
-<body>   
+<body>
     <header class ="page-header px-0 py-0">
         <div class="container">
             <div class="row">
@@ -78,22 +78,12 @@
         {% block content %} {% endblock %}
     </div>
 
-    <footer>
+    <footer class="page-footer mt-5">
         <section class="footer-links container py-1 py-lg-3">
             <article class="row justify-content-center">
-
-                <section class="col-12 col-lg-4 d-none d-lg-block">
+                <section class="col-12 col-lg-4 d-block">
                     <h5 class="socialMedia-title text-center mt-3 mb-0">Let's Stay Close</h5>
                     <div class="row">
-                        <!--
-                        <div class="col-6">
-                            <div class="d-flex justify-content-center">
-                                <div class="footer-logo">
-                                    <img src="{{ MEDIA_URL }}ua-logo-sm.png" alt="UA Logo">
-                                </div>
-                            </div>
-                        </div>
-                        -->
                         <div class="col-12">
                             <div class="d-flex flex-row justify-content-center">
                                 <div class="px-1"><a href="https://www.facebook.com" target="_blank"><img src="{{ MEDIA_URL }}icon_FB.png" width="30" alt="Facebook"></a></div>
@@ -105,34 +95,21 @@
                         </div>
                     </div>
                 </section>
-                
-                <section class="col-12 col-lg-4 d-lg-none">
-                    <div class="d-flex justify-content-center">
-                        <a class="navbar-brand py-3 pl-3 py-md-4 pl-md-4" href="/">
-                            <img class="header-logo" src="{{ MEDIA_URL }}ua-logo-sm.png" alt="UA Logo">
-                        </a>
-                    </div>
-                    <h5 class="socialMedia-title text-center text-lg-left mt-3 mt-lg-5">Let's Stay Close</h5>
-                    <div class="px-1"><a href="https://www.facebook.com" target="_blank"><img src="{{ MEDIA_URL }}icon_FB.png" width="30" alt="Facebook"></a></div>
-                    <div class="px-1"><a href="https://www.instagram.com" target="_blank"><img src="{{ MEDIA_URL }}icon_Instagram.png" width="30" alt="Instagram"></a></div>
-                    <div class="px-1"><a href="https://www.twitter.com" target="_blank"><img src="{{ MEDIA_URL }}icon_Twitter.png" width="30" alt="Twitter"></a></div>
-                    <div class="px-1"><a href="https://www.linkedin.com" target="_blank"><img src="{{ MEDIA_URL }}icon_LinkedIn.png" width="30" alt="LinkedIn"></a></div>
-                    <div class="px-1"><a href="https://www.pinterest.com" target="_blank"><img src="{{ MEDIA_URL }}icon_Pinterest.png" width="30" alt="Pinterest"></a></div>
-                </section>
-    
             </article>
         </section>
     
         <section class="copyright">
-            <p>
-                Copyright &#169; 2020 MBUA<sup>&#174;</sup>
-                <span>|</span><a href="/" target="_blank">Terms of Use</a>
-                <span>|</span><a href="/" target="_blank">Privacy Policy</a>
-                <span>|</span><a href="/" target="_blank">Unsubscribe</a>
-            </p>
-            <p class="rights-reserved">
-                MBUA<sup>&#174;</sup> is a fictitious application and is not really a registered trademark of the ficitious company MBUA Ltd. All rights are not really reserved. All other product, company names and TV characters are trademarks or registered trademarks of their respective holders.
-            </p>
+            <div class="container">
+                <p>
+                    Copyright &#169; 2020 MBUA<sup>&#174;</sup>
+                    <span>|</span><a href="/">Terms of Use</a>
+                    <span>|</span><a href="/">Privacy Policy</a>
+                    <span>|</span><a href="/">Unsubscribe</a>
+                </p>
+                <p class="rights-reserved">
+                    MBUA<sup>&#174;</sup> is a fictitious application and is not really a registered trademark of the ficitious company MBUA Ltd. All rights are not really reserved.
+                </p>
+            </div>
         </section>
     </footer>
 

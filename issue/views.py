@@ -14,15 +14,15 @@ def issue(request):
 
         if issue_form.is_valid():
             newissue = issue_form.save(commit=False)
-            newissue.entered_by = request.user.first_name + ' ' + request.user.first_name
+            newissue.entered_by = request.user.first_name + ' ' + request.user.last_name
             newissue.entered_by_email = request.user.email
             newissue.save()
 
-            messages.error(request, "New issue has been created!")
-            return redirect(reverse('issue'))
-        else:
-            print(issue_form.errors)
-            messages.error(request, "Unable to submit issue!")
+            messages.add_message(request, messages.SUCCESS, "New issue has been created!")
+            return redirect(reverse('filters', args=(request.session['issue_filter'],)))
+
+        print(issue_form.errors)
+        messages.add_message(request, messages.ERROR, "Unable to submit issue!")
     else:
         current_user = request.user
         print(current_user)

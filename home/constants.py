@@ -1,12 +1,12 @@
 """Definitions for entire project go here"""
 
-"""Tab Ids"""
+# Tab Ids
 TABS = {
     'issues':1,
     'features':2,
 }
 
-"""Filter codes"""
+# Filter codes that also act as the status of issues and features.
 FILTERS = {
     'issues_all':0,
     'issues_reported':1,
@@ -20,6 +20,8 @@ FILTERS = {
     'features_finished':9,
 }
 
+# An alternative to captcha. Dictionary of questions. One will be chosen at random
+# when a user registers.
 NO_BOTS = {
     '1 and 1 and 1':'3',
     '1 and 2 and 1':'4',
@@ -39,4 +41,7 @@ NO_BOTS = {
     '4 and 1 and 1':'6'
 }
 
+# Currencty and values
 DEFAULT_CURRENCY = 'GBP'
+MIN_BID = 10
+MAX_BID = 5000

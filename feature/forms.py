@@ -14,14 +14,14 @@ class FeatureForm(forms.ModelForm):
         }
         widgets = {
             'feature':forms.TextInput(attrs={
-                'class':'form-control required',
+                'class':'form-control ua-required',
                 'aria-describedby':'feature title',
                 'placeholder':'Feature title',
                 'minlength':'1',
                 'maxlength':'80',
             }),
             'desc':forms.Textarea(attrs={
-                'class':'form-control required',
+                'class':'form-control ua-required char-countdown',
                 'aria-describedby':'feature description',
                 'placeholder':'Enter detailed feature description',
                 'cols':70, 'rows':10,

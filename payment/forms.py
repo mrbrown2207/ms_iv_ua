@@ -7,9 +7,8 @@ class PersonDetailsForm(forms.Form):
     full_name = forms.CharField(
         label='Card Holder Name *',
         min_length=5, max_length=40,
-        required=False, # I am handling required
         widget=forms.TextInput(attrs={
-            'class':'form-control alpha-only required text-capitalize',
+            'class':'form-control alpha-only ua-required text-capitalize',
             'aria-describedby':'full name',
             'placeholder':"Enter card holder's name",
         }))
@@ -17,9 +16,8 @@ class PersonDetailsForm(forms.Form):
     addr_line1 = forms.CharField(
         label='Address Line 1 *',
         min_length=5, max_length=40,
-        required=False, # I am handling required
         widget=forms.TextInput(attrs={
-            'class':'form-control required',
+            'class':'form-control ua-required',
             'aria-describedby':'address line1',
             'placeholder':'Address line 1',
         }))
@@ -37,9 +35,8 @@ class PersonDetailsForm(forms.Form):
     addr_city = forms.CharField(
         label='Town or City *',
         min_length=5, max_length=40,
-        required=False, # I am handling required
         widget=forms.TextInput(attrs={
-            'class':'form-control alpha-only required text-capitalize',
+            'class':'form-control alpha-only ua-required text-capitalize',
             'aria-describedby':'town or city',
             'placeholder':'Town or city',
         }))
@@ -47,9 +44,8 @@ class PersonDetailsForm(forms.Form):
     addr_postcode = forms.CharField(
         label='Postcode *',
         min_length=5, max_length=8,
-        required=False, # I am handling required
         widget=forms.TextInput(attrs={
-            'class':'form-control required text-uppercase',
+            'class':'form-control ua-required text-uppercase',
             'aria-describedby':'postcode',
             'placeholder':'Postcode',
         }))
@@ -71,7 +67,7 @@ class CCDetailsForm(forms.Form):
         required=False,
         min_length=16, max_length=16, # No AMEX
         widget=forms.TextInput(attrs={
-            'class':'form-control numeric-only required',
+            'class':'form-control numeric-only ua-required',
             'aria-describedby':'credit card number',
             'placeholder':'0000 0000 0000 0000',
         }))
@@ -81,7 +77,7 @@ class CCDetailsForm(forms.Form):
         required=False,
         min_length=3, max_length=3, # No AMEX
         widget=forms.TextInput(attrs={
-            'class':'form-control numeric-only required short-input-field',
+            'class':'form-control numeric-only ua-required short-input-field',
             'aria-describedby':'cvv',
             'placeholder':'CVV',
         }))
