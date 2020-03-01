@@ -870,7 +870,7 @@ hr.item-deliniation {
 	content: "\f165" !important; /* Thumbs down */
 }
 
-.completed-feature::before {
+.status-change::before {
 	color: #259a36;
 	content: "\f00c" !important; /* Check mark */
 }

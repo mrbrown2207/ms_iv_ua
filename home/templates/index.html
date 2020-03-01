@@ -152,7 +152,13 @@
                                                         <div class="row feature-det-row">
                                                             <div class="col-12">
                                                                 {% if li == True %}
-                                                                <a class="det-icon upvote" href="{% url 'upvote' issue.id %}">Upvote this issue!</a>
+                                                                    {% if user.is_superuser == False %}
+                                                                    <a class="det-icon upvote" href="{% url 'upvote' issue.id %}">Upvote this issue!</a>
+                                                                    {% else %}
+                                                                    <a class="det-icon status-change" href="{% url 'updissstatus' issue.id %}">
+                                                                        Mark as {% if issue.status == 1 %}acknowledged{% else %}resolved{% endif %}
+                                                                    </a>
+                                                                    {% endif %}
                                                                 {% else %}
                                                                 <a class="det-icon det-icon-disabled upvote upvote-disabled">You must be logged in to upvote this issue.</a>
                                                                 {% endif %}
@@ -331,7 +337,7 @@
                                                             </div>
                                                             {% elif feature.status == 6 %}
                                                             <div class="col-12">
-                                                                <a class="det-icon completed-feature" href="{% url 'updstatus' feature.id '8' %}">Mark Completed</a>
+                                                                <a class="det-icon status-change" href="{% url 'updstatus' feature.id '8' %}">Mark Completed</a>
                                                             </div>
                                                             {% elif feature.status == 8 %}
                                                             <div class="col-3">
