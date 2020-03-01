@@ -6,7 +6,8 @@ from home.constants import FILTERS
 class Issue(models.Model):
     """ Issue (bug) model """
     id = models.AutoField(primary_key=True)
-    entered_by = models.CharField(max_length=40, blank=False)
+    entered_by = models.CharField(max_length=40, blank=True, default=None)
+    entered_by_email = models.EmailField(max_length=80, blank=True, default=None)
     subj = models.CharField(max_length=80, blank=False)
     desc = models.TextField(blank=False)
     status = models.PositiveSmallIntegerField(default=FILTERS.get('issues_reported'))

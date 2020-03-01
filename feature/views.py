@@ -13,6 +13,7 @@ def feature(request):
 
         if feature_form.is_valid():
             newfeature_req = feature_form.save(commit=False)
+            newfeature_req.entered_by = request.user.first_name + ' ' + request.user.first_name
             newfeature_req.entered_by_email = request.user.email
             newfeature_req.save()
 

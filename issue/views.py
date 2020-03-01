@@ -14,6 +14,8 @@ def issue(request):
 
         if issue_form.is_valid():
             newissue = issue_form.save(commit=False)
+            newissue.entered_by = request.user.first_name + ' ' + request.user.first_name
+            newissue.entered_by_email = request.user.email
             newissue.save()
 
             messages.error(request, "New issue has been created!")

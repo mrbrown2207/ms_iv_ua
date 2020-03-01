@@ -1,13 +1,36 @@
 {% extends "base.html" %}
+{% load issue_extras %}
 {% load bootstrap_tags %}
-{% block content %}
 
+{% block content %}
 <section class="login-form">
     <main role="main" class="container">
         <h3 class="text-center mt-3 mb-3">New Issue</h3>
         <div class="row justify-content-center">
             <form class="form-container col-md-6 col-sm-12" method="POST" id="issue-form" action="{% url 'issue' %}">
                 {% csrf_token %}
+                <div class="container mb-2">
+                    <div class="row panel feature-det-panel justify-content-center mt-2">
+                        <div class="col-12">
+                            <div class="row feature-det-row">
+                                <div class="col-6 text-right">
+                                    <p><strong>Requested By: </strong></p>
+                                </div>
+                                <div class="col-6">
+                                    <p>{% nameconcat user.first_name user.last_name %}</p>
+                                </div>
+                            </div>
+                            <div class="row feature-det-row">
+                                <div class="col-6 text-right">
+                                    <p><strong>Email:</strong></p>
+                                </div>
+                                <div class="col-6">
+                                    <p>{{ user.email }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="form-group col-12">
                         {{ issue_form | as_bootstrap}}

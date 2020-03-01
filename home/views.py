@@ -16,8 +16,6 @@ def index(request):
     features = Feature.objects.all().order_by('-date_added')
     current_tab = TABS.get('issues')
 
-    print("Current_tab: " + str(current_tab))
-
     return render(request, "index.html", {
         "issues":issues, "features":features, 
         "current_tab":current_tab, "li":request.user.is_authenticated()
