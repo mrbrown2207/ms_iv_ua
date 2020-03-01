@@ -691,6 +691,15 @@ input[type=checkbox] {
 	text-transform: none;
 }
 
+.input-group-append .input-group-text {
+    border-radius: 10px;
+    border-color: #BBCAD2;
+    border-width: 2px 2px 2px 0;
+    border-color: #BBCAD2;
+    padding: 0 10px;
+}
+  
+
 /*--------------------------------------------------------------
 # Tables
 --------------------------------------------------------------*/
@@ -1007,6 +1016,12 @@ Give it some colour and make the font slightly smaller
     max-width: 80px;
     min-width: 80px;
     width: 80px !important;
+}
+
+.med-input-field {
+    max-width: 120px;
+    min-width: 120px;
+    width: 120px !important;
 }
 
 /* Prevent an input type=number field from displaying the arrows */

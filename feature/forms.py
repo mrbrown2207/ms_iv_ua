@@ -4,12 +4,28 @@ from .models import Feature
 
 
 class FeatureForm(forms.ModelForm):
+    """Feature request form"""
     class Meta:
         model = Feature
-        fields = ('entered_by', 'feature', 'desc', 'bid')
+        fields = ('feature', 'desc')
         labels = {
-            'entered_by':'Your Name',
-            'feature':'Feature',
-            'desc':'Detailed Feature Description',
-            'bid':'Your Bid'
-            }
+            'feature':'Feature *',
+            'desc':'Detailed Feature Description *',
+        }
+        widgets = {
+            'feature':forms.TextInput(attrs={
+                'class':'form-control required',
+                'aria-describedby':'feature title',
+                'placeholder':'Feature title',
+                'minlength':'1',
+                'maxlength':'80',
+            }),
+            'desc':forms.Textarea(attrs={
+                'class':'form-control required',
+                'aria-describedby':'feature description',
+                'placeholder':'Enter detailed feature description',
+                'cols':70, 'rows':10,
+                'minlength':'1',
+                'maxlength':'1000',
+            }),
+        }

@@ -13,13 +13,14 @@ def feature(request):
 
         if feature_form.is_valid():
             newfeature_req = feature_form.save(commit=False)
+            newfeature_req.entered_by_email = request.user.email
             newfeature_req.save()
 
-            messages.error(request, "New feature request has been created!")
+            messages.add_message(request, messages.SUCCESS, "New feature request has been created!")
             return redirect(reverse('feature'))
-        else:
-            print(feature_form.errors)
-            messages.error(request, "Unable to submit feature request!")
+
+        print(feature_form.errors)
+        messages.add_message(request, messages.ERROR, "Unable to submit feature request!")
     else:
         feature_form = FeatureForm()
 
