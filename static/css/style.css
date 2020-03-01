@@ -205,6 +205,16 @@ small {
   max-height: 160px;
 }
 
+.footer-logo {
+    height: 100px;
+    width: 100px;
+}
+
+.footer-logo > img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
 /*--------------------------------------------------------------
 # Links, Buttons and Badges
 --------------------------------------------------------------*/
