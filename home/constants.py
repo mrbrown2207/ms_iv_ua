@@ -41,7 +41,7 @@ NO_BOTS = {
     '4 and 1 and 1':'6',
 }
 
-# Currencty and values
+# Currency and values
 DEFAULT_CURRENCY = 'GBP'
 MIN_BID = 10
 MAX_BID = 5000
