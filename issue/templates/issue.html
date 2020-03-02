@@ -42,12 +42,12 @@
                 <div class="row mt-3">
                     <div class="offset-md-1 col-5">
                         <p class="text-center">
-                            <a href="{% url 'filters' request.session.feature_filter %}" role="button" id="cancel-btn" name="cancel-btn" class="btn btn-ua destructive w-100">Cancel</a>
+                            <a href="{% url 'filters' request.session.issue_filter %}" role="button" id="cancel-btn" name="cancel-btn" class="btn btn-ua destructive w-100">Cancel</a>
                         </p>
                     </div>
                     <div class="col-5">
                         <p class="text-center">
-                            <button type="submit-btn" name="submit-btn" class="btn btn-primary btn-ua w-100 ua-disabled">Submit Issue</button>
+                            <button id="submit-btn" type="submit-btn" name="submit-btn" class="btn btn-primary btn-ua w-100 ua-disabled">Submit Issue</button>
                         </p>
                     </div>
                 </div>

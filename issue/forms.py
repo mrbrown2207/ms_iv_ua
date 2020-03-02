@@ -14,14 +14,14 @@ class IssueForm(forms.ModelForm):
             'subj':forms.TextInput(attrs={
                 'class':'form-control ua-required',
                 'aria-describedby':'issue title',
-                'placeholder':'Feature title',
+                'placeholder':'Issue title',
                 'minlength':'1',
                 'maxlength':'80',
             }),
             'desc':forms.Textarea(attrs={
                 'class':'form-control ua-required char-countdown',
-                'aria-describedby':'feature description',
-                'placeholder':'Enter detailed feature description',
+                'aria-describedby':'issue description',
+                'placeholder':'Enter detailed issue description',
                 'cols':70, 'rows':10,
                 'minlength':'1',
                 'maxlength':'1000',

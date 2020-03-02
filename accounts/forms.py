@@ -115,20 +115,20 @@ class UserRegistrationForm(UserCreationForm):
 
         return password2
 
+
 class UserForm(forms.ModelForm):
     """User form for getting user fields for Profile"""
     class Meta:
         model = User
         fields = (
-            'username',
             'first_name',
             'last_name',
         )
         labels = {
-            'username':'Email Address',
             'first_name':'First Name',
             'last_name':'Surname',
         }
+
 
 class UserProfileForm(forms.ModelForm):
     """User profile form class"""
@@ -138,12 +138,30 @@ class UserProfileForm(forms.ModelForm):
             'org',
             'org_web_site',
             'title',
-            'dob',
         )
         labels = {
             'org':'Your Organisation',
             'org_web_site':'Organisation Web Site',
             'title':'Your Title',
-            'dob':'Date of Birth',
+        }
+        widgets = {
+            'org':forms.TextInput(attrs={
+                'class':'form-control',
+                'aria-describedby':'organisation',
+                'placeholder':'Organisation',
+                'maxlength':'40',
+            }),
+            'org_web_site':forms.TextInput(attrs={
+                'class':'form_control',
+                'aria-describedby':'organisation website',
+                'placeholder':'Organisation website',
+                'maxlength':'200',
+            }),
+            'title':forms.TextInput(attrs={
+                'class':'form-control',
+                'aria-describedby':'title',
+                'placeholder':'Your title',
+                'maxlength':'40',
+            }),
         }
     

@@ -10,15 +10,15 @@
                 {% csrf_token %}
                 {{ user_form | as_bootstrap }}
                 {{ profile_form | as_bootstrap }}
-                <div class="row">
+                <div class="row mt-2">
                     <div class="offset-md-1 col-5">
                         <p class="text-center">
-                            <a href="{% url 'index' %}" role="button" id="cancel-btn" name="cancel-btn" class="btn btn-ua destructive w-100 mt-2">Cancel</a>
+                            <a href="{% url 'index' %}" role="button" id="cancel-btn" name="cancel-btn" class="btn btn-ua destructive w-100">Cancel</a>
                         </p>
                     </div>
                     <div class="col-5">
                         <p class="text-center">
-                            <button type="submit" name="submit" class="btn btn-primary btn-ua w-100 mt-2">Save Profile</button>
+                            <button id="submit-btn" type="submit" name="submit" class="btn btn-primary btn-ua w-100 ua-disabled">Save Profile</button>
                         </p>
                     </div>
                 </div>
