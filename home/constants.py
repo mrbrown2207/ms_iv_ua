@@ -38,7 +38,7 @@ NO_BOTS = {
     '1 and 0 and 0':'1',
     '0 and 0 and 0':'0',
     '5 and 4 and 0':'9',
-    '4 and 1 and 1':'6'
+    '4 and 1 and 1':'6',
 }
 
 # Currencty and values
