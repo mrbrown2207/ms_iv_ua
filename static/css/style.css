@@ -19,7 +19,9 @@ Downloaded fonts locally on server for access and development offline
 # Issue and Feature Detail Icons
 # Others
 # Footer
-# Media Queries for different screen sizes
+# Media Queries for Different Screen Sizes
+# Stacked Icons
+# Flex Alignment
 --------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
@@ -32,20 +34,14 @@ Downloaded fonts locally on server for access and development offline
 	--btn-dark-grey-color: #FFFFFF;
 	--btn-dark-grey-border: 2px solid #4D7488;
     --btn-dark-grey-bg: #4D7488;
-    
-    --footer-height: 229px;
 }
 
 /*--------------------------------------------------------------
 # Spacing, Dimensions & Alignment
 --------------------------------------------------------------*/
-* {
-    margin: 0;
-}
-
 html {
     height: 100%;
-	scroll-behavior: smooth !important;
+    margin: 0;
 }
 
 /* Bootstraps .form-text puts too much margin */
@@ -56,13 +52,17 @@ html {
 /*--------------------------------------------------------------
 # Typography
 --------------------------------------------------------------*/
-body, h1, h2, h3, h4, h5, p, a, label, small, input, ul>li {
+body, h1, h2, h3, h4, h5, p, a, label, small, input, ol>li, ul>li {
 	font-family: Montserrat;
 }
 
 body {
+    /* For sticky footer and being able to push it */
     height: 100%;
-	color: #4D7488;
+    display: flex;
+    flex-direction: column;
+    /***********************************************/
+    color: #4D7488;
 }
 
 h1 {
@@ -76,10 +76,6 @@ h2 {
 	margin: 0 0 20px 0;
 }
 
-h2.howitworks {
-	margin: 15px 0 10px 0 !important;
-}
-
 h3 {
 	color: #4EABDE;
 	font-size: 18pt;
@@ -87,6 +83,7 @@ h3 {
 	font-weight: 500;
 	margin: 15px 0;
 }
+
 
 h4 {
     color: #4EABDE;
@@ -96,6 +93,7 @@ h4 {
     line-height: 22pt;
 }
 
+
 h5 {
     color: #4D7488;
     font-size: 12pt;
@@ -104,7 +102,11 @@ h5 {
     margin: 10px 0 10px 0;
 }
 
-p, ul>li {
+h5.howitworks {
+	margin-bottom: 5px !important;
+}
+
+p, ul>li, ol>li {
     color: #688796;
     font-size: 11pt;
     font-weight: 500;
@@ -113,6 +115,10 @@ p, ul>li {
 
 p {
     margin-bottom: 15px;
+}
+
+p.howitworks-toggle {
+    font-size: 14pt !important;
 }
 
 a {
@@ -138,15 +144,9 @@ small {
 	font-weight: 500 !important;
 }
 
+/* For sticky footer and being able to push it */
 .wrapper {
-    min-height: 100%;
-    height: 100%;
-    margin: 0 auto calc(var(--footer-height) * -1);
-}
-
-.wrapper::after {
-    display: block;
-    height: var(--footer-height);
+    flex: 1 0 auto;
 }
 
 /*--------------------------------------------------------------
@@ -564,12 +564,7 @@ p.heading {
 # Footer
 --------------------------------------------------------------*/
 .footer {
-    /*position: absolute;
-    bottom: 0;
-    width: 100%;
-    */
-    height: var(--footer-height);
-    /*line-height: 60px;*/
+    flex-shrink: 0; /* For sticky footer and being able to push it */
     background-color: #f5f5f5;
 }
 
@@ -625,7 +620,7 @@ p.heading {
 }
 
 /*--------------------------------------------------------------
-# Media Queries for different screen sizes
+# Media Queries for Different Screen Sizes
 --------------------------------------------------------------*/
 @media (max-width: 576px) {
 	.header-logo {
@@ -656,7 +651,7 @@ p.heading {
 }
 
 @media(min-width: 992px) {
-    input[type=time], input[type=text], textarea.form-control {
+    input[type=text], textarea.form-control {
         font-family: Montserrat;
         font-size: 11pt;
         font-weight: 500;
@@ -671,7 +666,7 @@ p.heading {
         font-size: 10pt;
     }
 
-    .collapsedMenu {
+    .collapsed-menu {
         border: none;
         background-color: inherit;
     }
@@ -699,5 +694,72 @@ p.heading {
     .ua-list-filter  {
         font-size: 10px;
     }
+}
+
+/*--------------------------------------------------------------
+# Stacked Icons
+--------------------------------------------------------------*/
+.stacked-icons {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.fa-stack + .fa-stack {
+    margin-left: .3em;
+}
+
+.fa-stack {
+    margin-bottom: 20px;
+}
+
+/*--------------------------------------------------------------
+# Flex Alignment
+--------------------------------------------------------------*/
+/* Got the idea from here: https://philipwalton.github.io/solved-by-flexbox/demos/vertical-centering/ */
+/* I didn't copy all the code, but it gave me the idea. Currently not using it. But here for future reference. */
+
+.ua-align {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ua-y-align-item-25 {
+    max-height: 25%;
+}
+
+.ua-y-align-item-50 {
+    max-height: 50%;
+}
+
+.ua-y-align-item-75 {
+    max-height: 75%;
+}
+
+.ua-x-align-item-25 {
+    max-width: 25%;
+}
+
+.ua-x-align-item-50 {
+    max-width: 50%;
+}
+
+.ua-x-align-item-75 {
+    max-width: 75%;
+}
+
+.ua-xy-align-item-25 {
+    max-width: 25%;
+    max-height: 25%;
+}
+
+.ua-xy-align-item-50 {
+    max-width: 50%;
+    max-height: 50%;
+}
+
+.ua-xy-align-item-75 {
+    max-width: 75%;
+    max-height: 75%;
 }
 
