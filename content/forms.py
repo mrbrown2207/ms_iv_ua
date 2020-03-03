@@ -55,7 +55,7 @@ class ContactForm(forms.Form):
         label='Message *',
         min_length=1, max_length=500,
         widget=forms.Textarea(attrs={
-            'class':'form-control ua-required',
+            'class':'form-control ua-required char-countdown',
             'aria-describedby':'your message',
             'placeholder':'Enter reason for contact',
             'cols':70, 'rows':8,
