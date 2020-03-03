@@ -5,3 +5,7 @@ os.environ["DEVELOPMENT"] = "1"
 
 os.environ["STRIPE_PUBLISHABLE"] = "pk_test_WMBKACZpZssgDDp6QtieaI4x006vNgiGMQ"
 os.environ["STRIPE_SECRET"] = "sk_test_PGVj0vX5v1UYtq3GNZBoiNiA00Pd6Gnxdo"
+
+os.environ["EIMELO_HOST"] = "fundzzle.com"
+os.environ["EIMELO"] = "testacct@fundzzle.com"
+os.environ["ABTRUSUS"] = "Party911!"

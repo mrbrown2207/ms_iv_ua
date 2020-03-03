@@ -132,6 +132,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'accounts.backends.CaseInsensitiveAuth'
+]
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
@@ -160,3 +164,12 @@ MEDIA_URL = '/media/'
 
 STRIPE_PUBLISHABLE = os.getenv("STRIPE_PUBLISHABLE")
 STRIPE_SECRET = os.getenv("STRIPE_SECRET")
+
+# This kills the session upon close of browswer
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = os.getenv("EIMELO_HOST")
+EMAIL_HOST_USER = os.getenv("EIMELO")
+EMAIL_HOST_PASSWORD = os.getenv("ABTRUSUS")
+EMAIL_PORT = 465
