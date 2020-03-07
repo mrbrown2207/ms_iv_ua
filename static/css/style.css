@@ -1,0 +1,765 @@
+/*
+Downloaded fonts locally on server for access and development offline
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700');
+*/
+@import "fonts.css";
+@import "colors.css";
+@import "icons.css";
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# CSS Variables
+# Spacing
+# Typography
+# Navigation
+# Links, Buttons and Badges
+# Forms
+# Dashboard
+# Issue and Feature Detail Icons
+# Others
+# Footer
+# Media Queries for Different Screen Sizes
+# Stacked Icons
+# Flex Alignment
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# CSS Variables
+--------------------------------------------------------------*/
+:root {
+	--btn-min-wid: 135px;
+	--btn-ptb: 8px;
+
+    --theme-primary-colour: #4D7488;
+    --theme-secondary-colour: #4EABDE;
+    --copyright-text-colour: #FFFFFF;
+}
+
+/*--------------------------------------------------------------
+# Spacing, Dimensions & Alignment
+--------------------------------------------------------------*/
+html {
+    height: 100%;
+    margin: 0;
+}
+
+/* Bootstraps .form-text puts too much margin */
+.form-text {
+    margin-top: -10px !important;
+}
+
+/*--------------------------------------------------------------
+# Typography
+--------------------------------------------------------------*/
+body, h1, h2, h3, h4, h5, p, a, label, small, input, ol>li, ul>li {
+	font-family: Montserrat;
+}
+
+body {
+    /* For sticky footer and being able to push it */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    /***********************************************/
+    color: var(--theme-primary-colour);
+}
+
+h1 {
+	font-size: 24pt;
+}
+
+h2 {
+	font-size: 20pt;
+	line-height: 28pt;
+	color: var(--theme-primary-colour);
+	margin: 0 0 20px 0;
+}
+
+h3 {
+	color: var(--theme-secondary-colour);
+	font-size: 18pt;
+	line-height: 26pt;
+	font-weight: 500;
+	margin: 15px 0;
+}
+
+
+h4 {
+    color: var(--theme-secondary-colour);
+    font-size: 14pt;
+    font-weight: 500;
+    margin: 10px 0 15px 0;
+    line-height: 22pt;
+}
+
+
+h5 {
+    color: var(--theme-primary-colour);
+    font-size: 12pt;
+    font-weight: 700;
+    line-height: 20pt;
+    margin: 10px 0 10px 0;
+}
+
+h5.howitworks {
+	margin-bottom: 5px !important;
+}
+
+p, ul>li, ol>li {
+    color: #688796;
+    font-size: 11pt;
+    font-weight: 500;
+    line-height: 20pt;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+p.howitworks-toggle {
+    font-size: 14pt !important;
+}
+
+a {
+    color: var(--theme-secondary-colour);
+    font-weight: 500;
+}
+
+a:hover {
+	color:var(--theme-primary-colour);
+	text-decoration: none;
+}
+
+small {
+    opacity: 0.7;
+    font-weight: 500;
+    font-size: 12px;
+    color: var(--theme-primary-colour);
+    line-height: 20px;
+}
+
+.text-muted {
+	color: #BBCAD2 !important;
+	font-weight: 500 !important;
+}
+
+/* For sticky footer and being able to push it */
+.wrapper {
+    flex: 1 0 auto;
+}
+
+/*--------------------------------------------------------------
+# Navigation
+--------------------------------------------------------------*/
+.page-header {
+    border-top: 3px var(--theme-secondary-colour) solid;
+}
+
+.navbar-nav .nav-item .nav-link {
+    color: var(--theme-primary-colour);
+    font-family: Montserrat;
+    font-size: 11pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 15px 0;
+}
+
+.navbar-light .navbar-toggler {
+    border: none;
+}
+
+.navbar-ua .navbar-nav .nav-link:hover {
+    color: var(--theme-secondary-colour);
+}
+
+.navbar-ua .show>.nav-link {
+    color: #E74850 !important;
+}
+
+.navbar-ua .dropdown-item {
+    font-weight: 500;
+    color: var(--theme-primary-colour);
+}
+
+.navbar-ua .dropdown-item:hover {
+    color: var(--theme-secondary-colour);
+}
+
+.header-logo {
+    max-height: 160px;
+}
+
+/*--------------------------------------------------------------
+# Links, Buttons and Badges
+--------------------------------------------------------------*/
+a.ua-disabled, button.ua-disabled { /* This is because you cannot disable a link like you can a button */
+	opacity: 0.25;
+	pointer-events: none;
+	cursor: default;
+}
+
+.btn-ua {
+	font-family: Montserrat;
+    font-weight: 600;
+    border: 2px solid #007bff;
+	border-radius: 28px;
+	min-width: var(--btn-min-wid);
+	text-transform: uppercase;
+	padding: var(--btn-ptb);
+}
+
+.btn-ua.inactive {
+	color: #FFFFFF;
+	font-family: Montserrat;
+	font-weight: 600;
+	border-color: rgb(230, 113, 119);
+	background: rgb(230, 113, 119);
+	border-radius: 28px;
+	min-width: var(--btn-min-wid);
+	text-transform: uppercase;
+	padding: var(--btn-ptb);
+}
+
+.btn-login {
+	max-width: 200px !important;
+}
+    
+.destructive {
+    background: #C4343B;
+    border: 2px solid #C4343B;
+    color: #FFFFFF;
+}
+
+.destructive:hover {
+    background: #D7353D;
+    border: 2px solid #D7353D;
+    color: #FFFFFF;
+    box-shadow: 0 2px 5px 0 #C6262D;
+}
+
+.btn-ua:hover {
+    box-shadow: 0 2px 5px 0 #B6CFDB;
+}
+
+.toggle-button {
+    font-size: 8pt;
+    font-weight: 600;
+    padding: 2px 5px;
+    margin: 0 5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    color: #E74850 !important;
+}
+
+.toggle-button.open::before {
+    font-family: "FontAwesome";
+    font-weight: 600;
+    margin-right: 5px;
+    content: "\f0d8" !important;
+}
+
+.toggle-button.open::after {
+    font-family: "FontAwesome";
+    font-weight: 600;
+    margin-right: 5px;
+    content: "\f0d8" !important;
+}
+
+.toggle-button::before {
+    font-family: "FontAwesome";
+    font-weight: 600;
+    margin-right: 5px;
+    content: "\f0d7" !important;
+}
+
+.toggle-button::after {
+    font-family: "FontAwesome";
+    font-weight: 600;
+    margin-left: 5px;
+    content: "\f0d7" !important;
+}
+
+/*--------------------------------------------------------------
+# Forms
+--------------------------------------------------------------*/
+label {
+	font-size: 11pt;
+	font-weight: 500;
+	margin: 0;
+	color: var(--theme-primary-colour);
+}
+
+input[type=text].form-control, input[type=password].form-control {
+	height: 35px;
+}
+
+select.form-control {
+	border-radius: 10px;
+}
+
+input[type=text], textarea.form-control {
+	font-family: Montserrat;
+	font-size: 9pt;
+	font-weight: 500;
+	color: var(--theme-primary-colour) !important;
+}
+
+input[type=checkbox] {
+	background: #FFFFFF;
+	border: 3px solid #BBCAD2;
+	border-radius: 5px;
+}
+
+.text-field-label {
+	color: #688796;
+	font-size: 10pt;
+}
+
+.form-control {
+	border-radius: 10px;
+	border-width: 2px;
+	border-color: #BBCAD2;
+	color: var(--theme-primary-colour);
+	font-size: 14px;
+	font-weight: 500;
+}
+
+.form-control-lg {
+    border-radius: 10px;
+    border-width: 2px;
+    border-color: #BBCAD2;
+    width: 100%;
+    border-style: solid;
+    color: var(--theme-primary-colour);
+    font-weight: 500;
+}
+
+.form-control::placeholder, textarea.form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+	color: #BBCAD2;
+	font-size: 10pt;
+	font-weight: 500;
+	font-style: italic;
+	opacity: 1; /* Firefox */
+	text-transform: none;
+}
+
+.form-control-lg::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+	color: #BBCAD2;
+	font-weight: 500;
+	font-style: italic;
+	opacity: 1; /* Firefox */
+	text-transform: none;
+}
+
+.form-control:-ms-input-placeholder { /* Internet Explorer 10-11 */
+	color: #BBCAD2;
+	font-weight: 500;
+	font-size: 10pt;
+	text-transform: none;
+}
+
+.form-control::-ms-input-placeholder { /* Microsoft Edge */
+	color: #BBCAD2;
+	font-weight: 500;
+	font-size: 10pt;
+	text-transform: none;
+}
+
+.input-group-append .input-group-text {
+    border-radius: 10px;
+    border-color: #BBCAD2;
+    border-width: 2px 2px 2px 0;
+    border-color: #BBCAD2;
+    padding: 0 10px;
+}
+
+/*--------------------------------------------------------------
+# Dashboard
+--------------------------------------------------------------*/
+hr.item-deliniation {
+	margin-top: 0px !important;
+}
+
+.ua-list-filter {
+    font-weight: 600;
+    color: var(--theme-secondary-colour);
+    font-size: 12px;
+    padding: 2px 5px;
+    text-transform: uppercase;
+    display: block;
+    border-radius: 100px;
+}
+
+.ua-list-filter:hover {
+	color: var(--theme-primary-colour);
+}
+ 
+.ua-list-filter.active {
+	background-color: var(--theme-primary-colour);
+	color: #FFFFFF !important;
+}
+  
+/*--------------------------------------------------------------
+# Issue and Feature Detail Icons
+--------------------------------------------------------------*/
+.det-icon {
+	font-size: 11pt;
+	font-weight: 500;
+	padding: 2px 10px;
+	margin-bottom: 10px;
+	cursor: pointer;
+	color: #688796 !important;
+}
+
+.det-icon::before {
+	font-family: "FontAwesome";
+	font-weight: 500;
+	font-size: 20px;
+	margin: 20px 10px 10px 0px;
+}
+
+.det-icon-disabled {
+	cursor: default !important;
+}
+
+.upvote::before {
+	color: #0d60ff;
+	content: "\f164" !important; /* Thumbs up */
+}
+
+.upvote-disabled::before {
+	opacity: 0.25;
+}
+
+.accept-feature::before {
+	color: #259a36;
+	content: "\f164" !important; /* Thumbs down */
+}
+
+.deny-feature::before {
+	color: #d11e36;
+	content: "\f165" !important; /* Thumbs down */
+}
+
+.status-change::before {
+	color: #259a36;
+	content: "\f00c" !important; /* Check mark */
+}
+
+.accepted-feature {
+	font-size: 11pt;
+	font-weight: 500;
+	/*padding: 2px 10px;*/
+	margin-bottom: 10px;
+	cursor: pointer;
+	color: #688796 !important;
+}
+
+.accepted-feature::after {
+	font-family: "FontAwesome";
+	font-weight: 500;
+	font-size: 15px;
+	margin: 0px 0px 0px 10px;
+}
+
+.waiting-payment::after {
+	color: #d11e36;
+    content: "\f154" !important; /* Pound sign */
+}
+
+.working::after {
+    color: #259a36;
+    content: "\f085" !important; /* Cogs (gears) */
+}
+
+.tooltip .tooltip-inner {
+    background-color: #0d60ff;
+    color: #FFFFFF;
+}
+
+.tooltip.top .tooltip-arrow {
+    border-top: 5x solid blue !important;
+}
+
+/*--------------------------------------------------------------
+# Others
+--------------------------------------------------------------*/
+/*
+When using Flash messages, messages.ERROR (see accounts/views.py)
+results in a class of alert-error. There seems to be no such class in
+bootstrap and there is no such message type as messages.DANGER. To 
+that end, give it the same style as bootstrap's alert-danger.
+*/
+.alert-error {
+	color: #721c24;
+	background-color: #f8d7da;
+	border-color: #f5c6cb
+}
+
+/*
+forms.ValidationError sets this class, but there is no styling.
+Give it some colour and make the font slightly smaller
+*/
+.error-msg {
+	color: #d11e36 !important;
+	font-size: 10pt !important; 
+	font-weight: 600
+}
+
+.feature-det-panel {
+    background-color: #FFFFFF !important;
+}
+
+.feature-det-row {
+    margin-bottom: 5px !important;
+}
+
+.short-input-field {
+    max-width: 80px;
+    min-width: 80px;
+    width: 80px !important;
+}
+
+.med-input-field {
+    max-width: 120px;
+    min-width: 120px;
+    width: 120px !important;
+}
+
+.hide {
+	display: none;
+}
+
+.container {
+	max-width: none;
+}
+
+.custom-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#4D7488' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.popover {
+    border: 1px solid #D7E0E5;
+}
+
+.popover-body {
+    padding: 0;
+    box-shadow: 0 2px 5px 0 #D7E0E5;
+}
+
+.popover-body .list-group-item {
+    border: none;
+}
+
+.panel p {
+    margin: 0;
+}
+
+p.heading {
+	margin-bottom: 0 !important;
+}
+
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+.footer {
+    flex-shrink: 0; /* For sticky footer and being able to push it */
+    background-color: #F5F5F5;
+}
+
+.page-footer {
+    background: #F6F8FA;
+    border-top: 1px solid #E5EDF6;
+}
+
+.copyright {
+    background-color: var(--theme-secondary-colour);
+}
+
+.copyright p {
+	color: var(--copyright-text-colour);
+	padding: 10px 0 0 0;
+	margin: 0 0 0 10px;
+	font-size: 9pt;
+	font-weight: 500;
+	width: 100%;
+	text-align: center;
+}
+
+.copyright a {
+	color: var(--copyright-text-colour);
+}
+
+.copyright span {
+	color: var(--copyright-text-colour);
+	margin: 0px 8px 0px 5px; 
+}
+
+.copyright p.rights-reserved {
+	color: var(--copyright-text-colour);
+	padding: 0 0 10px 0;
+	margin: 0 0 0 10px;
+	font-size: 8pt;
+	font-weight: 400;
+	width: 100%;
+	text-align: center;
+}
+
+.social-media-title {
+    font-size: 12pt;
+    font-weight: 600;
+    color: var(--theme-primary-colour);
+}
+
+.form-container, .panel {
+    background: #F6F8FA;
+    border: 1px solid #DEE6E9;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+/*--------------------------------------------------------------
+# Media Queries for Different Screen Sizes
+--------------------------------------------------------------*/
+@media (max-width: 576px) {
+	.header-logo {
+		max-height: 80px;
+	}
+}
+
+/* modal.scss sets this to 500, need it a bit wider */
+@media (min-width: 576px) {
+	.modal-dialog.modal-600 {
+		max-width:600px !important;
+	}
+}
+
+@media (min-width: 768px) {
+	h2 {
+		/*
+		font-size: 22pt;
+		line-height: 24pt;
+		*/
+		color: var(--theme-primary-colour);
+		margin: 0 0 35px 0;
+	}
+
+	.ua-list-filter {
+		font-size: 12px;
+	}
+}
+
+@media(min-width: 992px) {
+    input[type=text], textarea.form-control {
+        font-family: Montserrat;
+        font-size: 11pt;
+        font-weight: 500;
+        color: var(--theme-primary-colour) !important;
+    }
+
+    .navbar-ua .navbar-nav .nav-link {
+        font-size: 10pt;
+    }
+
+    .navbar-ua .dropdown-item {
+        font-size: 10pt;
+    }
+
+    .collapsed-menu {
+        border: none;
+        background-color: inherit;
+    }
+
+    .container {
+        max-width: 960px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+
+    .navbar-ua .navbar-nav .nav-link {
+        font-size: 11pt;
+    }
+
+    .navbar-ua .dropdown-item {
+        font-size: 11pt;
+    }
+}
+
+@media (max-width: 374px) {
+    .ua-list-filter  {
+        font-size: 10px;
+    }
+}
+
+/*--------------------------------------------------------------
+# Stacked Icons
+--------------------------------------------------------------*/
+.stacked-icons {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.fa-stack + .fa-stack {
+    margin-left: .3em;
+}
+
+.fa-stack {
+    margin-bottom: 20px;
+}
+
+/*--------------------------------------------------------------
+# Flex Alignment
+--------------------------------------------------------------*/
+/* Got the idea from here: https://philipwalton.github.io/solved-by-flexbox/demos/vertical-centering/ */
+/* I didn't copy all the code, but it gave me the idea. Currently not using it. But here for future reference. */
+
+.ua-align {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ua-y-align-item-25 {
+    max-height: 25%;
+}
+
+.ua-y-align-item-50 {
+    max-height: 50%;
+}
+
+.ua-y-align-item-75 {
+    max-height: 75%;
+}
+
+.ua-x-align-item-25 {
+    max-width: 25%;
+}
+
+.ua-x-align-item-50 {
+    max-width: 50%;
+}
+
+.ua-x-align-item-75 {
+    max-width: 75%;
+}
+
+.ua-xy-align-item-25 {
+    max-width: 25%;
+    max-height: 25%;
+}
+
+.ua-xy-align-item-50 {
+    max-width: 50%;
+    max-height: 50%;
+}
+
+.ua-xy-align-item-75 {
+    max-width: 75%;
+    max-height: 75%;
+}
+

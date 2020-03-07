@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% load feature_extras %}
+{% load bootstrap_tags %}
+
+{% block content %}
+<section class="login-form">
+    <main role="main" class="container">
+        <h3 class="text-center mt-3 mb-3">New Feature Request</h3>
+        <div class="row justify-content-center">
+            <form class="form-container col-md-6 col-sm-12" method="POST" id="feature-form" action="{% url 'feature' %}">
+                {% csrf_token %}
+                <div class="container mb-2">
+                    <div class="row panel feature-det-panel justify-content-center mt-2">
+                        <div class="col-12">
+                            <div class="row feature-det-row">
+                                <div class="col-6 text-right">
+                                    <p><strong>Requested By: </strong></p>
+                                </div>
+                                <div class="col-6">
+                                    <p>{% nameconcat user.first_name user.last_name %}</p>
+                                </div>
+                            </div>
+                            <div class="row feature-det-row">
+                                <div class="col-6 text-right">
+                                    <p><strong>Email:</strong></p>
+                                </div>
+                                <div class="col-6">
+                                    <p>{{ user.email }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        {{ feature_form | as_bootstrap}}
+                        <div class="text-right">
+                            <small class="form-text">Characters remaining: <span class="char-count">1000</span></small>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="form-group">
+                                    <label for="bid" class="control-label required-field">Bid *</label>
+                                    <input type="amount" class="form-control text-right ua-required numeric-only minmax-vals" id="bid" name="bid" min="10" max="5000" minlength="1" maxlength="4" aria-describedby="amount" placeholder="Minimum &#163; 10">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="offset-md-1 col-5">
+                        <p class="text-center">
+                            <a href="{% url 'filters' request.session.feature_filter %}" role="button" id="cancel-btn" name="cancel-btn" class="btn btn-ua destructive w-100">Cancel</a>
+                        </p>
+                    </div>
+                    <div class="col-5">
+                        <p class="text-center">
+                            <button id="submit-btn" name="submit-btn" class="btn btn-primary btn-ua w-100 ua-disabled check-minmax-vals">Submit Request</button>
+                        </p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+</section>
+{% endblock %}

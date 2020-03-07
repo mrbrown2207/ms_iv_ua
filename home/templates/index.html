@@ -1,0 +1,445 @@
+{% extends 'base.html' %}
+{% load home_extras %}
+{% load bootstrap_tags %}
+
+{% block content %}
+<section class="container">
+    <div class="row">
+        <div class="col">
+            <div class="dashboard panel px-0 pb-0">
+                <nav>
+                    <div class="nav nav-tabs px-3" id="nav-tab" role="tablist">
+                        {% if current_tab == 1 %}
+                        <a class="nav-item nav-link active text-center w-50" id="nav-hosted-tab" data-toggle="tab" href="#nav-issues" role="tab" aria-controls="nav-issues" aria-selected="true">UA Issues</a>
+                        <a class="nav-item nav-link text-center w-50" id="nav-invited-tab" data-toggle="tab" href="#nav-features" role="tab" aria-controls="nav-features" aria-selected="false">UA Features</a>
+                        {% else %}
+                        <a class="nav-item nav-link text-center w-50" id="nav-hosted-tab" data-toggle="tab" href="#nav-issues" role="tab" aria-controls="nav-issues" aria-selected="true">UA Issues</a>
+                        <a class="nav-item nav-link active text-center w-50" id="nav-invited-tab" data-toggle="tab" href="#nav-features" role="tab" aria-controls="nav-features" aria-selected="false">UA Features</a>
+                        {% endif %}
+                    </div>
+                </nav>
+                <div class="container tab-content" id="nav-tabContent">
+                    <!-- <<<<<<<<<<<<<<< Tab 1 UA Issues >>>>>>>>>>>>>>> -->
+                    {% if current_tab == 1 %}
+                    <div class="tab-pane fade show active" id="nav-issues" role="tabpanel" aria-labelledby="nav-home-tab">
+                    {% else %}
+                    <div class="tab-pane fade" id="nav-issues" role="tabpanel" aria-labelledby="nav-home-tab">
+                    {% endif %}
+                        <div class="container">
+                            <div class="row align-items-center mt-3">
+                                <div class="col-12 col-md-6 px-0 px-md-3 order-12 order-md-1">
+                                    <div class="d-flex flex-row justify-content-between d-block d-md-none">
+                                        <div>
+                                            <h5 class="mt-4">UA Issues List</h5>
+                                        </div>
+                                        <!-- Filter popover trigger (shown only on mobile) -->
+                                        <div class="d-block d-md-none">
+                                            <h5 class="text-right mx-2 mt-4">
+                                                <button class="charcoal" data-toggle="filter-popover-issues" data-placement="bottom">
+                                                    <i class="fa fa-ellipsis-v"></i>
+                                                </button>
+                                            </h5>
+                                        </div>
+                                        <!--------------------------------------------------->
+                                        <!-- Filter popover (shown only on mobile) -->
+                                        <ul id="filter-popover-menu-issues" class="list-group d-none pt-3">
+                                            <li class="list-group-item text-center py-2">
+                                                <a href="{% url 'filters' filterid=ISSUES_ALL %}" class="ua-list-filter {% show_class TAB_ISSUES ISSUES_ALL request.session.issue_filter %}">Show All</a>
+                                            </li>
+                                            <li class="list-group-item text-center py-2">
+                                                <a href="{% url 'filters' filterid=ISSUES_REPORTED %}" class="ua-list-filter {% show_class TAB_ISSUES ISSUES_REPORTED request.session.issue_filter %}">Reported</a>
+                                            </li>
+                                            <li class="list-group-item text-center py-2">
+                                                <a href="{% url 'filters' filterid=ISSUES_ONGOING %}" class="ua-list-filter {% show_class TAB_ISSUES ISSUES_ONGOING request.session.issue_filter %}">Ongoing</a>
+                                            </li>
+                                            <li class="list-group-item text-center py-2">
+                                                <a href="{% url 'filters' filterid=ISSUES_CLOSED %}" class="ua-list-filter {% show_class TAB_ISSUES ISSUES_CLOSED request.session.issue_filter %}">Closed</a>
+                                            </li>
+                                            <li class="list-group-item text-center py-2">
+                                                <a href="{% url 'filters' filterid=ISSUES_MINE %}" class="ua-list-filter {% show_class TAB_ISSUES ISSUES_MINE request.session.issue_filter %}">Mine</a>
+                                            </li>
+                                        </ul>
+                                        <!------------------------------------------->
+                                    </div>
+                                    <!-- Hidden on mobile -->
+                                    <div class="row mt-4 my-md-1 d-none d-md-flex">
+                                        <div class="col-3 text-center">
+                                            <a href="{% url 'filters' filterid=ISSUES_ALL %}" class="ua-list-filter {% show_class TAB_ISSUES ISSUES_ALL request.session.issue_filter %}">Show All</a>
+                                        </div>
+                                        <div class="col-3 text-center">
+                                            <a href="{% url 'filters' filterid=ISSUES_REPORTED %}" class="ua-list-filter {% show_class TAB_ISSUES ISSUES_REPORTED request.session.issue_filter %}">Reported</a>
+                                        </div>
+                                        <div class="col-3 text-center">
+                                            <a href="{% url 'filters' filterid=ISSUES_ONGOING %}" class="ua-list-filter {% show_class TAB_ISSUES ISSUES_ONGOING request.session.issue_filter %}">Ongoing</a>
+                                        </div>
+                                        <div class="col-3 text-center">
+                                            <a href="{% url 'filters' filterid=ISSUES_CLOSED %}" class="ua-list-filter {% show_class TAB_ISSUES ISSUES_CLOSED request.session.issue_filter %}">Closed</a>
+                                        </div>
+                                    </div> 
+                                    <div class="row mt-4 my-md-1 d-none d-md-flex">
+                                        <div class="col-3 text-center">
+                                            <a href="{% url 'filters' filterid=ISSUES_MINE %}" class="ua-list-filter {% show_class TAB_ISSUES ISSUES_MINE request.session.issue_filter %}">Mine</a>
+                                        </div>
+                                    </div>                            
+                                    <!---------------------->
+                                </div>
+                                <div class="col-12 px-0 col-md-4 offset-md-2 order-1 order-md-2">
+                                    {% if li == True %}
+                                    <a href="{% url 'issue' %}" class="btn btn-primary btn-ua w-100">Report Issue</a>
+                                    {% else %}
+                                    <a href="{% url 'issue' %}" class="btn btn-primary btn-ua w-100 ua-disabled">Report Issue</a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Issues List -->
+                        <div class="container">
+                            <div class="row panel my-3">
+                                <div class="col-12">
+                                    <!-- Hidden on mobile -->
+                                    <div class="row heading d-none d-md-flex">
+                                        <div class="col-md-2"><h5>Issue Id</h5></div>
+                                        <div class="col-md-3"><h5>Subject</h5></div>
+                                        <div class="col-md-3"><h5>Date Added</h5></div>
+                                        <div class="col-md-2"><h5>Status</h5></div>
+                                        <div class="col-md-2"><h5>Up Votes</h5></div>
+                                    </div>
+                                    <!---------------------->
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <hr>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% for issue in issues %}
+                                <div class="col-12">
+                                    <!-- Hidden on mobile -->
+                                    <div class="row d-none d-md-flex">
+                                        <div class="col-md-2">
+                                            <a href="/">{{ issue.id|stringformat:"05d" }}</a>
+                                        </div>
+                                        <div class="col-md-3"><p>{{ issue.subj }}</p></div>
+                                        <div class="col-md-3"><p>{{ issue.date_added }}</p></div>
+                                        <div class="col-md-2">
+                                            <p>
+                                            {% if issue.status == 1 %}
+                                                Reported
+                                            {% elif issue.status == 2 %}
+                                                Ongoing
+                                            {% elif issue.status == 3 %}
+                                                Closed
+                                            {% else %}
+                                                Unknown
+                                            {% endif %}
+                                            </p>
+                                        </div>
+                                        <div class="col-md-2"><p>{{ issue.upvotes }}</p></div>
+                                    </div>
+                                    <!---------------------->
+                                    <!-- Hidden on desktop -->
+                                    <div class="row d-md-none">
+                                        <div class="col-12">
+                                            <p><strong>Issue Id: </strong>{{ issue.id|stringformat:"05d" }}</p>
+                                            <p><strong>Subject: </strong>{{ issue.subj }}</p>
+                                            <p><strong>Date Added: </strong>{{ issue.date_added }}</p>
+                                            <p>
+                                                <strong>Status:</strong>
+                                                {% if issue.status == 1 %}
+                                                    Reported
+                                                {% elif issue.status == 2 %}
+                                                    Ongoing
+                                                {% elif issue.status == 3 %}
+                                                    Closed
+                                                {% else %}
+                                                    Unknown
+                                                {% endif %}
+                                            </p>
+                                            <p><strong>Upvotes: </strong>{{ issue.upvotes }}</p>
+                                        </div>
+                                    </div>
+                                    <!----------------------->
+                                    <div class="row justify-content-center">
+                                        <div class="col-xs-12 col-md-8">
+                                            <div class="collapse" id="collapse-more-{{ issue.id }}">
+                                                <div class="row tab-content heading mt-1">
+                                                    <div class="col-12 text-center">
+                                                        <h5>Issue Details</h5>
+                                                    </div>
+                                                </div>
+                                                <div class="row tab-content panel feature-det-panel justify-content-center mt-2">
+                                                    <div class="col-12">
+                                                        <div class="row feature-det-row">
+                                                            <div class="col-xs-6 col-md-4 col-lg-3">
+                                                                <p><strong>Entered By: </strong></p>
+                                                            </div>
+                                                            <div class="col-xs-6 col-md-8 col-lg-9">
+                                                                <p>{{ issue.entered_by }}</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row feature-det-row">
+                                                            <div class="col-xs-6 col-md-4 col-lg-3">
+                                                                <p><strong>Description:</strong></p>
+                                                            </div>
+                                                            <div class="col-xs-6 col-md-8 col-lg-9">
+                                                                <p>{{ issue.desc }}</p>
+                                                            </div>
+                                                        </div>
+                                                        {% if issue.status != 3 %}
+                                                        <div class="row feature-det-row">
+                                                            <div class="col-12">
+                                                                {% if li == True %}
+                                                                    {% if user.is_superuser == False %}
+                                                                    <a class="det-icon upvote" href="{% url 'upvote' issue.id %}">Upvote this issue!</a>
+                                                                    {% else %}
+                                                                    <a class="det-icon status-change" href="{% url 'updissstatus' issue.id %}">
+                                                                        Mark as {% if issue.status == 1 %}acknowledged{% else %}resolved{% endif %}
+                                                                    </a>
+                                                                    {% endif %}
+                                                                {% else %}
+                                                                <a class="det-icon det-icon-disabled upvote upvote-disabled">You must be logged in to upvote this issue.</a>
+                                                                {% endif %}
+                                                            </div>
+                                                        </div>
+                                                        {% endif %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 text-center">
+                                            <a class="toggle-button my-3" data-toggle="collapse" href="#collapse-more-{{ issue.id }}" aria-expanded="false" aria-controls="collapse-more" data-alt-text="Show Less">Show More</a>
+                                        </div>
+                                        <div class="col-12">
+                                            <hr class="item-deliniation">
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>                    
+                    </div>
+                    <!-- <<<<<<<<<<<<<<< Tab 2 UA Features >>>>>>>>>>>>>>> -->
+                    {% if current_tab == 2 %}
+                    <div class="tab-pane fade show active" id="nav-features" role="tabpanel" aria-labelledby="nav-home-tab">
+                    {% else %}
+                    <div class="tab-pane fade" id="nav-features" role="tabpanel" aria-labelledby="nav-home-tab">
+                    {% endif %}
+                        <!-- Filters (hidden on mobile) -->
+                        <div class="container">
+                            <div class="row align-items-center mt-3">
+                                <div class="col-12 col-md-6 px-0 px-md-3 order-12 order-md-1">
+                                    <div class="d-flex flex-row justify-content-between d-block d-md-none">
+                                        <div>
+                                            <h5 class="mt-4">UA Features List</h5>
+                                        </div>
+                                        <!-- Filter popover trigger (shown only on mobile) -->
+                                        <div class="d-block d-md-none">
+                                            <h5 class="text-right mx-2 mt-4">
+                                                <button class="charcoal" data-toggle="filter-popover-features" data-placement="bottom">
+                                                    <i class="fa fa-ellipsis-v"></i>
+                                                </button>
+                                            </h5>
+                                        </div>
+                                        <!-- Filter popover (shown only on mobile) -->
+                                        <ul id="filter-popover-menu-features" class="list-group d-none pt-3">
+                                            <li class="list-group-item text-center py-2">
+                                                <a href="{% url 'filters' filterid=FEATURES_ALL %}" class="ua-list-filter {% show_class TAB_FEATURES FEATURES_ALL request.session.feature_filter %}">Show All</a>
+                                            </li>
+                                            <li class="list-group-item text-center py-2">
+                                                <a href="{% url 'filters' filterid=FEATURES_REQUESTED %}" class="ua-list-filter {% show_class TAB_FEATURES FEATURES_REQUESTED request.session.feature_filter %}">Requested</a>
+                                            </li>
+                                            <li class="list-group-item text-center py-2">
+                                                <a href="{% url 'filters' filterid=FEATURES_ACCEPTED %}" iclass="ua-list-filter {% show_class TAB_FEATURES FEATURES_ACCEPTED request.session.feature_filter %}">Accepted</a>
+                                            </li>
+                                            <li class="list-group-item text-center py-2">
+                                                <a href="{% url 'filters' filterid=FEATURES_DECLINED %}" class="ua-list-filter {% show_class TAB_FEATURES FEATURES_DECLINED request.session.feature_filter %}">Declined</a>
+                                            </li>
+                                            <li class="list-group-item text-center py-2">
+                                                <a href="{% url 'filters' filterid=FEATURES_FINISHED %}" class="ua-list-filter {% show_class TAB_FEATURES FEATURES_FINISHED request.session.feature_filter %}">Finished</a>
+                                            </li>
+                                            <li class="list-group-item text-center py-2">
+                                                <a href="{% url 'filters' filterid=FEATURES_MINE %}" class="ua-list-filter {% show_class TAB_FEATURES FEATURES_MINE request.session.feature_filter %}">Mine</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- Hidden on mobile -->
+                                    <div class="row mt-4 my-md-1 d-none d-md-flex">
+                                        <div class="col-3 text-center">
+                                            <a href="{% url 'filters' filterid=FEATURES_ALL %}" class="ua-list-filter {% show_class TAB_FEATURES FEATURES_ALL request.session.feature_filter %}">Show All</a>
+                                        </div>
+                                        <div class="col-3 text-center">
+                                            <a href="{% url 'filters' filterid=FEATURES_REQUESTED %}" class="ua-list-filter {% show_class TAB_FEATURES FEATURES_REQUESTED request.session.feature_filter %}">Requested</a>
+                                        </div>
+                                        <div class="col-3 text-center">
+                                            <a href="{% url 'filters' filterid=FEATURES_ACCEPTED %}" class="ua-list-filter {% show_class TAB_FEATURES FEATURES_ACCEPTED request.session.feature_filter %}">Accepted</a>
+                                        </div>
+                                        <div class="col-3 text-center">
+                                            <a href="{% url 'filters' filterid=FEATURES_DECLINED %}" class="ua-list-filter {% show_class TAB_FEATURES FEATURES_DECLINED request.session.feature_filter %}">Declined</a>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3 my-md-1 d-none d-md-flex">
+                                        <div class="col-3 text-center">
+                                            <a href="{% url 'filters' filterid=FEATURES_FINISHED %}" class="ua-list-filter {% show_class TAB_FEATURES FEATURES_FINISHED request.session.feature_filter %}">Finished</a>
+                                        </div>
+                                        <div class="col-3 text-center">
+                                            <a href="{% url 'filters' filterid=FEATURES_MINE %}" class="ua-list-filter {% show_class TAB_FEATURES FEATURES_MINE request.session.feature_filter %}">Mine</a>
+                                        </div>
+                                    </div>
+                                    <!---------------------->
+                                </div>
+                                <div class="col-12 px-0 col-md-4 offset-md-2 order-1 order-md-2">
+                                    {% if li == True %}
+                                    <a href="{% url 'feature' %}" class="btn btn-primary btn-ua w-100">Request Feature</a>
+                                    {% else %}
+                                    <a href="{% url 'feature' %}" class="btn btn-primary btn-ua w-100 ua-disabled">Request Feature</a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Features List -->
+                        <div class="container">
+                            <div class="row panel my-3">
+                                <div class="col-12">
+                                    <!-- Hidden on mobile -->
+                                    <div class="row heading d-none d-md-flex">
+                                        <div class="col-md-2"><h5>Feature Id</h5></div>
+                                        <div class="col-md-3"><h5>Feature</h5></div>
+                                        <div class="col-md-3"><h5>Date Added</h5></div>
+                                        <div class="col-md-2"><h5>Status</h5></div>
+                                        <div class="col-md-2"><h5>Bid</h5></div>
+                                    </div>
+                                    <!---------------------->
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <hr>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% for feature in features %}
+                                <div class="col-12">
+                                    <!-- Hidden on mobile -->
+                                    <div class="row d-none d-md-flex">
+                                        <div class="col-md-2">
+                                            <a href="/">{{ feature.id|stringformat:"05d" }}</a>
+                                        </div>
+                                        <div class="col-md-3"><p>{{ feature.feature }}</p></div>
+                                        <div class="col-md-3"><p>{{ feature.date_added }}</p></div>
+                                        <div class="col-md-2">
+                                            <p>
+                                            {% if feature.status == FEATURES_REQUESTED %}
+                                                Requested
+                                            {% elif feature.status == FEATURES_ACCEPTED %}
+                                                <a class="accepted-feature waiting-payment" href="{% url 'paymentdetails' feature.id %}" data-toggle="tooltip" data-placement="top" title="Accepted, waiting payment. Click icon to make payment.">Accepted</a>
+                                            {% elif feature.status == FEATURES_WORKING %}
+                                                <a class="accepted-feature working" href="/" data-toggle="tooltip" data-placement="top" title="Accepted, working as fast as we can!">Accepted</a>
+                                            {% elif feature.status == FEATURES_DECLINED %}
+                                                Declined
+                                            {% else %}
+                                                Finished
+                                            {% endif %}
+                                            </p>
+                                        </div>
+                                        <div class="col-md-2"><p>&#163; {{ feature.bid }}</p></div>
+                                    </div>
+                                    <!---------------------->
+                                    <!-- Hidden on desktop -->
+                                    <div class="row d-md-none">
+                                        <div class="col-12">
+                                            <p><strong>Feature Id: </strong>{{ feature.id|stringformat:"05d" }}</p>
+                                            <p><strong>Feature: </strong>{{ feature.feature }}</p>
+                                            <p><strong>Date Added: </strong>{{ feature.date_added }}</p>
+                                            <p>
+                                                <strong>Status:</strong>
+                                                {% if feature.status == FEATURES_REQUESTED %}
+                                                    Requested
+                                                {% elif feature.status == FEATURES_ACCEPTED %}
+                                                    <a class="accepted-feature waiting-payment" href="{% url 'paymentdetails' feature.id %}" data-toggle="tooltip" data-placement="top" title="Accepted, waiting payment. Click icon to make payment.">Accepted</a>
+                                                {% elif feature.status == FEATURES_WORKING %}
+                                                    <a class="accepted-feature working" href="/" data-toggle="tooltip" data-placement="top" title="Accepted, working as fast as we can!">Accepted</a>
+                                                {% elif feature.status == FEATURES_DECLINED %}
+                                                    Declined
+                                                {% else %}
+                                                    Finished
+                                                {% endif %}
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <!----------------------->
+                                    <div class="row justify-content-center">
+                                        <div class="col-xs-12 col-md-8">
+                                            <div class="collapse" id="feat-collapse-more-{{ feature.id }}">
+                                                <div class="row tab-content heading mt-1">
+                                                    <div class="col-12 text-center">
+                                                        <h5>Feature Details</h5>
+                                                    </div>
+                                                </div>
+                                                <div class="row tab-content panel feature-det-panel justify-content-center mt-2">
+                                                    <div class="col-12">
+                                                        <div class="row feature-det-row">
+                                                            <div class="col-xs-6 col-md-4 col-lg-3">
+                                                                <p><strong>Requested By: </strong></p>
+                                                            </div>
+                                                            <div class="col-xs-6 col-md-8 col-lg-9">
+                                                                <p>{{ feature.entered_by }}</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row feature-det-row">
+                                                            <div class="col-xs-6 col-md-4 col-lg-3">
+                                                                <p><strong>Feature:</strong></p>
+                                                            </div>
+                                                            <div class="col-xs-6 col-md-8 col-lg-9">
+                                                                <p>{{ feature.feature }}</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row feature-det-row">
+                                                            <div class="col-xs-6 col-md-4 col-lg-3">
+                                                                <p><strong>Description:</strong></p>
+                                                            </div>
+                                                            <div class="col-xs-6 col-md-8 col-lg-9">
+                                                                <p>{{ feature.desc }}</p>
+                                                            </div>
+                                                        </div>
+                                                        {% if user.is_superuser %}
+                                                        <div class="row feature-det-row">
+                                                            {% if feature.status == 5 %}
+                                                            <div class="col-6">
+                                                                <a class="det-icon accept-feature" href="{% url 'updstatus' feature.id status=FEATURES_REQUESTED %}">Accept Feature Request</a>
+                                                            </div>
+                                                            <div class="col-6">
+                                                                <a class="det-icon deny-feature" href="{% url 'updstatus' feature.id FEATURES_DECLINED %}">Decline Feature Request</a>
+                                                            </div>
+                                                            {% elif feature.status == 6 %}
+                                                            <div class="col-12">
+                                                                <a class="det-icon status-change" href="{% url 'updstatus' feature.id FEATURES_FINISHED %}">Mark Completed</a>
+                                                            </div>
+                                                            {% elif feature.status == 8 %}
+                                                            <div class="col-xs-6 col-md-4 col-lg-3">
+                                                                <p><strong>Date Completed:</strong></p>
+                                                            </div>
+                                                            <div class="col-xs-6 col-md-8 col-lg-9">
+                                                                <p>{{ feature.date_completed }}</p>
+                                                            </div>
+                                                            {% endif %}
+                                                        </div>
+                                                        {% endif %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 text-center">
+                                            <a class="toggle-button my-3" data-toggle="collapse" href="#feat-collapse-more-{{ feature.id }}" aria-expanded="false" aria-controls="collapse-more" data-alt-text="Show Less">Show More</a>
+                                        </div>
+                                        <div class="col-12">
+                                            <hr class="item-deliniation">
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

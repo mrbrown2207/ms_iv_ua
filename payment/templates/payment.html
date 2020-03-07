@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load bootstrap_tags %}
+
+{% block head_js %}
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+<script type="text/javascript">
+    //<![CDATA[
+        Stripe.publishableKey = '{{ publishable }}';
+    //]]>
+</script>
+<script type="text/javascript" src="{% static 'js/stripe.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+<section class="login-form">
+    <main role="main" class="container">
+        <h3 class="text-center mt-3 mb-3">Feature Payment Details</h3>
+        <div class="row justify-content-center">
+            <div class="form-container col-8">
+                <h4 class="mt-2 mb-1">Feature Details</h4>
+                <div class="container">
+                    <div class="collapse" id="details-collapse">
+                        <div class="row panel feature-det-panel">
+                            <div class="col-12">
+                                <div class="row feature-det-row">
+                                    <div class="col-3">
+                                        <p><strong>Feature Id:</strong></p>
+                                    </div>
+                                    <div class="col-9">
+                                        <p>{{ f_details.id|stringformat:"05d" }}</p>
+                                    </div>
+                                </div>
+                                <div class="row feature-det-row">
+                                    <div class="col-3">
+                                        <p><strong>Entered By:</strong></p>
+                                    </div>
+                                    <div class="col-9">
+                                        <p>{{ f_details.entered_by }}</p>
+                                    </div>
+                                </div>
+                                <div class="row feature-det-row">
+                                    <div class="col-3">
+                                        <p><strong>Feature:</strong></p>
+                                    </div>
+                                    <div class="col-9">
+                                        <p>{{ f_details.feature }}</p>
+                                    </div>
+                                </div>
+                                <div class="row feature-det-row">
+                                    <div class="col-3">
+                                        <p><strong>Description:</strong></p>
+                                    </div>
+                                    <div class="col-9">
+                                        <p>{{ f_details.desc }}</p>
+                                    </div>
+                                </div>
+                                <div class="row feature-det-row">
+                                    <div class="col-3">
+                                        <p><strong>Date Requested:</strong></p>
+                                    </div>
+                                    <div class="col-9">
+                                        <p>{{ f_details.date_added }}</p>
+                                    </div>
+                                </div>
+                                <div class="row feature-det-row">
+                                    <div class="col-3">
+                                        <p><strong>Date Accepted:</strong></p>
+                                    </div>
+                                    <div class="col-9">
+                                        <p>{{ f_details.date_accept_or_deny }}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-3">
+                                        <p><strong>Bid:</strong></p>
+                                    </div>
+                                    <div class="col-9">
+                                        <p>&#163;&nbsp;{{ f_details.bid }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 text-center">
+                        <a class="toggle-button my-3" data-toggle="collapse" href="#details-collapse" aria-expanded="false" aria-controls="collapse-details" data-alt-text="Hide Details">Show Details</a>
+                    </div>
+                </div>
+                <h4 class="mt-3 mb-1">Payment Details</h4>
+                <div class="container">
+                    <div class="row panel">
+                        <div class="col-12">
+                            <form id="payment-form" action="{% url 'makepayment' %}" method="POST">
+                                <div id="credit-card-errors" class="hide">
+                                    <div id="alert-message block-message error" id="stripe-error-message"></div>
+                                </div>
+                                {% csrf_token %}
+                                <div class="row">
+                                    <div class="col-6">
+                                        {{ person_details_form | as_bootstrap }}
+                                    </div>
+                                    <div class="col-6">
+                                        {{ cc_details_form | as_bootstrap }}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="offset-md-2 col-4">
+                                        <p class="text-center">
+                                            <a href="{% url 'index' %}" id="cancel-btn" name="cancel-btn" class="btn btn-ua destructive w-100 mt-2">Cancel</a>
+                                        </p>
+                                    </div>
+                                    <div class="col-4">
+                                        <p class="text-center">
+                                            <button id="submit-btn" type="submit" name="submit-btn" class="btn btn-primary btn-ua w-100 mt-2 ua-disabled">Make Payment</button>
+                                        </p>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</section>
+{% endblock %}

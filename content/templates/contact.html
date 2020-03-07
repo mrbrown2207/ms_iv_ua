@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load bootstrap_tags %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="page-title container mb-3">
+    <div class="row justify-content-center mt-md-3">
+        <div class="col">
+            <h3 class="my-md-3">Contact MBUA</h3>
+            <h5 class="charcoal">Need help or do you have any questions?</h5>
+            <p>
+                The quickest way to get the answers to your questions is to check out our 
+                <a href="{% url 'howitworks' %}">How it Works page</a>. However, if you don't find the answers
+                you need, we'd be happy to help! Please fill out the form below and we will respond within 48 hours.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Body -->
+<section class="login-form">
+    <main role="main" class="container">
+        <h3 class="text-center mt-3 mb-3">Contact Us Form</h3>
+        <div class="row justify-content-center">
+            <form class="form-container col-md-6 col-sm-12" method="POST" id="contact-form" action="{% url 'contact' %}">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-12">
+                        {{ contact_form | as_bootstrap}}
+                    </div>
+                </div>
+                <div class="text-right">
+                    <small class="form-text">Characters remaining: <span class="char-count">500</span></small>
+                </div>
+                <div class="row mt-3">
+                    <div class="offset-md-1 col-5">
+                        <p class="text-center">
+                            <a href="{% url 'filters' request.session.issue_filter %}" role="button" id="cancel-btn" name="cancel-btn" class="btn btn-ua destructive w-100">Cancel</a>
+                        </p>
+                    </div>
+                    <div class="col-5">
+                        <p class="text-center">
+                            {% if enable_submit %}
+                            <button id="submit-btn" type="submit-btn" name="submit-btn" class="btn btn-primary btn-ua w-100">Submit</button>
+                            {% else %}
+                            <button id="submit-btn" type="submit-btn" name="submit-btn" class="btn btn-primary btn-ua w-100 ua-disabled">Submit</button>
+                            {% endif %}
+                        </p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+</section>
+{% endblock %}

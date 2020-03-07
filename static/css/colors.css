@@ -1,0 +1,77 @@
+a.coral{
+  color: #E74850;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.coral{
+  color: #E74850 !important;
+}
+
+.yellow{
+  color: #F5BE5C;
+}
+
+.red {
+    color: #d11e36;
+}
+
+.soft-coral{
+  color: #DE5766;
+}
+
+.soft-blue{
+  color: #93C0F1;
+}
+
+.sky-blue{
+  color: #4EABDE;
+}
+
+.mild-charcoal{
+  color: #F6F8FA;
+}
+
+.soft-charcoal{
+  color: #A6B9C3;
+}
+
+.charcoal{
+  color: #4D7488;
+}
+
+.green{
+    color: #259a36;
+}
+
+.blue{
+    color: #0d60ff;
+}
+
+.light-grey{
+    color: lightgray;
+}
+
+.black{
+    color: black;
+}
+
+.bg-blue{
+    background: #0d60ff;
+}
+
+.bg-green{
+    background: #259a36;
+}
+
+.bg-red{
+    background: #d11e36;
+}
+
+.bg-cyan{
+    background: #1692a9;
+}
+
+.bg-dark-grey{
+    background: #59626a;
+}
