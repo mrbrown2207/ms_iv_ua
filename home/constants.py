@@ -12,7 +12,6 @@ FILTERS = {
     'issues_reported':1,
     'issues_ongoing':2,
     'issues_closed':3,
-<<<<<<< HEAD
     'issues_mine':4,
     'features_all':5,
     'features_requested':6,
@@ -21,14 +20,6 @@ FILTERS = {
     'features_declined':9,
     'features_finished':10,
     'features_mine':11,
-=======
-    'features_all':4,
-    'features_requested':5,
-    'features_accepted':6, # UA has accepted feature and awaits payment from requester
-    'features_working':7, # Requester has paid
-    'features_declined':8,
-    'features_finished':9,
->>>>>>> 60d2dec8e25c655acc265648a22206cc386b988e
 }
 
 # An alternative to captcha. Dictionary of questions. One will be chosen at random
