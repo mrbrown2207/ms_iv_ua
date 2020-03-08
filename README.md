@@ -8,7 +8,7 @@
   - [UX](#UX)
   - [Functionality/Navigation](#Functionality-and-Navigation)
 - [Technologies](#Technologies)
-  - [Languages/Libraries](#Languages-Libraries)
+  - [Languages/Libraries](#Languages-and-Libraries)
   - [Other Resources](#Other-Resources)
 - [Testing](#Testing)
   - [Tools and Methods Used for Testing](#Tools-and-Methods-Used-for-Testing)
@@ -92,6 +92,18 @@ As always, for technical reference and help, I used the following sites.
 - https://https://docs.djangoproject.com/en/3.0/
 - https://slack.com/
 
+## Testing
+
+#### Tools and Methods Used for Testing
+
+- [HTML Validation](https://validator.w3.org/ "W3C Markup Validation Service")
+- [CSS Validation](http://jigsaw.w3.org/css-validator/ "CSS Validation Service")
+- Chrome Developer Tools
+- Django automated unit testing
+- Travis CI
+- Spreadsheet submitted with project was used as a checklist of all that was tested.
+
+
 ## Potential Enhancements
 
 There is immense potential improvement of this site. Some that come to mind are:
@@ -104,18 +116,6 @@ of time to submit this project.
 - Attaching documents to an issue or a feature request (screen shots, requirements documents, etc.)
 - A stats page showing number of features added, issues closed etc.
 - Blog and testimonials
-
-
-## Testing
-
-#### Tools and Methods Used for Testing
-
-- [HTML Validation](https://validator.w3.org/ "W3C Markup Validation Service")
-- [CSS Validation](http://jigsaw.w3.org/css-validator/ "CSS Validation Service")
-- Chrome Developer Tools
-- Django automated unit testing
-- Travis CI
-- Spreadsheet submitted with project was used as a checklist of all that was tested.
 
 
 ## Deployment
