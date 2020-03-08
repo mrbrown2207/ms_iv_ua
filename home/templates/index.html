@@ -55,9 +55,11 @@
                                             <li class="list-group-item text-center py-2">
                                                 <a href="{% url 'filters' filterid=ISSUES_CLOSED %}" class="ua-list-filter {% show_class TAB_ISSUES ISSUES_CLOSED request.session.issue_filter %}">Closed</a>
                                             </li>
+                                            {% if li == True %}
                                             <li class="list-group-item text-center py-2">
                                                 <a href="{% url 'filters' filterid=ISSUES_MINE %}" class="ua-list-filter {% show_class TAB_ISSUES ISSUES_MINE request.session.issue_filter %}">Mine</a>
                                             </li>
+                                            {% endif %}
                                         </ul>
                                         <!------------------------------------------->
                                     </div>
@@ -75,12 +77,14 @@
                                         <div class="col-3 text-center">
                                             <a href="{% url 'filters' filterid=ISSUES_CLOSED %}" class="ua-list-filter {% show_class TAB_ISSUES ISSUES_CLOSED request.session.issue_filter %}">Closed</a>
                                         </div>
-                                    </div> 
+                                    </div>
+                                    {% if li == True %}
                                     <div class="row mt-4 my-md-1 d-none d-md-flex">
                                         <div class="col-3 text-center">
                                             <a href="{% url 'filters' filterid=ISSUES_MINE %}" class="ua-list-filter {% show_class TAB_ISSUES ISSUES_MINE request.session.issue_filter %}">Mine</a>
                                         </div>
-                                    </div>                            
+                                    </div>
+                                    {% endif %}                       
                                     <!---------------------->
                                 </div>
                                 <div class="col-12 px-0 col-md-4 offset-md-2 order-1 order-md-2">
@@ -256,9 +260,11 @@
                                             <li class="list-group-item text-center py-2">
                                                 <a href="{% url 'filters' filterid=FEATURES_FINISHED %}" class="ua-list-filter {% show_class TAB_FEATURES FEATURES_FINISHED request.session.feature_filter %}">Finished</a>
                                             </li>
+                                            {% if li == True %}
                                             <li class="list-group-item text-center py-2">
                                                 <a href="{% url 'filters' filterid=FEATURES_MINE %}" class="ua-list-filter {% show_class TAB_FEATURES FEATURES_MINE request.session.feature_filter %}">Mine</a>
                                             </li>
+                                            {% endif %}
                                         </ul>
                                     </div>
                                     <!-- Hidden on mobile -->
@@ -280,9 +286,11 @@
                                         <div class="col-3 text-center">
                                             <a href="{% url 'filters' filterid=FEATURES_FINISHED %}" class="ua-list-filter {% show_class TAB_FEATURES FEATURES_FINISHED request.session.feature_filter %}">Finished</a>
                                         </div>
+                                        {% if li == True %}
                                         <div class="col-3 text-center">
                                             <a href="{% url 'filters' filterid=FEATURES_MINE %}" class="ua-list-filter {% show_class TAB_FEATURES FEATURES_MINE request.session.feature_filter %}">Mine</a>
                                         </div>
+                                        {% endif %}
                                     </div>
                                     <!---------------------->
                                 </div>

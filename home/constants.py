@@ -7,19 +7,22 @@ TABS = {
 }
 
 # Filter codes that also act as the status of issues and features.
+# Note: putting some space between issues and features as we may need 
+# to add more filters and in the code at some point I am doing:
+# if blah < features_all
 FILTERS = {
     'issues_all':0,
     'issues_reported':1,
     'issues_ongoing':2,
     'issues_closed':3,
     'issues_mine':4,
-    'features_all':5,
-    'features_requested':6,
-    'features_accepted':7, # UA has accepted feature and awaits payment from requester
-    'features_working':8, # Requester has paid
-    'features_declined':9,
-    'features_finished':10,
-    'features_mine':11,
+    'features_all':10,
+    'features_requested':11,
+    'features_accepted':12, # UA has accepted feature and awaits payment from requester
+    'features_working':13, # Requester has paid
+    'features_declined':14,
+    'features_finished':15,
+    'features_mine':16,
 }
 
 # An alternative to captcha. Dictionary of questions. One will be chosen at random

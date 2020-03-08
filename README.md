@@ -61,21 +61,22 @@ The site consists of the following pages:
 #### Languages Libraries
 
 - [HTML5](https://www.w3.org/TR/html5/ "HTML5 Official Site")
-
 - [CSS3](https://www.w3.org/Style/CSS/ "Cascading Style Sheets Official Site")
-
+- [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/ "JavaScript Official Site")
 - [Bootstrap - v4.4.1](https://getbootstrap.com/docs/4.1/getting-started/introduction/ "Bootstrap Official Site")
+- [jQuery v3.4.1](http://jquery.com/ "jQuery Official Site")
+- [Font Awesome - v4](https://fontawesome.com/ "Fontawesome Official Site")
+- Django 1.11.28
+
 
 #### Other Resources
-
-I looked a various websites -- in particular, gym websites -- in order to get ideas for the general look and feel of the website. 
-I looked at at least 5 sites and determined what I thought looked good and what inspired me to want to join that gym. 
 
 As always, for technical reference and help, I used the following sites.
 - https://getbootstrap.com/
 - https://www.w3schools.com/
 - https://stackoverflow.com/
-
+- https://https://docs.djangoproject.com/en/3.0/
+- https://slack.com/
 
 ## Potential Enhancements
 
@@ -97,6 +98,7 @@ for their interest in joining the gym.
 - [HTML Validation](https://validator.w3.org/ "W3C Markup Validation Service")
 - [CSS Validation](http://jigsaw.w3.org/css-validator/ "CSS Validation Service")
 - Chrome Developer Tools
+- Django automated testing
 - Spreadsheet submitted with project was used as a checklist of all that was tested.
 
 
@@ -110,11 +112,12 @@ for their interest in joining the gym.
 
 - All written content is bespoke and created by the code author (Michael Brown).
 - Photo images used are images that I purchased and have rights to use in any project.
-- All icons in the Facility section are icons that I purchased and have rights to use in any project. As a side note, each icon was created from 2 icons: the circle
-and the image inside it.
-- The image part of the logo (the torso) was created by: <a href="https://www.flaticon.com/authors/eucalyp" title="Eucalyp">Eucalyp</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>. This credit is also put in the footer at the bottom of the page. I did change the colour of the lines in the abdomen 
-to match the dark-ish red that I use throughout the site. This is a "brand" colour if you will.
 
 #### Acknowledgements
 
-- The Code Insititue in general and huge shout out to the tutors with a very special shout out to Neil Kavanagh for exercising great patience and working with me.
+- The Code Insititue! The tutors are always amazing, but were particularly helpful with this project. What 
+made them really effective was there just would be some "chatting" between us and they would lead me to find 
+the answer on my own. They acted like sounding boards. I really would like to single out Tim Nelson. I was 
+working the weekends a lot on this and he was the one that was on duty. He knows his stuff, is patient, 
+friendly and unbelievably encouraging.
+
