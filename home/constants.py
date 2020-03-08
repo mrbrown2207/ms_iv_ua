@@ -7,7 +7,7 @@ TABS = {
 }
 
 # Filter codes that also act as the status of issues and features.
-# Note: putting some space between issues and features as we may need 
+# Note: putting some space between issues and features as we may need
 # to add more filters and in the code at some point I am doing:
 # if blah < features_all
 FILTERS = {

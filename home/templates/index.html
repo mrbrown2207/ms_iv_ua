@@ -12,10 +12,10 @@
                     <div class="nav nav-tabs px-3" id="nav-tab" role="tablist">
                         {% if current_tab == 1 %}
                         <a class="nav-item nav-link active text-center w-50" id="nav-hosted-tab" data-toggle="tab" href="#nav-issues" role="tab" aria-controls="nav-issues" aria-selected="true">UA Issues</a>
-                        <a class="nav-item nav-link text-center w-50" id="nav-invited-tab" data-toggle="tab" href="#nav-features" role="tab" aria-controls="nav-features" aria-selected="false">UA Features</a>
+                        <a class="nav-item nav-link text-center w-50" id="nav-invited-tab" data-toggle="tab" href="#nav-features" role="tab" aria-controls="nav-features" aria-selected="false">UA Features Requested</a>
                         {% else %}
                         <a class="nav-item nav-link text-center w-50" id="nav-hosted-tab" data-toggle="tab" href="#nav-issues" role="tab" aria-controls="nav-issues" aria-selected="true">UA Issues</a>
-                        <a class="nav-item nav-link active text-center w-50" id="nav-invited-tab" data-toggle="tab" href="#nav-features" role="tab" aria-controls="nav-features" aria-selected="false">UA Features</a>
+                        <a class="nav-item nav-link active text-center w-50" id="nav-invited-tab" data-toggle="tab" href="#nav-features" role="tab" aria-controls="nav-features" aria-selected="false">UA Features Requested</a>
                         {% endif %}
                     </div>
                 </nav>
@@ -127,11 +127,11 @@
                                         <div class="col-md-3"><p>{{ issue.date_added }}</p></div>
                                         <div class="col-md-2">
                                             <p>
-                                            {% if issue.status == 1 %}
+                                            {% if issue.status == ISSUES_REPORTED %}
                                                 Reported
-                                            {% elif issue.status == 2 %}
+                                            {% elif issue.status == ISSUES_ONGOING %}
                                                 Ongoing
-                                            {% elif issue.status == 3 %}
+                                            {% elif issue.status == ISSUES_CLOSED %}
                                                 Closed
                                             {% else %}
                                                 Unknown
@@ -149,11 +149,11 @@
                                             <p><strong>Date Added: </strong>{{ issue.date_added }}</p>
                                             <p>
                                                 <strong>Status:</strong>
-                                                {% if issue.status == 1 %}
+                                                {% if issue.status == ISSUES_REPORTED %}
                                                     Reported
-                                                {% elif issue.status == 2 %}
+                                                {% elif issue.status == ISSUES_ONGOING %}
                                                     Ongoing
-                                                {% elif issue.status == 3 %}
+                                                {% elif issue.status == ISSUES_CLOSED %}
                                                     Closed
                                                 {% else %}
                                                     Unknown
@@ -189,15 +189,15 @@
                                                                 <p>{{ issue.desc }}</p>
                                                             </div>
                                                         </div>
-                                                        {% if issue.status != 3 %}
+                                                        {% if issue.status != ISSUES_CLOSED %}
                                                         <div class="row feature-det-row">
                                                             <div class="col-12">
                                                                 {% if li == True %}
                                                                     {% if user.is_superuser == False %}
                                                                     <a class="det-icon upvote" href="{% url 'upvote' issue.id %}">Upvote this issue!</a>
                                                                     {% else %}
-                                                                    <a class="det-icon status-change" href="{% url 'updissstatus' issue.id %}">
-                                                                        Mark as {% if issue.status == 1 %}acknowledged{% else %}resolved{% endif %}
+                                                                    <a class="det-icon status-change" href="{% url 'updissstatus' id=issue.id %}">
+                                                                        Mark as {% if issue.status == ISSUES_REPORTED %}acknowledged{% else %}resolved{% endif %}
                                                                     </a>
                                                                     {% endif %}
                                                                 {% else %}
@@ -223,18 +223,17 @@
                         </div>                    
                     </div>
                     <!-- <<<<<<<<<<<<<<< Tab 2 UA Features >>>>>>>>>>>>>>> -->
-                    {% if current_tab == 2 %}
+                    {% if current_tab == TAB_FEATURES %}
                     <div class="tab-pane fade show active" id="nav-features" role="tabpanel" aria-labelledby="nav-home-tab">
                     {% else %}
                     <div class="tab-pane fade" id="nav-features" role="tabpanel" aria-labelledby="nav-home-tab">
                     {% endif %}
-                        <!-- Filters (hidden on mobile) -->
                         <div class="container">
                             <div class="row align-items-center mt-3">
                                 <div class="col-12 col-md-6 px-0 px-md-3 order-12 order-md-1">
                                     <div class="d-flex flex-row justify-content-between d-block d-md-none">
                                         <div>
-                                            <h5 class="mt-4">UA Features List</h5>
+                                            <h5 class="mt-4">UA Feature Requests</h5>
                                         </div>
                                         <!-- Filter popover trigger (shown only on mobile) -->
                                         <div class="d-block d-md-none">
@@ -253,7 +252,7 @@
                                                 <a href="{% url 'filters' filterid=FEATURES_REQUESTED %}" class="ua-list-filter {% show_class TAB_FEATURES FEATURES_REQUESTED request.session.feature_filter %}">Requested</a>
                                             </li>
                                             <li class="list-group-item text-center py-2">
-                                                <a href="{% url 'filters' filterid=FEATURES_ACCEPTED %}" iclass="ua-list-filter {% show_class TAB_FEATURES FEATURES_ACCEPTED request.session.feature_filter %}">Accepted</a>
+                                                <a href="{% url 'filters' filterid=FEATURES_ACCEPTED %}" class="ua-list-filter {% show_class TAB_FEATURES FEATURES_ACCEPTED request.session.feature_filter %}">Accepted</a>
                                             </li>
                                             <li class="list-group-item text-center py-2">
                                                 <a href="{% url 'filters' filterid=FEATURES_DECLINED %}" class="ua-list-filter {% show_class TAB_FEATURES FEATURES_DECLINED request.session.feature_filter %}">Declined</a>
@@ -409,18 +408,18 @@
                                                         </div>
                                                         {% if user.is_superuser %}
                                                         <div class="row feature-det-row">
-                                                            {% if feature.status == 5 %}
+                                                            {% if feature.status == FEATURES_REQUESTED %}
                                                             <div class="col-6">
-                                                                <a class="det-icon accept-feature" href="{% url 'updstatus' feature.id status=FEATURES_REQUESTED %}">Accept Feature Request</a>
+                                                                <a class="det-icon accept-feature" href="{% url 'updstatus' id=feature.id status=FEATURES_ACCEPTED %}">Accept Feature Request</a>
                                                             </div>
                                                             <div class="col-6">
-                                                                <a class="det-icon deny-feature" href="{% url 'updstatus' feature.id FEATURES_DECLINED %}">Decline Feature Request</a>
+                                                                <a class="det-icon deny-feature" href="{% url 'updstatus' id=feature.id status=FEATURES_DECLINED %}">Decline Feature Request</a>
                                                             </div>
-                                                            {% elif feature.status == 6 %}
+                                                            {% elif feature.status == FEATURES_WORKING %}
                                                             <div class="col-12">
-                                                                <a class="det-icon status-change" href="{% url 'updstatus' feature.id FEATURES_FINISHED %}">Mark Completed</a>
+                                                                <a class="det-icon status-change" href="{% url 'updstatus' id=feature.id status=FEATURES_FINISHED %}">Mark Completed</a>
                                                             </div>
-                                                            {% elif feature.status == 8 %}
+                                                            {% elif feature.status == FEATURES_FINISHED %}
                                                             <div class="col-xs-6 col-md-4 col-lg-3">
                                                                 <p><strong>Date Completed:</strong></p>
                                                             </div>

@@ -17,7 +17,7 @@ def index(request):
     current_tab = TABS.get('issues')
 
     return render(request, "index.html", {
-        "issues":issues, "features":features, 
+        "issues":issues, "features":features,
         "current_tab":current_tab, "li":request.user.is_authenticated()
     })
 
@@ -41,7 +41,7 @@ def filters(request, filterid):
     if request.session['issue_filter'] == FILTERS.get('issues_all'):
         issues = Issue.objects.all().order_by('-date_added')
     elif request.session['issue_filter'] == FILTERS.get('issues_mine'):
-        issues = Issue.objects.filter(entered_by_email=request.user.email)
+        issues = Issue.objects.filter(entered_by_email=request.user.email).order_by('-date_added')
     else:
         issues = Issue.objects.all().filter(
             status=request.session['issue_filter']).order_by('-date_added')
@@ -50,7 +50,7 @@ def filters(request, filterid):
     if request.session['feature_filter'] == FILTERS.get('features_all'):
         features = Feature.objects.order_by('-date_added')
     elif request.session['feature_filter'] == FILTERS.get('features_mine'):
-        features = Feature.objects.filter(entered_by_email=request.user.email)
+        features = Feature.objects.filter(entered_by_email=request.user.email).order_by('-date_added')
     else:
         # Accepted filter is slightly different because of the way I am
         # displaying in the UI.

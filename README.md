@@ -62,6 +62,13 @@ The site consists of the following pages that get be navigated to via the navbar
 - Upvote an issue
   - To upvote an issue you must be have an account and be logged in. Once you are logged in, expand the collapsible section (Show More) and click the thumbs up button
 6. Credit card details and payment submission
+7. Contact Us
+
+A note about a field I have in the user registration form. I have rolled my own anti-bot automated user registration by asking
+a maths question such as "1 and 2 and 3 is...". The user has to answer this question correctly. If they fail 5 times, it goes back to 
+the main page. There are 15 of these questions and each time the form is rendered, one of them randomly selected. I have also written
+a unit test for it so in the case where a developer fat fingers the dictionary list or wants to add more, the unit test will ensure
+that the answer is correct.
 
 Please see the "How it Works" page for much greater detail.
 
@@ -116,11 +123,12 @@ of time to submit this project.
 - Attaching documents to an issue or a feature request (screen shots, requirements documents, etc.)
 - A stats page showing number of features added, issues closed etc.
 - Blog and testimonials
+- So many more really. It has great potential.
 
 
 ## Deployment
 
-- Used GitHub Pages to deploy the final version (https://mrbrown2207.github.io/ms_iv_ua/).
+- Used Heroku to deploy the final version (https://ms-iv-ua.herokuapp.com/).
 
 ## Credits
 

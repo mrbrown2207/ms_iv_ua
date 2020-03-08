@@ -4,7 +4,7 @@ from .constants import TABS, FILTERS
 def filter_constants(request):
     """Make constants usable in templates"""
     return {
-        'TAB_ISSUES': TABS.get('issue'),
+        'TAB_ISSUES': TABS.get('issues'),
         'TAB_FEATURES': TABS.get('features'),
         'ISSUES_ALL': FILTERS.get('issues_all'),
         'ISSUES_REPORTED': FILTERS.get('issues_reported'),
